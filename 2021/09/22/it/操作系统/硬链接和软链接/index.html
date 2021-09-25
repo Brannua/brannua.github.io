@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="lpj"><meta name="copyright" content="lpj"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>硬链接和软链接 | 夏与冬的博客</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"brannua.github.io","root":"/","title":"云游君的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="夏与冬的博客" type="application/atom+xml"><meta name="description" content="什么是“链接” ？ 记得 2008 年刚接触 windows 的时候，我“卸载”软件都是这么干的 &#x3D;&gt; 将桌面上软件的图标移动到回收站，清空回收站，然后我就觉得软件已经被我卸载了 现在看来，当时的我只是删除了 windows 上应用软件的一个快捷方式而已，并没有将软件真正从我的电脑上卸载 而那时被我删掉的快捷方式就是“链接”的一种实现，显然，“链接”这种东西早就被应用在了计算机中，在我们的生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="硬链接和软链接">
+<meta property="og:url" content="https://brannua.github.io/2021/09/22/it/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5/index.html">
+<meta property="og:site_name" content="夏与冬的博客">
+<meta property="og:description" content="什么是“链接” ？ 记得 2008 年刚接触 windows 的时候，我“卸载”软件都是这么干的 &#x3D;&gt; 将桌面上软件的图标移动到回收站，清空回收站，然后我就觉得软件已经被我卸载了 现在看来，当时的我只是删除了 windows 上应用软件的一个快捷方式而已，并没有将软件真正从我的电脑上卸载 而那时被我删掉的快捷方式就是“链接”的一种实现，显然，“链接”这种东西早就被应用在了计算机中，在我们的生">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922102919472.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922163152322.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922163606353.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922164024964.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922172127580.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922172515608.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922174914922.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922175147752.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922175705326.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922180847712.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922181433398.png">
+<meta property="article:published_time" content="2021-09-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-25T01:04:31.826Z">
+<meta property="article:author" content="lpj">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922102919472.png"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="lpj"><img width="96" loading="lazy" src="https://gitee.com/pj-l/imgs-1/raw/master/profile/profile.png" alt="lpj"><span class="site-author-status" title="Hi ~">🇨🇳</span></a><div class="site-author-name"><a href="/about/">lpj</a></div><span class="site-name">夏与冬的博客</span><sub class="site-subtitle">存放回忆，书写有价值的博客</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/archives/" title="历史"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">12</span></a></div><a class="site-state-item hty-icon-button" href="/about/" title="关于我 &amp; 留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fingerprint-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/xia-yu-dong-94/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/384516046" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=3903008322" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/qq.png" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/wechat.png" title="微信" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:374453156@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" target="_blank" rel="noopener" href="https://github.com/brannua" title="GitHub" style="color:#000"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-item hty-icon-button" href="/atom.xml" title="RSS" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E9%93%BE%E6%8E%A5%E2%80%9D-%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是“链接” ？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E7%94%A8%E6%88%B7%E7%8B%AC%E5%8D%A0%E8%AE%A1%E7%AE%97%E6%9C%BA%EF%BC%8C%E7%BB%8F%E5%B8%B8%E7%94%A8%E2%80%9C%E9%93%BE%E6%8E%A5%E2%80%9D%E5%B9%B2%E4%BB%80%E4%B9%88-%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">当用户独占计算机，经常用“链接”干什么 ？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%9C%89%E2%80%9C%E9%93%BE%E6%8E%A5%E2%80%9D%E8%BF%99%E7%A7%8D%E5%8A%9F%E8%83%BD-%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么需要有“链接”这种功能 ？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A1%AC%E9%93%BE%E6%8E%A5%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E9%93%BE%E6%8E%A5-%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">什么是硬链接，什么是软链接 ？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E5%BC%82%E5%90%8C"><span class="toc-number">5.</span> <span class="toc-text">软链接和硬链接的异同</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://brannua.github.io/2021/09/22/it/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="lpj"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="夏与冬的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">硬链接和软链接</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-09-22 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-22T00:00:00+00:00">2021-09-22</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-09-25 01:04:31" itemprop="dateModified" datetime="2021-09-25T01:04:31+00:00">2021-09-25</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">1.5k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">5m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">计算机基础知识</span></a></span></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h4 id="什么是“链接”-？"><a href="#什么是“链接”-？" class="headerlink" title="什么是“链接” ？"></a>什么是“链接” ？</h4><blockquote>
+<p>记得 2008 年刚接触 windows 的时候，我“卸载”软件都是这么干的 =&gt; 将桌面上软件的图标移动到回收站，清空回收站，然后我就觉得软件已经被我卸载了</p>
+<p>现在看来，当时的我只是删除了 windows 上应用软件的一个快捷方式而已，并没有将软件真正从我的电脑上卸载</p>
+<p>而那时被我删掉的快捷方式就是“链接”的一种实现，显然，“链接”这种东西早就被应用在了计算机中，在我们的生活中扮演着不可或缺的角色</p>
+<p>所以，你可以将“链接”狭义地理解成 windows 上的快捷方式，但接下来对“链接”的用途做更多的阐述</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="当用户独占计算机，经常用“链接”干什么-？"><a href="#当用户独占计算机，经常用“链接”干什么-？" class="headerlink" title="当用户独占计算机，经常用“链接”干什么 ？"></a>当用户独占计算机，经常用“链接”干什么 ？</h4><blockquote>
+<p>这里讲的是大多数普通人在日常使用场景中会有意无意使用“链接”的情况</p>
+</blockquote>
+<p>对于 windows 用户</p>
+<ul>
+<li>快捷方式就是“链接”的一种实现，我们可以在一个容易找到的地方（比如桌面）创建应用的快捷方式来方便我们快速启动应用程序，而不是每次都逐层目录寻找应用程序到底在哪</li>
+</ul>
+<p>对于 linux 用户 和 macOS 用户</p>
+<ul>
+<li>和在 windows 中给应用程序创建快捷方式类似，我们通常会在一个容易被找到的目录中给一些目录层次较深的文件创建“链接”，以此方便我们的访问</li>
+<li>除此以外，我们还经常使用“链接”处理一些库的版本兼容性的问题</li>
+</ul>
+<p>上述提到的链接，均指软链接（也称符号链接 symblic_link），在 linux 中链接的常见用法如下</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922102919472.png' style='float: left;' loading="lazy"></img></p>
+<h4 id="为什么需要有“链接”这种功能-？"><a href="#为什么需要有“链接”这种功能-？" class="headerlink" title="为什么需要有“链接”这种功能 ？"></a>为什么需要有“链接”这种功能 ？</h4><ol>
+<li><p>首先你得知道，同一个操作系统是允许多个用户同时接入共享使用的</p>
+<p>从“分时操作系统”时代起，就已经开始支持多用户宏观同时微观分时地访问操作系统了，就是说一个操作系统可以有多个用户，这些用户可以共享地使用计算机中的资源，甚至他们可以同时接入操作系统</p>
+<p>多用户同时接入操作系统时，尽管我们感觉上像是自己独占整个系统但其实并不是（比如同一个 windows 上超级管理员和普通用户可以同时登入只不过系统微观上分时服务罢了）</p>
+<p>听不懂也不没关系，有一个视频很形象，就是<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fi4y1L7Gh">它</a></p>
+</li>
+<li><p>其次你还得知道，什么叫共享</p>
+<p>共享和文件复制是不一样的，用户共享文件意味着只有一份文件</p>
+<p>比如系统中有一份独一无二的文件，用户 A 对其拥有读写权限，用户 B 对其也拥有读写权限，就说这两个用户共享该文件</p>
+<p>一旦用户 A 修改了该文件的数据，那么用户 B 也可以看到文件数据的变化</p>
+</li>
+<li><p>“链接”是为了让文件共享更安全而实现的，如果没有链接这种功能</p>
+<p>举个例子，你家两个孩子，你有一个弟弟，但是你家家境普通，父母只能给你俩买一台电脑，只有你爹能用电脑上的管理员帐号，他给你俩一人开了个普通用户帐号</p>
+<p>期末复习周，你爹拷了一份往年试卷放到了电脑中让你俩共享，你弟登入电脑一看，我去！这么多卷子，不写！哐哧你弟就给删了，假如没有“链接”这种东西，晚上你登你帐号还能看到卷子吗？不能！</p>
+</li>
+<li><p>但实际情况是卷子并没有被真正删除，虽然你弟看不到卷子且承担着可能挨打的风险但你依然可以看到卷子，这正是因为操作系统在实现文件共享功能的时候，为了防止共享文件被某个用户误删除，实现了“链接”的功能和基于“链接”的文件共享方式，链接分为“软链接”和“硬链接”</p>
+</li>
+</ol>
+<h4 id="什么是硬链接，什么是软链接-？"><a href="#什么是硬链接，什么是软链接-？" class="headerlink" title="什么是硬链接，什么是软链接 ？"></a>什么是硬链接，什么是软链接 ？</h4><blockquote>
+<p>节选自王道-操作系统</p>
+</blockquote>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922163152322.png' style='float: left; height: 460px' loading="lazy"></img></p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922163606353.png' style='float: left;' loading="lazy"></img></p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922164024964.png' style='float: left; height: 360px' loading="lazy"></img></p>
+<h4 id="软链接和硬链接的异同"><a href="#软链接和硬链接的异同" class="headerlink" title="软链接和硬链接的异同"></a>软链接和硬链接的异同</h4><blockquote>
+<p>首先明确：由于用软链接的方式访问共享文件时需要查询多级目录，所以就会产生多次磁盘 I/O，因此理论上用软链接访问文件速度更慢</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这里我们比较文件使用如下命令</span>
+
+<span class="token function">ls</span> -li
+
+<span class="token comment"># -l, --long       display extended file metadata as a table</span>
+<span class="token comment"># -i, --inode      list each file's inode number</span></code></pre>
+
+<p>我们先创建一个普通文件，然后给该文件创建一个硬链接，看看区别</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922172127580.png' style='float: left; width: 660px' loading="lazy"></img></p>
+<p>hard.txt 和 src.txt 的 inode 值一样，都为 19407417，说明了它们指向物理磁盘中的同一个区块（同一索引节点）</p>
+<p>且二者文件类型和权限完全相同</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922172515608.png' style='float: left; width: 660px' loading="lazy"></img></p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922174914922.png' style='float: left; width: 660px' loading="lazy"></img></p>
+<p>到此为止，已经印证了硬链接（基于索引节点的共享方式）的原理</p>
+<p>接下来我们进行第二个实验：我们创建一个普通文件，然后给该文件创建一个软链接，看看区别</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922175147752.png' style='float: left; width: 660px' loading="lazy"></img></p>
+<p>现在我们很清楚地看到，软链接确实是 Link 类型的文件，权限为 777，且指向 src.txt</p>
+<p>接下来我们再创建一个硬链接，并尝试删除 src.txt</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922175705326.png' style='float: left; width: 660px' loading="lazy"></img></p>
+<p>硬链接仍然有效，符合预期；软连接是一种新类型的文件（Link 类型）保存着它所指向文件的全路径，访问时会替换成绝对路径，我们 rm 掉了 src.txt 自然用软链接就找不到该文件</p>
+<p>我们再向这个软链接写点东西（将这个软链接替换后的绝对路径文件创建出来）</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922180847712.png' style='float: left; width: 660px' loading="lazy"></img></p>
+<p>看吧，src.txt 又出现了，成功印证软链接访问时会替换成绝对路径的想法</p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210922181433398.png' style='float: left;' loading="lazy"></img></p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>lpj</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://brannua.github.io/2021/09/22/it/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5/" title="硬链接和软链接">https://brannua.github.io/2021/09/22/it/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/09/21/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/mdImgs/" rel="next" title="科学地管理自己博客的图片"><span class="post-nav-text">科学地管理自己博客的图片</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-disc-line"></use></svg></span><span class="author"> lpj</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.2</span></div><div class="live_time"><span>本博客已机智地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2021-07-13T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["9-18"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div></body></html>

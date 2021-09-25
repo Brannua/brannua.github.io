@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="lpj"><meta name="copyright" content="lpj"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>ManjaroLinux 入门指南（一） | 夏与冬的博客</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"brannua.github.io","root":"/","title":"云游君的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="夏与冬的博客" type="application/atom+xml"><meta name="description" content="前言 本教程旨在：  整理笔者工作流的搭建过程，以防不时之需 为想要尝试 linux 尤其是 arch 系发行版的小伙伴提供方向 传递一点 GNU 的 share 精神，给 linux 的社区贡献一点点力量    相比于 windows，我能深刻感受到 linux 带给我的好处：  linux 对电脑本身的硬件配置几乎没有要求，一颗 1Ghz 的 CPU，4GB 内存，128GB 的 SSD 固态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ManjaroLinux 入门指南（一）">
+<meta property="og:url" content="https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_1/index.html">
+<meta property="og:site_name" content="夏与冬的博客">
+<meta property="og:description" content="前言 本教程旨在：  整理笔者工作流的搭建过程，以防不时之需 为想要尝试 linux 尤其是 arch 系发行版的小伙伴提供方向 传递一点 GNU 的 share 精神，给 linux 的社区贡献一点点力量    相比于 windows，我能深刻感受到 linux 带给我的好处：  linux 对电脑本身的硬件配置几乎没有要求，一颗 1Ghz 的 CPU，4GB 内存，128GB 的 SSD 固态">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-25T01:04:31.826Z">
+<meta property="article:author" content="lpj">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="lpj"><img width="96" loading="lazy" src="https://gitee.com/pj-l/imgs-1/raw/master/profile/profile.png" alt="lpj"><span class="site-author-status" title="Hi ~">🇨🇳</span></a><div class="site-author-name"><a href="/about/">lpj</a></div><span class="site-name">夏与冬的博客</span><sub class="site-subtitle">存放回忆，书写有价值的博客</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/archives/" title="历史"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">12</span></a></div><a class="site-state-item hty-icon-button" href="/about/" title="关于我 &amp; 留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fingerprint-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/xia-yu-dong-94/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/384516046" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=3903008322" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/qq.png" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/wechat.png" title="微信" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:374453156@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" target="_blank" rel="noopener" href="https://github.com/brannua" title="GitHub" style="color:#000"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-item hty-icon-button" href="/atom.xml" title="RSS" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E4%B8%AA%E4%BA%BA%E4%B9%A0%E6%83%AF%EF%BC%8C%E8%B0%83%E6%95%B4%E5%A4%96%E8%AE%BE%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">根据个人习惯，调整外设的默认参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8-pacman"><span class="toc-number">4.</span> <span class="toc-text">软件包管理器 pacman</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">开机后</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KRunner"><span class="toc-number">6.</span> <span class="toc-text">KRunner</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%AF%AD%E8%A8%80%E7%9A%84%E8%B0%83%E6%95%B4"><span class="toc-number">7.</span> <span class="toc-text">关于语言的调整</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim%EF%BC%8C%E7%BB%88%E7%AB%AF%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">8.</span> <span class="toc-text">vim，终端下的文件编辑器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">配置中文输入法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">10.</span> <span class="toc-text">注意</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_1/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="lpj"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="夏与冬的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">ManjaroLinux 入门指南（一）</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-09T00:00:00+00:00">2021-09-09</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-09-25 01:04:31" itemprop="dateModified" datetime="2021-09-25T01:04:31+00:00">2021-09-25</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">2.6k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">9m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/Manjaro-tutorial/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Manjaro_tutorial</span></a></span></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>本教程旨在：</p>
+<ol>
+<li>整理笔者工作流的搭建过程，以防不时之需</li>
+<li>为想要尝试 linux 尤其是 arch 系发行版的小伙伴提供方向</li>
+<li>传递一点 GNU 的 share 精神，给 linux 的社区贡献一点点力量</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>相比于 windows，我能深刻感受到 linux 带给我的好处：</p>
+<ol>
+<li>linux 对电脑本身的硬件配置几乎没有要求，一颗 1Ghz 的 CPU，4GB 内存，128GB 的 SSD 固态硬盘已经满足大多数人的要求（实践完本教程磁盘共使用 13GB 左右）</li>
+<li>linux 是开源免费的，这意味着你可以轻松获取其正版系统并查看它的所有源代码，并且你可以在其源代码的基础上，随意修改</li>
+<li>linux 拥有十分完善的文档和活跃的社区，你可以轻松查询并处理你所遇到的所有问题（非大佬，能遇到的问题早就有人遇到过了）</li>
+<li>linux 上安装软件极其方便，往往一两行命令就能很好地将软件下载并安装，且没有任何捆绑软件</li>
+<li>linux 不会收集你的任何个人信息，你对你的系统拥有着绝对掌控权</li>
+<li>linux 不存在软件病毒</li>
+<li>你能学到很多有用的知识</li>
+<li>……</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>个人观点：</p>
+<p>虽然 QQ 微信 TIM office 等软件有很多方法在 linux 上运行，但本教程不介绍，因为如果没有特别省心省事的成熟解决方案，那么一个软件在哪种操作系统上的官方支持最好，则让它在哪种操作系统上运行，富贵小白首选购买多台电脑，平民小白首选虚拟机，有极客精神的技术小白可考虑云主机， Wine 兼容层或当今较火的容器技术；因此，本教程不适合“游戏玩家”实践，想要打游戏，最省事的方法就是使用 windows</p>
+</blockquote>
+<span id="more"></span>
+
+<ul>
+<li>还在纠结使用哪种 linux 发行版吗？适合自己的才是最好的：<a target="_blank" rel="noopener" href="https://distrochooser.de/">Distrochooser</a></li>
+<li>本教程选用的 Linux 发行版：<a target="_blank" rel="noopener" href="https://manjaro.org/">ManjaroLinux</a></li>
+<li>本教程选择的桌面环境：<a target="_blank" rel="noopener" href="https://kde.org/">KDE</a></li>
+<li>当然，你也可以尝试使用窗口管理器来代替桌面环境，推荐：<a target="_blank" rel="noopener" href="http://dwm.suckless.org/">dwm</a></li>
+<li>无论你遇到任何关于 ManjaroLinux 的问题，都可以通过以下途径寻找解决方案<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.manjaro.org/index.php/Main_Page">ManjaroWiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://forum.manjaro.org/">ManjaroForum</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/">ArchWiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://bbs.archlinux.org/">ArchForum</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/">Github</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/">Google</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baidu.com/">Baidu</a></li>
+<li>问我<ul>
+<li>不推荐，除非你真的有认真阅读官方文档并认真思考认真实践</li>
+<li>因为学习 linux 本身就需要一定的问题处理能力，其实任何事情都是，自力更生往往比伸手党更能茁壮成长</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>哦天，你是在想如何安装 ManjaroLinux 吗？这是考验你解决问题的第一个尝试</p>
+<p>不过别担心，这位大神=&gt;<a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a>已经提供了各种各样详细而成熟的安装教程，相信天赋异禀的你一定可以轻松搞定</p>
+</blockquote>
+<h4 id="根据个人习惯，调整外设的默认参数"><a href="#根据个人习惯，调整外设的默认参数" class="headerlink" title="根据个人习惯，调整外设的默认参数"></a>根据个人习惯，调整外设的默认参数</h4><blockquote>
+<p>这里是我自己的使用习惯</p>
+</blockquote>
+<ul>
+<li>系统设置–&gt;硬件–&gt;输入设备<ul>
+<li>触摸板–&gt;勾选反向滚动–&gt;指针加速0.4–&gt;应用</li>
+<li>鼠标–&gt;指针速度增加两格–&gt;应用</li>
+</ul>
+</li>
+</ul>
+<h4 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h4><blockquote>
+<p>俗称命令行，即传说中黑客们使用的黑窗口，我们可以通过终端与操作系统进行交互，这也是类 unix 操作系统们最强大的工具</p>
+</blockquote>
+<ul>
+<li>在 ManjaroKDE 中，有如下 3 种方式打开终端，系统中的快捷键均可自定义<ul>
+<li>Konsole =&gt; ctrl+alt+t</li>
+<li>Yakuake =&gt; f12</li>
+<li>文件资源管理器的内嵌终端 =&gt; f4</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果你会接触到软件开发，尤其是 web 前端开发，那么你肯定会经常和 chrome 浏览器的 console 打交道，而一般打开 console 的快捷方式是 f12，这就和 yakuake 的默认快捷键冲突，所以我们需要修改 yakuake 的默认快捷键</p>
+</blockquote>
+<ul>
+<li>系统设置–&gt;工作区–&gt;快捷键–&gt;应用程序–&gt;yakuake–&gt;关掉默认快捷键f12–&gt;设置自定义快捷键为 meta+space</li>
+</ul>
+<blockquote>
+<p>linux 的终端默认以 bash 作为命令处理器，为了获得更好的使用体验，我们可以将 bash 更换为 zsh，只需在终端执行一条命令</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash">chsh -s /bin/zsh</code></pre>
+
+<h4 id="软件包管理器-pacman"><a href="#软件包管理器-pacman" class="headerlink" title="软件包管理器 pacman"></a>软件包管理器 pacman</h4><blockquote>
+<p>顾名思义，你可以使用软件包管理器来下载，安装，卸载任何你想要的软件</p>
+<p>但由于国内众所周知的 GFW，若不经合理的设置，我们无法下载到境外的一些软件资源，这会给我们的日常使用造成困扰</p>
+<p>因此我们第一步就需要修改软件包管理器背后依靠的软件源，只需连接网络，然后在终端执行一条命令</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman-mirrors -m rank -c China</code></pre>
+
+<blockquote>
+<p>由于 ManjaroLinux 官方采用滚动更新的方式更新系统，即官方每隔很短的时间比如几天就会发布一定量的系统更新，但官方还会在某个时间节点将该时间节点最新的系统以 iso 镜像的方式发布到其官网，以此避免用户安装系统后需要再安装大量更新，所以我们刚安装好的“最新”系统其实往往不是最新的，因为有可能官方发布了一些系统更新，但还没有更新官网上的 iso 系统镜像，因此，我们在调整好软件包管理器的软件源后，就需要手动更新系统</p>
+<p>同时，推荐所有 Arch 系用户养成时不时尝试接收系统更新并合理备份自己资料的习惯，防止由于一次性接收大量更新而可能造成的混乱</p>
+<p>更新系统只需在终端中执行下面一条命令</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -Syyu</code></pre>
+
+<blockquote>
+<p>系统更新完毕之后，手动重启电脑（不建议强制关机或直接拔掉电源，若问缘由，自行回忆或查阅《操作系统》相关的知识）</p>
+</blockquote>
+<h4 id="开机后"><a href="#开机后" class="headerlink" title="开机后"></a>开机后</h4><ul>
+<li><p>你有一定的几率会遇到要求你输入钱包密码的问题，第一次遇到该问题我也很蒙，后来查阅资料知可以按照如下方式解决</p>
+<ul>
+<li>依次打开：系统设置–&gt;个性化–&gt;kde钱包</li>
+<li>首先，需要启用 kde 钱包子系统，否则无法正常使用记录的账号密码信息</li>
+<li>然后，打开右下角的调用钱包管理器，更改密码，设置为空密码即可</li>
+<li>重启系统，可以看到密码认证已经跳过</li>
+</ul>
+</li>
+<li><p>接下来我们尝试使用 pacman 来安装第一个软件，screenfetch，该软件可以在终端中输出你的电脑配置性能的简要信息</p>
+</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S screenfetch</code></pre>
+
+<ul>
+<li>解释：<ul>
+<li>sudo，可理解为 super user do，在一行命令的开头写上 sudo 就意味着本行命令会以系统管理员的身份执行（会被提示要求输入密码）</li>
+<li>pacman，软件包管理器</li>
+<li>-S，安装</li>
+<li>screenfetch，软件包的名称</li>
+</ul>
+</li>
+<li>安装完毕如何使用 screenfetch，只需在终端执行一条命令</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">screenfetch</code></pre>
+
+<ul>
+<li>然后我们下载安装一些必要的工具集</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S base-devel fakeroot patch</code></pre>
+
+<h4 id="KRunner"><a href="#KRunner" class="headerlink" title="KRunner"></a>KRunner</h4><blockquote>
+<p>KDE 自带的 KRunner 是一个非常实用的小软件，通过默认快捷键 alt+space 可以在屏幕顶部很方便地将其打开，你可以利用它进行诸如（文件搜索，单位转换，搜索系统中的软件并打开，计算器）等实用的功能</p>
+</blockquote>
+<h4 id="关于语言的调整"><a href="#关于语言的调整" class="headerlink" title="关于语言的调整"></a>关于语言的调整</h4><blockquote>
+<p>默认情况下，用户家目录 ~/ 下会存在一些中文名称的目录，比如“桌面”，“文档”，“下载”，“音乐”，“图片”，“视频”等</p>
+<p>由于系统默认没有中文输入法，也为了方便我们在终端中的操作，因此最好将这些中文目录名统一改为英语，一个好的习惯是任何文件（包括目录）的命名都使用英文半角，这在大多数操作系统中都能规避很多莫名其妙的软件错误</p>
+<p>当然，将中文目录名修改为英文，我们借助软件包 xdg-user-dirs-gtk</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S xdg-user-dirs-gtk
+
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US
+
+xdg-user-dirs-gtk-update</code></pre>
+
+<ul>
+<li>此时，系统就会弹出窗口，提示将要把目录名称更新为英文，点击确定即可，然后我们再执行如下命令将系统语言环境改回中文和 UTF-8 字符集</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8</code></pre>
+
+<ul>
+<li>然后，系统自带的文件资源管理器 Dolphin 侧栏的位置的子节点映射的路径有可能不正确，需逐个右键点击编辑校对一下</li>
+<li>最后，我们执行如下命令删除家目录 ~/ 下的“桌面”目录，因为和“Desktop”目录重复</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> -rf ~/桌面</code></pre>
+
+<h4 id="vim，终端下的文件编辑器"><a href="#vim，终端下的文件编辑器" class="headerlink" title="vim，终端下的文件编辑器"></a>vim，终端下的文件编辑器</h4><blockquote>
+<p>linux 中一切皆文件，为了方便我们在终端中对文件进行编辑，我们需要选用一款在终端中使用的编辑器，比如 nano，vim；本教程均使用 vim</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S <span class="token function">vim</span></code></pre>
+
+<h4 id="配置中文输入法"><a href="#配置中文输入法" class="headerlink" title="配置中文输入法"></a>配置中文输入法</h4><blockquote>
+<p>五十六个民族五十六枝花，我们大家都用中文输入法</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装输入法框架</span>
+<span class="token function">sudo</span> pacman -S fcitx5-im
+
+<span class="token comment"># 安装输入法引擎和皮肤</span>
+<span class="token function">sudo</span> pacman -S fcitx5-chinese-addons fcitx5-material-color
+
+<span class="token comment"># 安装依赖和配置工具</span>
+<span class="token function">sudo</span> pacman -S fcitx5-qt fcitx5-gtk fcitx5-configtool
+
+<span class="token comment"># 使用 vim 打开配置文件</span>
+<span class="token function">vim</span> ~/.pam_environment
+
+<span class="token comment"># 写入以下配置</span>
+GTK_IM_MODULE <span class="token assign-left variable">DEFAULT</span><span class="token operator">=</span>fcitx5
+QT_IM_MODULE  <span class="token assign-left variable">DEFAULT</span><span class="token operator">=</span>fcitx5
+<span class="token environment constant">XMODIFIERS</span>    <span class="token assign-left variable">DEFAULT</span><span class="token operator">=</span><span class="token punctuation">\</span>@im<span class="token operator">=</span>fcitx5
+SDL_IM_MODULE <span class="token assign-left variable">DEFAULT</span><span class="token operator">=</span>fcitx5
+
+<span class="token comment"># 保存退出</span></code></pre>
+
+<ul>
+<li><p>重启系统，一般就会自动提示是否启用云拼音，为了获得更好的输入体验，将其勾选</p>
+</li>
+<li><p>切换中英文输入法的快捷键有两种：ctrl+space 或 ctrl+shift</p>
+</li>
+<li><p>然后鼠标右键系统托盘键盘指示器，依次点击 “配置”，“拼音”，“配置”</p>
+</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 我的习惯</span>
+<span class="token number">1</span>. 勾选启用云拼音（若没有勾选）
+<span class="token number">2</span>. 勾选在程序中显示预编辑文本
+<span class="token number">3</span>. 勾选在预编辑中显示完整拼音
+<span class="token number">4</span>. 点击“应用”！</code></pre>
+
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><blockquote>
+<p>本教程不提供科学上网教程，但为了能够下载到必须的代码资源，必须解决科学上网这个问题，才能继续阅读并顺利实践本教程！</p>
+</blockquote>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>lpj</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_1/" title="ManjaroLinux 入门指南（一）">https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_1/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/09/12/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/rss/" rel="prev" title="rss 新手入门指南"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">rss 新手入门指南</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/09/09/manjaro_tutorial/Manjaro_2/" rel="next" title="ManjaroLinux 入门指南（二）"><span class="post-nav-text">ManjaroLinux 入门指南（二）</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-disc-line"></use></svg></span><span class="author"> lpj</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.2</span></div><div class="live_time"><span>本博客已机智地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2021-07-13T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["9-18"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div></body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="lpj"><meta name="copyright" content="lpj"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>hexo + githubActions 搭建的个人博客 | 夏与冬的博客</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"brannua.github.io","root":"/","title":"云游君的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="夏与冬的博客" type="application/atom+xml"><meta name="description" content="GitHub，Gitee，Coding，静态博客「Pages」服务横评 本博客实现的工作流： 在本地某磁盘某文件夹下编写 .md 博客文件  以 ssh 的方式将博客站点的存储库拉取到本地，将写好的 .md 源文件拷贝到本地博客站点存储库中  以 git 的方式形成提交，push 到远端，自动触发远端博客站点存储库的 githubActions  githubActions 自动对博客源码进行编译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo + githubActions 搭建的个人博客">
+<meta property="og:url" content="https://brannua.github.io/2021/09/20/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/init/index.html">
+<meta property="og:site_name" content="夏与冬的博客">
+<meta property="og:description" content="GitHub，Gitee，Coding，静态博客「Pages」服务横评 本博客实现的工作流： 在本地某磁盘某文件夹下编写 .md 博客文件  以 ssh 的方式将博客站点的存储库拉取到本地，将写好的 .md 源文件拷贝到本地博客站点存储库中  以 git 的方式形成提交，push 到远端，自动触发远端博客站点存储库的 githubActions  githubActions 自动对博客源码进行编译">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210924223531489.png">
+<meta property="og:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210924223631091.png">
+<meta property="article:published_time" content="2021-09-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-25T01:04:31.826Z">
+<meta property="article:author" content="lpj">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210924223531489.png"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="lpj"><img width="96" loading="lazy" src="https://gitee.com/pj-l/imgs-1/raw/master/profile/profile.png" alt="lpj"><span class="site-author-status" title="Hi ~">🇨🇳</span></a><div class="site-author-name"><a href="/about/">lpj</a></div><span class="site-name">夏与冬的博客</span><sub class="site-subtitle">存放回忆，书写有价值的博客</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/archives/" title="历史"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">12</span></a></div><a class="site-state-item hty-icon-button" href="/about/" title="关于我 &amp; 留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fingerprint-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/xia-yu-dong-94/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/384516046" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=3903008322" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/qq.png" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/wechat.png" title="微信" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:374453156@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" target="_blank" rel="noopener" href="https://github.com/brannua" title="GitHub" style="color:#000"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-item hty-icon-button" href="/atom.xml" title="RSS" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">本博客实现的工作流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">前置工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%A0%81%E5%B9%B6%E9%A2%84%E8%A7%88%EF%BC%88%E4%BB%A5%E6%88%91%E7%9A%84-github-%E8%B4%A6%E6%88%B7%E5%90%8D-brannua-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">第一步，本地生成博客站点的基本代码并预览（以我的 github 账户名 brannua 为例）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%8C%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">第二步，更换博客主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">第三步，自定义配置博客主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%8C%E7%AB%99%E7%82%B9%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-number">6.</span> <span class="toc-text">第四步，站点远端部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%8C%E5%AE%9E%E7%8E%B0%E7%AB%99%E7%82%B9%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">7.</span> <span class="toc-text">第五步，实现站点的自动部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Todo"><span class="toc-number">8.</span> <span class="toc-text">Todo</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://brannua.github.io/2021/09/20/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/init/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="lpj"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="夏与冬的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">hexo + githubActions 搭建的个人博客</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-09-20 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-20T00:00:00+00:00">2021-09-20</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-09-25 01:04:31" itemprop="dateModified" datetime="2021-09-25T01:04:31+00:00">2021-09-25</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">1.1k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">4m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">科普与实践</span></a></span></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149282549">GitHub，Gitee，Coding，静态博客「Pages」服务横评</a></p>
+<h4 id="本博客实现的工作流："><a href="#本博客实现的工作流：" class="headerlink" title="本博客实现的工作流："></a>本博客实现的工作流：</h4><ol>
+<li><p>在本地某磁盘某文件夹下编写 .md 博客文件</p>
+</li>
+<li><p>以 ssh 的方式将博客站点的存储库拉取到本地，将写好的 .md 源文件拷贝到本地博客站点存储库中</p>
+</li>
+<li><p>以 git 的方式形成提交，push 到远端，自动触发远端博客站点存储库的 githubActions</p>
+</li>
+<li><p>githubActions 自动对博客源码进行编译部署</p>
+</li>
+</ol>
+<blockquote>
+<p>注意：虽然本博客支持云端写作触发自动化部署，但是不推荐这么做，因为这样会导致在本地某磁盘某文件夹下编写的 .md 博客文件滞后于远端博客站点存储库</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>首先，自行在本地配置好 nodejs 环境，不会就=&gt;<a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a></p>
+<p>然后，确保你在本地和云端之间配置好了 ssh 加密通信，不会可以参考我的<a target="_blank" rel="noopener" href="https://blog.csdn.net/Brannua/article/details/104460969">这篇博客</a></p>
+<h4 id="第一步，本地生成博客站点的基本代码并预览（以我的-github-账户名-brannua-为例）"><a href="#第一步，本地生成博客站点的基本代码并预览（以我的-github-账户名-brannua-为例）" class="headerlink" title="第一步，本地生成博客站点的基本代码并预览（以我的 github 账户名 brannua 为例）"></a>第一步，本地生成博客站点的基本代码并预览（以我的 github 账户名 brannua 为例）</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 本地生成博客站点的基本代码</span>
+<span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g
+hexo init blog
+<span class="token builtin class-name">cd</span> blog
+
+<span class="token comment"># 预览博客</span>
+hexo s
+
+<span class="token comment"># 终止预览：ctrl+c</span></code></pre>
+
+<h4 id="第二步，更换博客主题"><a href="#第二步，更换博客主题" class="headerlink" title="第二步，更换博客主题"></a>第二步，更换博客主题</h4><blockquote>
+<p>主题列表：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
+</blockquote>
+<ul>
+<li>本教程选用：<a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/">hexo-theme-yun</a></li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/YunYouJun/hexo-theme-yun ./themes/yun --depth <span class="token number">1</span>
+
+<span class="token builtin class-name">cd</span> ./themes/yun
+
+<span class="token function">rm</span> -rf ./.git ./.github
+
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/
+
+<span class="token function">npm</span> <span class="token function">install</span> hexo-render-pug --save
+
+<span class="token function">vim</span> _config.yml
+
+将 theme: landscape 修改为 theme: yun 后保存退出
+
+删掉 ./_config.landscape.yml
+
+删掉 package.json 中的 <span class="token string">"hexo-theme-landscape"</span><span class="token builtin class-name">:</span> <span class="token string">"^0.0.3"</span>
+
+删掉 yarn.lock 中与 landscape 相关的那一段
+
+<span class="token comment"># 再次预览博客就可看到使用了新主题</span>
+hexo s</code></pre>
+
+<h4 id="第三步，自定义配置博客主题"><a href="#第三步，自定义配置博客主题" class="headerlink" title="第三步，自定义配置博客主题"></a>第三步，自定义配置博客主题</h4><p>首先安装依赖</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># RSS 相关</span>
+<span class="token function">npm</span> i hexo-generator-feed --save
+
+<span class="token comment"># 文章字数统计和阅读时长估计相关</span>
+<span class="token function">npm</span> i hexo-wordcount --save
+
+<span class="token comment"># 本地搜索相关</span>
+<span class="token function">npm</span> i hexo-generator-search --save
+
+<span class="token comment"># 站点部署相关</span>
+<span class="token function">npm</span> i hexo-deployer-git --save
+
+<span class="token comment"># dev 热更新</span>
+<span class="token function">npm</span> i -g browser-sync
+<span class="token function">npm</span> i hexo-browsersync -D</code></pre>
+
+<p>然后參考<a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/">hexo-theme-yun</a>在 source/_data/yun.yml 中进行博客站点的自定义配置即可</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Brannua/blog/blob/master/source/_data/yun.yml">我的配置文件-私有</a></p>
+<h4 id="第四步，站点远端部署"><a href="#第四步，站点远端部署" class="headerlink" title="第四步，站点远端部署"></a>第四步，站点远端部署</h4><ul>
+<li><p>首先，在 github 上创建两个仓库</p>
+<ul>
+<li><p>blog（privacy 备份站点源码的仓库）</p>
+</li>
+<li><p>brannua.github.io（public 站点的部署仓库）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210924223531489.png' style='float: left; height: 400px;' loading="lazy"></img></p>
+<p><img src='https://gitee.com/pj-l/imgs-1/raw/master/screenShot/image-20210924223631091.png' style='float: left; height: 400px;' loading="lazy"></img></p>
+<ul>
+<li>然后，编辑站点源码根目录下的配置文件 _config.yml，写入以下内容保存退出</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">deploy:
+  type: <span class="token function">git</span>
+  repo: git@github.com:Brannua/brannua.github.io.git
+  branch: master
+  message: <span class="token string">"deploy 自动推送: 站点更新"</span></code></pre>
+
+<ul>
+<li>接下来生成并部署静态站点到 github 仓库 brannua.github.io，默认 master 分支（部署会需要一点时间）</li>
+<li>预览地址：<a href="https://brannua.github.io/">https://brannua.github.io</a></li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">hexo clean		<span class="token comment"># 清除旧的静态站点</span>
+hexo generate	<span class="token comment"># 生成新的静态站点 /public</span>
+hexo deploy   <span class="token comment"># 部署</span></code></pre>
+
+<h4 id="第五步，实现站点的自动部署"><a href="#第五步，实现站点的自动部署" class="headerlink" title="第五步，实现站点的自动部署"></a>第五步，实现站点的自动部署</h4><ul>
+<li>首先将站点源码推送到 github 仓库 blog，默认 master 分支</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init
+<span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token punctuation">[</span>sshRepoLink<span class="token punctuation">]</span>
+<span class="token function">git</span> pull 
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">"the first commit."</span>
+<span class="token function">git</span> push origin master</code></pre>
+
+<ul>
+<li>然后打通云端的两仓库（源码仓库和部署库使用 ssh 加密通信）</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先在本地生成非对称加解密密钥对</span>
+<span class="token builtin class-name">cd</span> ~/.ssh
+ssh-keygen -t rsa -f gh-hexo-deploy -C <span class="token punctuation">[</span>邮箱<span class="token punctuation">]</span>
+
+<span class="token comment"># 给源码仓库配置私钥：https://github.com/Brannua/blog -> Settings -> Secrets -> New repository secret，填入以下配置后点击 Add secret</span>
+Name: HEXO_DEPLOY_KEY
+Value: <span class="token punctuation">[</span>cat ~<span class="token punctuation">\</span>.ssh<span class="token punctuation">\</span>gh-hexo-deploy<span class="token punctuation">]</span>
+
+<span class="token comment"># 给部署仓库配置公钥：https://github.com/Brannua/brannua.github.io -> Settings -> Deploy keys -> Add deploy key，填入以下配置并勾选 Allow write access 然后点击 Add key </span>
+Title: HEXO_DEPLOY_PUB
+Value: <span class="token punctuation">[</span>cat ~<span class="token punctuation">\</span>.ssh<span class="token punctuation">\</span>gh-hexo-deploy.pub<span class="token punctuation">]</span></code></pre>
+
+<ul>
+<li>最终实现站点的自动部署</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 给站点源码编写自动部署的配置文件</span>
+<span class="token builtin class-name">cd</span> blog/.github
+<span class="token function">mkdir</span> workflows
+<span class="token builtin class-name">cd</span> workflows
+<span class="token function">vim</span> deploy.yml
+
+<span class="token comment"># 写入如下配置，那么从此以后，只需维护源码仓库，而无需手动部署站点</span>
+name: Hexo Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    if: github.event.repository.owner.id <span class="token operator">==</span> github.event.sender.id
+
+    steps:
+      - name: <span class="token number">1</span>. Setup Node.js<span class="token punctuation">..</span>.
+        uses: actions/setup-node@v1
+        with:
+          node-version: <span class="token string">'12.x'</span>
+
+      - name: <span class="token number">2</span>. Setup Hexo<span class="token punctuation">..</span>.
+        run: <span class="token operator">|</span>
+          <span class="token function">npm</span> i hexo-cli -g
+
+      - name: <span class="token number">3</span>. Setup Git<span class="token punctuation">..</span>.
+        run: <span class="token operator">|</span>
+          <span class="token function">git</span> config --global user.name <span class="token string">"Brannua"</span>
+          <span class="token function">git</span> config --global user.email <span class="token string">"374453156@qq.com"</span>
+
+      - name: <span class="token number">4</span>. Setup ssh<span class="token punctuation">..</span>.
+        env:
+          ACTION_DEPLOY_KEY: <span class="token variable">$&#123;&#123; secrets.HEXO_DEPLOY_KEY &#125;</span><span class="token punctuation">&#125;</span>
+        run: <span class="token operator">|</span>
+          <span class="token function">mkdir</span> ~/.ssh/
+          <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$ACTION_DEPLOY_KEY</span>"</span> <span class="token operator">></span> ~/.ssh/id_rsa
+          <span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">700</span> ~/.ssh ~/.ssh/id_rsa
+          <span class="token function">sudo</span> ssh-keyscan github.com <span class="token operator">>></span> ~/.ssh/known_hosts
+
+      - name: <span class="token number">5</span>. Checkout source<span class="token punctuation">..</span>.
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: <span class="token number">6</span>. Install dependences<span class="token punctuation">..</span>.
+        run: <span class="token operator">|</span>
+          <span class="token function">npm</span> <span class="token function">install</span>
+
+      - name: <span class="token number">7</span>. Build and Deploy<span class="token punctuation">..</span>.
+        run: <span class="token operator">|</span>
+          hexo clean
+          hexo generate
+          hexo deploy</code></pre>
+
+<h4 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h4><ul>
+<li><p>让站点的部署可以一次就分发到多个平台（github + gitee）</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/marketplace/actions/gitee-pages-action">Gitee Pages Action</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yanglbme/gitee-pages-action/issues/43">关于公私钥匙对的问题</a></p>
+</li>
+</ul>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>lpj</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://brannua.github.io/2021/09/20/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/init/" title="hexo + githubActions 搭建的个人博客">https://brannua.github.io/2021/09/20/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/init/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/09/21/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/mdImgs/" rel="prev" title="科学地管理自己博客的图片"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">科学地管理自己博客的图片</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/09/12/%E7%A7%91%E6%99%AE%E4%B8%8E%E5%AE%9E%E8%B7%B5/rss/" rel="next" title="rss 新手入门指南"><span class="post-nav-text">rss 新手入门指南</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-disc-line"></use></svg></span><span class="author"> lpj</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.2</span></div><div class="live_time"><span>本博客已机智地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2021-07-13T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["9-18"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div></body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="lpj"><meta name="copyright" content="lpj"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>ManjaroLinux 入门指南（四） | 夏与冬的博客</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"brannua.github.io","root":"/","title":"云游君的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="夏与冬的博客" type="application/atom+xml"><meta name="description" content="本节介绍作为一名 linux 用户应该知道的东西，默认你已经设置好并开启了系统代理，且能够以较好的网速科学上网   众所周知：重启解决 90% 的问题，重装解决 99% 的问题，重买解决 100% 的问题 同样地：及时合理地备份是个好习惯，能救命的好习惯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ManjaroLinux 入门指南（四）">
+<meta property="og:url" content="https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_4/index.html">
+<meta property="og:site_name" content="夏与冬的博客">
+<meta property="og:description" content="本节介绍作为一名 linux 用户应该知道的东西，默认你已经设置好并开启了系统代理，且能够以较好的网速科学上网   众所周知：重启解决 90% 的问题，重装解决 99% 的问题，重买解决 100% 的问题 同样地：及时合理地备份是个好习惯，能救命的好习惯">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-25T01:04:31.826Z">
+<meta property="article:author" content="lpj">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="lpj"><img width="96" loading="lazy" src="https://gitee.com/pj-l/imgs-1/raw/master/profile/profile.png" alt="lpj"><span class="site-author-status" title="Hi ~">🇨🇳</span></a><div class="site-author-name"><a href="/about/">lpj</a></div><span class="site-name">夏与冬的博客</span><sub class="site-subtitle">存放回忆，书写有价值的博客</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/archives/" title="历史"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">12</span></a></div><a class="site-state-item hty-icon-button" href="/about/" title="关于我 &amp; 留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fingerprint-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/xia-yu-dong-94/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/384516046" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=3903008322" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/qq.png" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://gitee.com/pj-l/imgs-1/raw/master/contact/wechat.png" title="微信" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:374453156@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" target="_blank" rel="noopener" href="https://github.com/brannua" title="GitHub" style="color:#000"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-item hty-icon-button" href="/atom.xml" title="RSS" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E6%96%B9%E4%BD%8D%E6%9F%A5%E7%9C%8B%E8%87%AA%E5%B7%B1%E7%9A%84-ip"><span class="toc-number">1.</span> <span class="toc-text">全方位查看自己的 ip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">查看当前发行版的基本信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E6%96%B0%E5%AD%A6%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%AA%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">3.</span> <span class="toc-text">如何查询新学到的命令属于哪个软件包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">如何查看一个命令的使用方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E7%94%B5%E8%84%91%E7%9A%84%E8%AF%A6%E7%BB%86%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">5.</span> <span class="toc-text">如何查看当前使用的电脑的详细硬件配置信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="toc-number">6.</span> <span class="toc-text">磁盘操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%A3%81%E7%9B%98%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">7.</span> <span class="toc-text">如何查看当前磁盘的使用情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E7%A3%81%E7%9B%98%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">8.</span> <span class="toc-text">如何进行磁盘的格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%9E%83%E5%9C%BE%E6%B8%85%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">系统垃圾清理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">10.</span> <span class="toc-text">如何查看内存的使用情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"><span class="toc-number">11.</span> <span class="toc-text">系统服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">13.</span> <span class="toc-text">文件权限管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E7%B3%BB%E7%BB%9F%E4%B8%8A%E5%AE%89%E8%A3%85%E7%9A%84%E5%8F%AF%E7%94%A8%E5%AD%97%E4%BD%93"><span class="toc-number">14.</span> <span class="toc-text">列出系统上安装的可用字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">15.</span> <span class="toc-text">定时任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD"><span class="toc-number">16.</span> <span class="toc-text">系统备份</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">17.</span> <span class="toc-text">结语</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_4/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="lpj"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="夏与冬的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">ManjaroLinux 入门指南（四）</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-09T00:00:00+00:00">2021-09-09</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-09-25 01:04:31" itemprop="dateModified" datetime="2021-09-25T01:04:31+00:00">2021-09-25</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">1.8k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">6m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/Manjaro-tutorial/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Manjaro_tutorial</span></a></span></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><blockquote>
+<p>本节介绍作为一名 linux 用户应该知道的东西，默认你已经设置好并开启了系统代理，且能够以较好的网速科学上网</p>
+</blockquote>
+<blockquote>
+<p>众所周知：重启解决 90% 的问题，重装解决 99% 的问题，重买解决 100% 的问题</p>
+<p>同样地：及时合理地备份是个好习惯，能救命的好习惯</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="全方位查看自己的-ip"><a href="#全方位查看自己的-ip" class="headerlink" title="全方位查看自己的 ip"></a>全方位查看自己的 ip</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://ip111.cn/">http://ip111.cn/</a></li>
+</ul>
+<h4 id="查看当前发行版的基本信息"><a href="#查看当前发行版的基本信息" class="headerlink" title="查看当前发行版的基本信息"></a>查看当前发行版的基本信息</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> /etc/os-release</code></pre>
+
+<h4 id="如何查询新学到的命令属于哪个软件包"><a href="#如何查询新学到的命令属于哪个软件包" class="headerlink" title="如何查询新学到的命令属于哪个软件包"></a>如何查询新学到的命令属于哪个软件包</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 官方</span>
+<span class="token function">sudo</span> pacman -F commandName
+<span class="token comment"># aur</span>
+yay -F commandName</code></pre>
+
+<h4 id="如何查看一个命令的使用方式"><a href="#如何查看一个命令的使用方式" class="headerlink" title="如何查看一个命令的使用方式"></a>如何查看一个命令的使用方式</h4><blockquote>
+<p>再往下的指令大多只给关键词，具体用法自行按照此处介绍的 3 种方式查阅使用手册</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S tldr
+
+<span class="token comment"># 查询高频用法（二八原则）</span>
+tldr <span class="token builtin class-name">command</span>
+
+<span class="token comment"># 查询用法清单</span>
+<span class="token builtin class-name">command</span> --help
+
+<span class="token comment"># 查询详细用法清单</span>
+<span class="token function">man</span> <span class="token builtin class-name">command</span></code></pre>
+
+<h4 id="如何查看当前使用的电脑的详细硬件配置信息"><a href="#如何查看当前使用的电脑的详细硬件配置信息" class="headerlink" title="如何查看当前使用的电脑的详细硬件配置信息"></a>如何查看当前使用的电脑的详细硬件配置信息</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方法一：以图形化的方式查看 cpu 与 显卡 的详细参数可使用如下两款软件</span>
+<span class="token function">sudo</span> pacman -S cpu-x gpu-viewer
+
+<span class="token comment"># 方法二：在终端中输出较完整的硬件参数信息</span>
+dmidecode</code></pre>
+
+<h4 id="磁盘操作"><a href="#磁盘操作" class="headerlink" title="磁盘操作"></a>磁盘操作</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 磁盘分区管理</span>
+<span class="token function">fdisk</span>
+
+<span class="token comment"># 列出设备信息</span>
+lsblk
+
+<span class="token comment"># 磁盘挂载方式</span>
+<span class="token function">mkdir</span> /mnt/mountPoint
+<span class="token function">mount</span></code></pre>
+
+<h4 id="如何查看当前磁盘的使用情况"><a href="#如何查看当前磁盘的使用情况" class="headerlink" title="如何查看当前磁盘的使用情况"></a>如何查看当前磁盘的使用情况</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方法一：以图形化的方式查看当前磁盘的使用情况可使用如下一款软件</span>
+<span class="token function">sudo</span> pacman -S filelight
+
+<span class="token comment"># 方法二：在终端中输出当前磁盘的使用情况</span>
+<span class="token function">df</span></code></pre>
+
+<h4 id="如何进行磁盘的格式化"><a href="#如何进行磁盘的格式化" class="headerlink" title="如何进行磁盘的格式化"></a>如何进行磁盘的格式化</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方法一：以图形化的方式格式化磁盘使用 KDE 自带的软件：KDE分区管理器</span>
+
+<span class="token comment"># 方法二：在终端中对磁盘进行格式化操作</span>
+<span class="token function">sudo</span> <span class="token function">fdisk</span> -l 						<span class="token comment"># 查看磁盘</span>
+<span class="token function">sudo</span> <span class="token function">umount</span> /dev/sdx 			<span class="token comment"># 卸载磁盘</span>
+<span class="token function">sudo</span> mkfs.ext4 /dev/sdx 	<span class="token comment"># 格式化磁盘为 ext4 格式（适用于 linux 操作系统）</span></code></pre>
+
+<h4 id="系统垃圾清理"><a href="#系统垃圾清理" class="headerlink" title="系统垃圾清理"></a>系统垃圾清理</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除某个你不想要的软件包</span>
+<span class="token function">sudo</span> pacman -R -nssu packageName
+
+<span class="token comment"># 解释（sudo pacman -R --help）</span>
+   <span class="token number">1</span>   │ 用法:  pacman <span class="token punctuation">&#123;</span>-R --remove<span class="token punctuation">&#125;</span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token operator">&lt;</span>软件包<span class="token operator">></span>
+   <span class="token number">2</span>   │ 选项:
+   <span class="token number">6</span>   │   -n, --nosave         删除配置文件
+   <span class="token number">9</span>   │   -s, --recursive      删除不需要的依赖关系<span class="token punctuation">(</span>-ss 包括单独指定安装的依赖关系<span class="token punctuation">)</span>
+  <span class="token number">11</span>   │   -u, --unneeded       删除不需要的软件包</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除系统中所有无用的软件包</span>
+<span class="token function">sudo</span> pacman -R -nssu <span class="token variable"><span class="token variable">$(</span><span class="token function">sudo</span> pacman -Qqt<span class="token variable">)</span></span>
+
+<span class="token comment"># 解释（sudo pacman -Q --help）</span>
+   <span class="token number">1</span>   │ 用法:  pacman <span class="token punctuation">&#123;</span>-Q --query<span class="token punctuation">&#125;</span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>软件包<span class="token punctuation">]</span>
+   <span class="token number">2</span>   │ 选项:
+  <span class="token number">18</span>   │   -t, --unrequired     列出不被任何软件包<span class="token punctuation">(</span>可选<span class="token punctuation">)</span>要求的软件包<span class="token punctuation">(</span>-tt 忽略可选依赖<span class="token punctuation">)</span> <span class="token punctuation">[</span>过滤器<span class="token punctuation">]</span>
+  <span class="token number">15</span>   │   -q, --quiet          在查询或搜索时显示较少的信息</code></pre>
+
+<p>==可以手动删除家目录下已被删除软件包的配置文件，但应谨慎操作防止误删除（比如先 mv 而不是直接 rm，过段时间看看如果没事儿再 rm）==</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从缓存目录中删除`所有`旧软件包</span>
+<span class="token function">sudo</span> pacman -S -cc
+
+<span class="token comment"># 解释（sudo pacman -S --help）</span>
+   <span class="token number">1</span>   │ 用法:  pacman <span class="token punctuation">&#123;</span>-S --sync<span class="token punctuation">&#125;</span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>软件包<span class="token punctuation">]</span>
+   <span class="token number">2</span>   │ 选项:
+   <span class="token number">4</span>   │   -c, --clean          从缓存目录中删除旧软件包 <span class="token punctuation">(</span>-cc 清除所有<span class="token punctuation">)</span> </code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 清理日志</span>
+<span class="token function">sudo</span> journalctl --disk-usage      <span class="token comment"># Show total disk usage of all journal files</span>
+<span class="token function">sudo</span> journalctl --vacuum-size<span class="token operator">=</span>5M  <span class="token comment"># 将日志在磁盘上的使用量减少到 5M 以下</span>
+<span class="token function">sudo</span> journalctl --vacuum-time<span class="token operator">=</span>1w  <span class="token comment"># 只保留近一周的日志</span>
+
+<span class="token comment"># 解释（sudo journalctl --help）</span>
+   <span class="token number">1</span>   │ journalctl <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">..</span>.<span class="token punctuation">]</span> <span class="token punctuation">[</span>MATCHES<span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+   <span class="token number">2</span>   │ 
+   <span class="token number">3</span>   │ Query the journal.
+   <span class="token number">4</span>   │ 
+  <span class="token number">53</span>   │ Commands:
+  <span class="token number">58</span>   │      --disk-usage            Show total disk usage of all journal files
+  <span class="token number">59</span>   │      --vacuum-size<span class="token operator">=</span>BYTES     Reduce disk usage below specified size
+  <span class="token number">61</span>   │      --vacuum-time<span class="token operator">=</span>TIME      Remove journal files older than specified <span class="token function">time</span></code></pre>
+
+<ul>
+<li>当然，有一个好用的图形化的应用软件=&gt;Octopi（a powerful Pacman/AUR front end using Qt libs）可以协助你进行软件管理</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/aarnt/octopi">官方仓库戳此</a>，安装方法如下</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S octopi</code></pre>
+
+<h4 id="如何查看内存的使用情况"><a href="#如何查看内存的使用情况" class="headerlink" title="如何查看内存的使用情况"></a>如何查看内存的使用情况</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">free</span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>total</th>
+<th>系统总的可用物理内存大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>used</td>
+<td>已被使用的物理内存大小</td>
+</tr>
+<tr>
+<td>3</td>
+<td>free</td>
+<td>真正尚未被使用的物理内存大小</td>
+</tr>
+<tr>
+<td>4</td>
+<td>shared</td>
+<td>被共享使用的物理内存大小</td>
+</tr>
+<tr>
+<td>5</td>
+<td>buff/cache</td>
+<td>被 buffer 和 cache 使用的物理内存大小</td>
+</tr>
+<tr>
+<td>6</td>
+<td>available</td>
+<td>可以被<code>应用程序</code>使用的物理内存大小 ≈ free + buff/cache</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>操作系统为了提升读写性能（缓解 CPU 和磁盘之间的速度差距），会消耗一部分内存资源缓存磁盘数据，对于系统内核而言，buff/cache 属于已经被使用了的内存，但当应用程序申请内存时，如果 free 不够，操作系统内核就会从 buff/cache 回收内存资源提供给应用程序使用</p>
+</blockquote>
+<h4 id="系统服务"><a href="#系统服务" class="headerlink" title="系统服务"></a>系统服务</h4><blockquote>
+<p>Linux 系统中运行着各种服务，需要我们掌握服务的增删改查方式，这里讲述<code>systemctl</code>的用法，以<code>dhcpcd</code>为例</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash">systemctl start dhcpcd            <span class="token comment"># 启动服务</span>
+systemctl stop dhcpcd             <span class="token comment"># 停止服务</span>
+systemctl restart dhcpcd          <span class="token comment"># 重启服务</span>
+systemctl reload dhcpcd           <span class="token comment"># 重新加载服务以及它的配置文件</span>
+systemctl status dhcpcd           <span class="token comment"># 查看服务状态</span>
+systemctl <span class="token builtin class-name">enable</span> dhcpcd           <span class="token comment"># 设置服务开机自启</span>
+systemctl <span class="token builtin class-name">enable</span> --now dhcpcd     <span class="token comment"># 设置服务开机自启并立即启动这个单元</span>
+systemctl disable dhcpcd          <span class="token comment"># 取消服务的开机自启</span>
+systemctl daemon-reload dhcpcd    <span class="token comment"># 重新载入 systemd 配置 扫描新增或变更的服务单元 不会重新加载变更的配置 加载变更的配置用 reload</span></code></pre>
+
+<h4 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 进程监控（动态）</span>
+<span class="token function">top</span>
+
+<span class="token comment"># 进程输出（静态）</span>
+<span class="token function">ps</span>
+
+<span class="token comment"># 杀死某个 PID 对应的进程</span>
+<span class="token function">kill</span> PID</code></pre>
+
+<h4 id="文件权限管理"><a href="#文件权限管理" class="headerlink" title="文件权限管理"></a>文件权限管理</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">chown</span></code></pre>
+
+<h4 id="列出系统上安装的可用字体"><a href="#列出系统上安装的可用字体" class="headerlink" title="列出系统上安装的可用字体"></a>列出系统上安装的可用字体</h4><pre class="language-bash" data-language="bash"><code class="language-bash">fc-list</code></pre>
+
+<h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span></code></pre>
+
+<h4 id="系统备份"><a href="#系统备份" class="headerlink" title="系统备份"></a>系统备份</h4><blockquote>
+<p>准备一个被格式化为 ext4 类型的文件系统（磁盘中的某个分区或只分了一个区的磁盘）；使用 RSYNC 模式将系统全盘备份！</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S timeshift</code></pre>
+
+<blockquote>
+<p>再次强调：及时合理地备份是个好习惯，能救命的好习惯！</p>
+</blockquote>
+<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>太棒了，你看到了结语，希望你真的完全实践成功了本教程（而不是直接就翻到了结语部分hahaha）</p>
+<p>关于我是怎么接触到的 linux，为什么要学习 linux</p>
+<p>其实我是因为羡慕同学的苹果电脑而接触到的linux，并不是因为什么所谓的“热爱学习”</p>
+<p>但是 linux 却打开了我新世界的大门，和 macos 同属于类 unix 操作系统的 linux，尤其是 archlinux 和基于 archlinux 的一众 linux 的发行版，都具有极高的可自定义程度，linux 是个神奇的东西，你越是好奇花的时间越长，就对它越了解，同时你也越能发现你所不知道的东西越变越多，你也渐渐学到了很多，收获了很多，就像本教程开头所讲的各种 linux 独有的优点</p>
+<p>同时你也在变得与众不同，正是这种与众不同，满足我的虚荣心更带给我成就感和愉悦感，我也相信这种不同会在不经意间给我提供帮助，给我增加可能性</p>
+<p>致敬 linux 的缔造者 Linus，感谢 linux 社区和网络上的大佬们，让我这个小白可以如此受益</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>lpj</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_4/" title="ManjaroLinux 入门指南（四）">https://brannua.github.io/2021/09/09/manjaro_tutorial/Manjaro_4/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/09/09/manjaro_tutorial/Manjaro_3/" rel="prev" title="ManjaroLinux 入门指南（三）"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">ManjaroLinux 入门指南（三）</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/08/31/it/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%9F%BA%E7%A1%80/" rel="next" title="聊聊二进制"><span class="post-nav-text">聊聊二进制</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-disc-line"></use></svg></span><span class="author"> lpj</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.2</span></div><div class="live_time"><span>本博客已机智地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2021-07-13T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["9-18"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div></body></html>
