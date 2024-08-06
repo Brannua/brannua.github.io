@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>分享一道计算机网络的经典面试题（关于为什么网络层地址和 MAC 地址共存） - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">分享一道计算机网络的经典面试题（关于为什么网络层地址和 MAC 地址共存）</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2023-01-30</span>
+  </div>
+  <div class="post-content">
+    <h3 id="有了-MAC-地址，为什么还需要-IP-地址-？"><a href="#有了-MAC-地址，为什么还需要-IP-地址-？" class="headerlink" title="有了 MAC 地址，为什么还需要 IP 地址 ？"></a>有了 MAC 地址，为什么还需要 IP 地址 ？</h3><p>计算机网络诞生之初，只是一个个小的局域网，还没有形成如今的互联网；</p>
+<p>局域网内的计算机之间通信，需要对每个计算机进行唯一标识，所以就诞生了 MAC 地址。</p>
+<p>随着计算机网络的发展，局域网之间开始互联互通，产生了计算机跨网络通信的需求；</p>
+<p>试想，假设局域网 A 内的主机 A1 想要发送数据包给局域网 B 内的主机 B1</p>
+<p>若 A1 只知道 B1 的 MAC 地址，显然 A1 无法知道应该将数据包发往哪个网络</p>
+<p>即：MAC 地址并不具备标识网络的作用</p>
+<p>所以，能够标识网络的 IP 地址诞生</p>
+<hr>
+<h3 id="既然-IP-地址的定位是标识网络，那么为什么要把-IP-地址设计成既能标识网络，又能标识主机-？"><a href="#既然-IP-地址的定位是标识网络，那么为什么要把-IP-地址设计成既能标识网络，又能标识主机-？" class="headerlink" title="既然 IP 地址的定位是标识网络，那么为什么要把 IP 地址设计成既能标识网络，又能标识主机 ？"></a>既然 IP 地址的定位是标识网络，那么为什么要把 IP 地址设计成既能标识网络，又能标识主机 ？</h3><p>举个例子，假设局域网 A 内的主机 A1 想要发送数据包给局域网 B 内的主机 B1</p>
+<p>假设A1 只知道 B1 的 IP 地址</p>
+<p>如果 IP 地址只能标识网络，那么 A1 就只能将数据包发往目的网络，然后数据包就不知该何去何从了</p>
+<p>所以 IP 地址既要能标识网络，又要能标识主机</p>
+<hr>
+<h3 id="既然有了-IP-地址，为什么还要有-MAC-地址-？或者说只靠-IP-地址进行互联网通信行不行-？"><a href="#既然有了-IP-地址，为什么还要有-MAC-地址-？或者说只靠-IP-地址进行互联网通信行不行-？" class="headerlink" title="既然有了 IP 地址，为什么还要有 MAC 地址 ？或者说只靠 IP 地址进行互联网通信行不行 ？"></a>既然有了 IP 地址，为什么还要有 MAC 地址 ？或者说只靠 IP 地址进行互联网通信行不行 ？</h3><blockquote>
+<p>参考了：<a href="http://liupj.top/2022/04/04/ether-net/">http://liupj.top/2022/04/04/ether-net/</a></p>
+</blockquote>
+<p>如果没有 MAC 地址，而是使用网络层协议进行通信，理论上来说是可以的，但是不好</p>
+<p>因为在<a href="http://liupj.top/2022/04/04/ether-net/">以太网</a>诞生之初，IP 还没有垄断网络层协议（那时还有Novell网的IPX&#x2F;SPX协议、DEC公司开发的CLNP网络协议，以及Apple公司开发的Apple Talk协议）</p>
+<p>如果没有 MAC 地址，势必需要网卡解读网络层协议帧头的地址信息，而不同网络层协议帧头的地址都大相径庭，这就增加了以太网卡的实现复杂度。</p>
+<p>如果网卡有了 MAC 地址，就可以不依赖于任何网络层协议，独立判断一个帧是否接收（依据 MAC 地址匹配），这就大大简化了网卡的实现。</p>
+<p>即使以后出现更多的网络层协议，网卡也无需太多的改变，这就是网络分层的精髓</p>
+<p>一层的内部实现无需知晓其上层、或下层</p>
+<hr>
+<p>其实，《计算机网络自顶向下方法》对该问题有明确的回答</p>
+<p>英文原版<br><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20230130194206.png" alt="20230130194206"></p>
+<p>中译版<br><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20230130194400.png" alt="20230130194400"></p>
+<hr>
+<p>综上所述，MAC 和 IP 缺一不可。</p>
+<p>从 IP 到 MAC 的转换，使用 ARP 协议。</p>
+<hr>
+<p>补充知识：</p>
+<p>主机的 IP 地址是可以动态变化的，而 MAC 地址是写死的，一般不能变（当然也有<a href="https://liupj.top/2022/03/26/mac-randomize/">随机 MAC 的手段</a>）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2024
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
