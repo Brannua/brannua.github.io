@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>1-AiLearning:生成式大语言模型(LLM：eg：deepseek)的用法技巧 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">1-AiLearning:生成式大语言模型(LLM：eg：deepseek)的用法技巧</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2026-01-05</span>
+  </div>
+  <div class="post-content">
+    <h3 id="撰写高质量输入的一些技巧"><a href="#撰写高质量输入的一些技巧" class="headerlink" title="撰写高质量输入的一些技巧"></a>撰写高质量输入的一些技巧</h3><p>LLM 的本质是一个输入输出程序软件体，这意味着：</p>
+<p>结构化（eg：markdown）表达充分而清晰、具备强引导性的输入，能获取更棒的输出（good question can get good answer）</p>
+<pre><code>结构化（eg：markdown）能够帮助 LLM 精准辨识：对于输入，哪些部分应当被识别为一个完整的意义单元
+</code></pre>
+<ol>
+<li><p>让 LLM 软件体“身临其境”地理解某一具体需求的场景上下文，以便给出更棒的输出</p>
+<p> 实操步骤：<br> 赋予 LLM 特定角色，约束 LLM 的回答范畴（也可理解为规则限制，比如让其只能给出法律相关的回答）</p>
+</li>
+<li><p>给 LLM 提供高质量输出的例子，让其模仿</p>
+</li>
+<li><p>分治法：复杂问题可拆解成 n 个小问题，让 LLM 逐个击破</p>
+</li>
+</ol>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
