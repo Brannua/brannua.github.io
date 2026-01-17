@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>基于 openssh，连接到另一台电脑上 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">基于 openssh，连接到另一台电脑上</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-05-20</span>
+  </div>
+  <div class="post-content">
+    <ul>
+<li><p>我有 2 台笔记本电脑</p>
+<ul>
+<li><p>一个运行着 ubuntu 系统，在我家局域网内充当服务器的角色</p>
+</li>
+<li><p>另一个运行着 manjaro 系统，是俺的日常主力机</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>只要两台电脑都开着机，我就能从其中任意一台电脑上轻松连接到另一台电脑上进行操作，这给我的日常带来了很大方便，具体是怎么实现的呢 ？请看下文</p>
+<h4 id="你得知道查看-IP-的方式"><a href="#你得知道查看-IP-的方式" class="headerlink" title="你得知道查看 IP 的方式"></a>你得知道查看 IP 的方式</h4><p>eg：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+
+<h4 id="首先对-ubuntu（服务器）进行操作"><a href="#首先对-ubuntu（服务器）进行操作" class="headerlink" title="首先对 ubuntu（服务器）进行操作"></a>首先对 ubuntu（服务器）进行操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保系统最新</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置开启 ssh 服务</span></span><br><span class="line">sudo apt install openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now ssh</span><br><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+
+<h4 id="然后就可以从-manjaro（主力机）上连接-ubuntu（服务器）"><a href="#然后就可以从-manjaro（主力机）上连接-ubuntu（服务器）" class="headerlink" title="然后就可以从 manjaro（主力机）上连接 ubuntu（服务器）"></a>然后就可以从 manjaro（主力机）上连接 ubuntu（服务器）</h4><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220520085550466.png" alt="image-20220520085550466"></p>
+<h4 id="那如果想从-ubuntu-上连接-manjaro-呢-？"><a href="#那如果想从-ubuntu-上连接-manjaro-呢-？" class="headerlink" title="那如果想从 ubuntu 上连接 manjaro 呢 ？"></a>那如果想从 ubuntu 上连接 manjaro 呢 ？</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保系统最新</span></span><br><span class="line">sudo pacman -Syyu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置开启 ssh 服务</span></span><br><span class="line">sudo pacman -S openssh</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now sshd</span><br><span class="line">sudo systemctl status sshd</span><br></pre></td></tr></table></figure>
+
+<h4 id="然后就可以从-ubuntu（服务器）上连接-manjaro（主力机）"><a href="#然后就可以从-ubuntu（服务器）上连接-manjaro（主力机）" class="headerlink" title="然后就可以从 ubuntu（服务器）上连接 manjaro（主力机）"></a>然后就可以从 ubuntu（服务器）上连接 manjaro（主力机）</h4><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220520102623866.png" alt="image-20220520102623866"></p>
+<h4 id="可以使用-ufw-配置防火墙，毕竟安全意识还是要有的"><a href="#可以使用-ufw-配置防火墙，毕竟安全意识还是要有的" class="headerlink" title="可以使用 ufw 配置防火墙，毕竟安全意识还是要有的"></a>可以使用 ufw 配置防火墙，毕竟安全意识还是要有的</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Usage</span></span><br><span class="line">tldr ufw</span><br><span class="line">ufw --<span class="built_in">help</span></span><br><span class="line">man ufw</span><br></pre></td></tr></table></figure>
+
+<p>自行配置吧～</p>
+<h4 id="当你需要多种操作系统，除了购买更多电脑"><a href="#当你需要多种操作系统，除了购买更多电脑" class="headerlink" title="当你需要多种操作系统，除了购买更多电脑"></a>当你需要多种操作系统，除了购买更多电脑</h4><p><a href="https://liupj.top/2022/02/04/multi-os/">其它的一些解决方案</a></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

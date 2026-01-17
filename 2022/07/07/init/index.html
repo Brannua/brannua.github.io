@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>快速搭建实用个人博客网站的方法：hexo + githubAction - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">快速搭建实用个人博客网站的方法：hexo + githubAction</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-07-07</span>
+  </div>
+  <div class="post-content">
+    <h2 id="我的期望"><a href="#我的期望" class="headerlink" title="我的期望"></a>我的期望</h2><ol>
+<li>专注于内容创作，不需要花里胡哨的东西影响阅读和网站加载速度</li>
+<li>使用方便，在本地 <code>source/_posts/</code> 中用 markdown 语法编写文章，使用 git 同步至远端私有仓库 then 自动触发用于自动编译部署站点的 githubActions</li>
+</ol>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ul>
+<li>nvm (optional，but recommended)</li>
+<li>nrm (optional, but recommended)</li>
+<li>node.js</li>
+</ul>
+<h2 id="生成站点"><a href="#生成站点" class="headerlink" title="生成站点"></a>生成站点</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化站点源码</span></span><br><span class="line">npm i hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地预览站点</span></span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给站点换个主题</span></span><br><span class="line">https://github.com/chunqiuyiyu/hexo-theme-polk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次预览</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署站点"><a href="#部署站点" class="headerlink" title="部署站点"></a>部署站点</h2><blockquote>
+<p>参考了<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages#%E7%A7%81%E6%9C%89-Repository">这里</a>，以我的 github 用户名 <code>brannua</code> 为例</p>
+</blockquote>
+<ul>
+<li>在 github 上建立两个存储库：blog (private)，brannua.github.io (public)</li>
+<li>私有存储库 blog 用于存储站点源码，公开仓库 brannua.github.io 用于部署站点</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm i hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将如下配置写入 <code>blog/_config.yml</code></li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/Brannua/brannua.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 部署</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>好了，现在你可以去趟厕所，然后喝点水，伸个懒腰</p>
+<p>网站的线上地址：<a target="_blank" rel="noopener" href="https://brannua.github.io/">https://brannua.github.io/</a></p>
+<h2 id="备份站点源码"><a href="#备份站点源码" class="headerlink" title="备份站点源码"></a>备份站点源码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog/themes/polk</span><br><span class="line"><span class="built_in">rm</span> -rf .git</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ../..</span><br><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/Brannua/blog.git</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置站点信息"><a href="#配置站点信息" class="headerlink" title="配置站点信息"></a>配置站点信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blog/_config.yml                <span class="comment"># 站点的配置文件</span></span><br><span class="line">blog/themes/polk/_config.yml    <span class="comment"># 主题的配置文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="githubActions"><a href="#githubActions" class="headerlink" title="githubActions"></a>githubActions</h2><blockquote>
+<p>首先，借助 ssh，将私有仓库 blog 和公有仓库 brannua.github.io 打通</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成公私钥匙对儿</span></span><br><span class="line">ssh-keygen -f gh-hexo-deploy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给私有仓库 blog 添加私钥</span></span><br><span class="line"><span class="comment"># blog -&gt; Settings -&gt; Secrets -&gt; Actions -&gt; New repository secret</span></span><br><span class="line">Name: HEXO_DEPLOY_KEY</span><br><span class="line">Value: <span class="variable">$&#123;cat ~/.ssh/gh-hexo-deploy&#125;</span></span><br><span class="line"><span class="comment"># Add secret</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给公有仓库 brannua.github.io 添加公钥</span></span><br><span class="line"><span class="comment"># brannua.github.io -&gt; Settings -&gt; Deploy keys -&gt; Add deploy key</span></span><br><span class="line">Title: HEXO_DEPLOY_PUB</span><br><span class="line">Value: <span class="variable">$&#123;cat ~/.ssh/gh-hexo-deploy.pub&#125;</span></span><br><span class="line"><span class="comment"># Allow write access</span></span><br><span class="line"><span class="comment"># Add key </span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改 <code>blog/_config.yml</code></p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:Brannua/brannua.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>然后配置 githubActions 实现 push 源码就触发站点的自动编译部署</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p blog/.github/workflows</span><br><span class="line">vim blog/.github/workflows/deploy.yml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">deploy-hexo-blog</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-18.04</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">github.event.repository.owner.id</span> <span class="string">==</span> <span class="string">github.event.sender.id</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">1</span><span class="string">.</span> <span class="string">Setup</span> <span class="string">Node.js...</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12.x&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">2</span><span class="string">.</span> <span class="string">Setup</span> <span class="string">Hexo...</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm i hexo-cli -g</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">3</span><span class="string">.</span> <span class="string">Setup</span> <span class="string">Git...</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git config --global user.name &quot;brannua-github-action&quot;</span></span><br><span class="line"><span class="string">          git config --global user.email &quot;374453156@qq.com&quot;</span></span><br><span class="line"><span class="string">          git config --global init.defaultBranch master</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">4</span><span class="string">.</span> <span class="string">Setup</span> <span class="string">ssh...</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">ACTION_DEPLOY_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.HEXO_DEPLOY_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          mkdir ~/.ssh/</span></span><br><span class="line"><span class="string">          echo &quot;$ACTION_DEPLOY_KEY&quot; &gt; ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">          chmod 700 ~/.ssh</span></span><br><span class="line"><span class="string">          chmod 600 ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">          ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">5</span><span class="string">.</span> <span class="string">Checkout</span> <span class="string">source...</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ref:</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">6</span><span class="string">.</span> <span class="string">Install</span> <span class="string">dependences...</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="number">7</span><span class="string">.</span> <span class="string">Build</span> <span class="string">and</span> <span class="string">Deploy...</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean</span></span><br><span class="line"><span class="string">          hexo deploy</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>现在，我的所有期望已经实现</p>
+</blockquote>
+<h4 id="给网站配个域名"><a href="#给网站配个域名" class="headerlink" title="给网站配个域名"></a>给网站配个域名</h4><p>buy 域名 from <a target="_blank" rel="noopener" href="https://aliyun.com/">aliyun</a>.</p>
+<p>实名认证 -&gt; 创建相关信息模板 -&gt; 设置邮箱 -&gt; 解析域名</p>
+<p>在 <code>blog/source</code> 中执行 <code>echo $&#123;域名&#125; &gt; CNAME</code></p>
+<p>push 到 github，ok</p>
+<p>域名解析生效需要一个午觉的时间</p>
+<p>更具体的步骤谷歌一搜一大把，不再赘述</p>
+<p>最终成果：<a href="https://liupj.top/">https://liupj.top</a></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

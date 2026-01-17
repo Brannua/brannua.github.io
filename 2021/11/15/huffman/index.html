@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>计算机数据的编解码与哈夫曼树 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">计算机数据的编解码与哈夫曼树</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2021-11-15</span>
+  </div>
+  <div class="post-content">
+    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>你可能会遇到这样的情况</li>
+<li>某天，你像往常一样打开电脑，准备撰写文稿，这时，你的一个朋友给你发来一个信息：“Hey！快看看我新编的故事写得怎么样 ？！”，然后就给你发来了一个 .txt 文档</li>
+<li>你饶有兴致的接收了这个文档，然后鼠标双击打开了它…</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211115144145486.png" alt="image-20211115144145486"></p>
+<ul>
+<li>如果你确实遇到了诸如此类修仙三百年也不一定看得懂的文本内容，并且不知道如何处理，那就继续阅读本文吧～</li>
+<li>别忘了给你的朋友回复一句：“老哥写得牛批 ！”</li>
+</ul>
+<p><strong>我假设你已经看了YOUTUBE上的计算机科学速成课</strong></p>
+<h4 id="举个日常生活中的例子"><a href="#举个日常生活中的例子" class="headerlink" title="举个日常生活中的例子"></a>举个日常生活中的例子</h4><ul>
+<li>以使用电脑写英语作文为例，我们会连续不断地敲击键盘，向电脑中输入英文字母</li>
+<li>当 ctrl+s 保存时，电脑就会将我们输入的这些英文字母所转换成的 0 和 1 们存储到我们电脑的硬盘中</li>
+<li>当下次再打开这个英语作文时，电脑就会从硬盘中读取出上次保存的这些 0 和 1，并将它们转换回正确的英文字母，进而显示到屏幕上</li>
+</ul>
+<h4 id="什么是-「编码、解码」-？"><a href="#什么是-「编码、解码」-？" class="headerlink" title="什么是 「编码、解码」 ？"></a>什么是 「编码、解码」 ？</h4><ul>
+<li><p>在上面这个例子中</p>
+<ul>
+<li>英文字母被转换成一堆 0 和 1 的过程就被称为<code>编码</code></li>
+<li>这些 0 和 1 被转换回英文字母的过程就被称为<code>解码</code></li>
+</ul>
+</li>
+<li><p>可以用数学中的 「函数与反函数」 的知识来理解 「编码与解码」，基于上面这个例子</p>
+<ul>
+<li>将英文字母看作自变量，通过某种编码方式（映射方式）就能得到一堆 0 和 1</li>
+<li>将这堆 0 和 1 看作自变量，通过解码方式（编码方式的反函数）就能得到正确的英文字母</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件乱码的处理方式"><a href="#文件乱码的处理方式" class="headerlink" title="文件乱码的处理方式"></a>文件乱码的处理方式</h4><ul>
+<li>所以：<ul>
+<li>文件乱码的原因，就是所选的编解码方式错误，比如文章开头图片中的编解码方式显示在右下角，是 UTF-7，其实只需更改为正确的编解码方式 UTF-8 即可</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211115172050165.png" alt="image-20211115172050165"></p>
+<hr>
+<blockquote>
+<p>以下为补充知识</p>
+</blockquote>
+<h4 id="固定长度编码-amp-可变长度编码"><a href="#固定长度编码-amp-可变长度编码" class="headerlink" title="固定长度编码 &amp; 可变长度编码"></a>固定长度编码 &amp; 可变长度编码</h4><ul>
+<li>固定长度编码：每个字符用相等长度的二进制位表示</li>
+<li>可变长度编码：不同字符允许用不等长的二进制位表示</li>
+</ul>
+<h4 id="对一个英文字母进行固定长度编码，它占几个-bit-？"><a href="#对一个英文字母进行固定长度编码，它占几个-bit-？" class="headerlink" title="对一个英文字母进行固定长度编码，它占几个 bit ？"></a>对一个英文字母进行固定长度编码，它占几个 bit ？</h4><ul>
+<li><p>计算机中的一个 「位（bit）」 可以存 0，也可以存 1，就是说一个位能区分两种状态</p>
+</li>
+<li><p>一共有 26 种英文字母，就需要用 0 和 1 来区分表示 26 种状态，显然需要更多的位</p>
+</li>
+<li><p>2^4 &#x3D; 16，2^5 &#x3D; 32，16 &lt; <code>26</code> &lt; 32，所以需要至少 5 个 bit 才能区分表示出 26 种状态</p>
+</li>
+<li><p>为了使用方便，我们规定用 1 Byte 的空间存储一个英文字母，即一个英文字母编码后，所占的空间大小为 8 bit（<code>考研默认每个字符占 8 位</code>）</p>
+</li>
+</ul>
+<h4 id="字符集的概念"><a href="#字符集的概念" class="headerlink" title="字符集的概念"></a>字符集的概念</h4><ul>
+<li>英文字符少，每一个英文字符都包含于 &#x3D;&gt; ASCII字符集</li>
+<li>中文字符多，每一个中文字符都包含于 &#x3D;&gt; Unicode字符集</li>
+</ul>
+<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><ul>
+<li>对于同一个字符集，可以采用不同的编解码方式，如 UTF-8、UTF-16…</li>
+<li>对一个字符采用不同的编码方式进行编码，所得的二进制数所需的存储空间大小是不一样的</li>
+</ul>
+<hr>
+<blockquote>
+<p>以下为进阶知识，涉及 「哈夫曼树（最优二叉树）」、「哈夫曼编码（适用于数据压缩）」</p>
+</blockquote>
+<h4 id="从一个例子看-「固定长度编码的缺陷」"><a href="#从一个例子看-「固定长度编码的缺陷」" class="headerlink" title="从一个例子看 「固定长度编码的缺陷」"></a>从一个例子看 「固定长度编码的缺陷」</h4><ul>
+<li><p>小渣和老渣是计算机系的两个学生，他们也学习了编解码的知识，于是打算在期末考试中用编解码的知识打暗号作弊（Tips：考试作弊已入刑法，违法必究）</p>
+</li>
+<li><p>他俩的思路是这样的：</p>
+<ul>
+<li>选择题一共有 A、B、C、D 四个选项</li>
+<li>将这四个选项进行二进制编码，得到答案选项的二进制表示</li>
+<li>用 「咳嗽」 表示 0，用 「打嗝」 表示 1</li>
+<li>然后就可以用连续的咳嗽和打嗝来传递信息，经过解码，答案就出来了</li>
+</ul>
+</li>
+<li><p>若采用固定长度编码：</p>
+<ul>
+<li>一共有 A、B、C、D 四种选项，要用 0 和 1 区分出这四种状态，每个答案选项就至少需要用 2 个 bit 来表示</li>
+<li>比如<ul>
+<li>A &lt;&#x3D;&gt; 00</li>
+<li>B &lt;&#x3D;&gt; 01</li>
+<li>C &lt;&#x3D;&gt; 10</li>
+<li>D &lt;&#x3D;&gt; 11</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>怎么用呢 ？</p>
+<ul>
+<li>比如小渣要把 100 个答案传给老渣，小渣的答案中有（80 个 C、10 个 A、8 个 B、2 个 D）</li>
+<li>那他一共需要传递 <code>80 * 2 + 10 * 2 + 8 * 2 + 2 * 2 = 200</code> 个二进制位</li>
+<li>也就是需要咳嗽和打嗝 200 次，才能传完答案（监考老师热心关怀的概率：100%）</li>
+<li>小渣打了个冷颤，开始思考如何让传递的二进制位的个数尽可能地少</li>
+</ul>
+</li>
+</ul>
+<h4 id="分析这种缺陷的原因"><a href="#分析这种缺陷的原因" class="headerlink" title="分析这种缺陷的原因"></a>分析这种缺陷的原因</h4><ul>
+<li>上面这种固定长度编码的方式可以用 「树」 来表示</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211115185423296.png" alt="image-20211115185423296"></p>
+<ul>
+<li><code>80 * 2 + 10 * 2 + 8 * 2 + 2 * 2 = 200</code> 正好是树的带权路径长度 WPL</li>
+<li>于是问题就转化为了 「如何让二叉树的带权路径长度最小」 ？</li>
+</ul>
+<h4 id="最优二叉树（哈夫曼树）"><a href="#最优二叉树（哈夫曼树）" class="headerlink" title="最优二叉树（哈夫曼树）"></a>最优二叉树（哈夫曼树）</h4><blockquote>
+<p>让二叉树的带权路径长度最小 ？</p>
+<p>小渣灵光一现，构建最优二叉树 ！（哈夫曼树 ！）</p>
+<p>明确：哈夫曼树（最优二叉树）不唯一 &#x3D;&gt; 哈夫曼编码不唯一</p>
+</blockquote>
+<ul>
+<li>把选项看作结点</li>
+<li>把选项出现的频度看作结点的权值</li>
+<li>用这 4 个带权结点构建最优二叉树（哈夫曼树）</li>
+<li>这样就得到了 WPL 最小的树，也就得到了一套<code>哈夫曼编码（属于可变长度编码）</code></li>
+<li>能够确保传递的二进制信息最少（即实现了数据压缩）</li>
+<li>哈夫曼编码属于 「前缀编码」，即没有一个编码是另一个编码的前缀（否则传递的数据会有二义性）</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211115190829597.png" alt="image-20211115190829597"></p>
+<ul>
+<li>相比于之前的 200 次，若采用哈夫曼编码，小渣只需咳嗽打嗝 130 次，就可以传递 100 个答案，还是十分搞笑的</li>
+</ul>
+<h4 id="哈夫曼编码广泛用于数据的压缩"><a href="#哈夫曼编码广泛用于数据的压缩" class="headerlink" title="哈夫曼编码广泛用于数据的压缩"></a>哈夫曼编码广泛用于数据的压缩</h4><ul>
+<li>比如 26 个英文字母的使用频率是不同的，对于一段英文，如果它采用的是 ASCII 编码（属于固定长度的编码）</li>
+<li>那么就可以将这段英文采用哈夫曼编码（用这 26 个权值不同的结点构建哈夫曼树，可得哈夫曼编码）进行重新编码</li>
+<li>就实现了数据压缩</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211115120514176.png" alt="image-20211115120514176"></p>
+<hr>
+<blockquote>
+<p>以下为数据结构专业知识 ～ 哈夫曼树（最优二叉树）</p>
+</blockquote>
+<h4 id="啥叫-「结点的权」-？"><a href="#啥叫-「结点的权」-？" class="headerlink" title="啥叫 「结点的权」 ？"></a>啥叫 「结点的权」 ？</h4><ul>
+<li>有某种现实含义的数值，比如表示结点的重要性等</li>
+</ul>
+<h4 id="啥叫-「结点的带权路径长度」-？"><a href="#啥叫-「结点的带权路径长度」-？" class="headerlink" title="啥叫 「结点的带权路径长度」 ？"></a>啥叫 「结点的带权路径长度」 ？</h4><ul>
+<li><code>从根结点到该结点的路径长度 * 该结点的权值</code></li>
+</ul>
+<h4 id="啥叫-「树的带权路径长度」-？"><a href="#啥叫-「树的带权路径长度」-？" class="headerlink" title="啥叫 「树的带权路径长度」 ？"></a>啥叫 「树的带权路径长度」 ？</h4><ul>
+<li>树中<code>所有叶子结点</code>的带权路径长度之和（WPL, <code>W</code>eighted <code>P</code>ath <code>L</code>ength）</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211114203648441.png" alt="image-20211114203648441"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211114203933185.png" alt="image-20211114203933185"></p>
+<h4 id="啥叫-「哈夫曼树」-？"><a href="#啥叫-「哈夫曼树」-？" class="headerlink" title="啥叫 「哈夫曼树」 ？"></a>啥叫 「哈夫曼树」 ？</h4><ul>
+<li><code>含有 n 个带权叶结点</code>，且<code>带权路径长度（WPL）最小</code>的<code>二叉树</code>被称为<code>哈夫曼树，也叫最优二叉树</code></li>
+</ul>
+<h4 id="给出一堆带权叶结点-x3D-gt-如何构造哈夫曼树-？"><a href="#给出一堆带权叶结点-x3D-gt-如何构造哈夫曼树-？" class="headerlink" title="给出一堆带权叶结点 &#x3D;&gt; 如何构造哈夫曼树 ？"></a>给出一堆带权叶结点 &#x3D;&gt; 如何构造哈夫曼树 ？</h4><blockquote>
+<p>步骤 2 左右子树顺序任意~</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211114205005741.png" alt="image-20211114205005741"></p>
+<h4 id="哈夫曼树的特点"><a href="#哈夫曼树的特点" class="headerlink" title="哈夫曼树的特点"></a>哈夫曼树的特点</h4><ul>
+<li>哈夫曼树中，结点的度为 0 或 2，<code>不存在度为 1 的结点</code></li>
+<li><code>每个初始结点最终都成为叶结点</code>，且<code>权值越小的叶结点到根结点的路径长度越长</code></li>
+<li>由于每执行一次步骤 2 都会向哈夫曼树中新增一个结点，初始给定 n 个叶子结点，那么就会执行 n-1 次步骤 2，<code>所以最终哈夫曼树中会有 n+(n-1) 个结点</code></li>
+<li><code>哈夫曼树不唯一 =&gt; 哈夫曼编码不唯一，但 WPL 必定相同且为最小值（最优）！</code></li>
+</ul>
+<h4 id="哈夫曼树小结"><a href="#哈夫曼树小结" class="headerlink" title="哈夫曼树小结"></a>哈夫曼树小结</h4><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211115120409324.png" alt="image-20211115120409324"></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
