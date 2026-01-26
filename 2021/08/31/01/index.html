@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>二进制 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">二进制</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2021-08-31</span>
+  </div>
+  <div class="post-content">
+    <h2 id="二进制的存储"><a href="#二进制的存储" class="headerlink" title="二进制的存储"></a>二进制的存储</h2><blockquote>
+<p>无论内部存储器还是外部存储器，都是以 2 进制的方式进行存储的</p>
+<p>就如同一张巨大的 excel 表格，每个格子中都可以存放一个 <code>1</code> 或一个 <code>0</code></p>
+</blockquote>
+<h2 id="一大堆-0-和-1-怎么读呀-？"><a href="#一大堆-0-和-1-怎么读呀-？" class="headerlink" title="一大堆 0 和 1 怎么读呀 ？"></a>一大堆 0 和 1 怎么读呀 ？</h2><p>不妨思考一下：一大堆 0 和 1，你咋知道几个 0 和 1 才表示一个数字 ？显然，如果事先规定好每 x 个 0 和 1 表示一个数字，那不就行了。</p>
+<p>所以：我们不妨让每 <code>8</code> 位表示一个数字，<code>多则溢出舍弃</code>！</p>
+<h2 id="存储单位的转换"><a href="#存储单位的转换" class="headerlink" title="存储单位的转换"></a>存储单位的转换</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1 bit				<span class="comment"># 1 位</span></span><br><span class="line"></span><br><span class="line">1 Byte = 8 bit		<span class="comment"># 1 字节</span></span><br><span class="line"></span><br><span class="line">1 KB = 1024 Byte</span><br><span class="line"></span><br><span class="line">1 MB = 1024 KB</span><br><span class="line"></span><br><span class="line">1 GB = 1024 MB</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-进制加法"><a href="#2-进制加法" class="headerlink" title="2 进制加法"></a>2 进制加法</h2><table>
+<thead>
+<tr>
+<th>10 进制</th>
+<th>2 进制</th>
+<th>8 进制</th>
+<th>16 进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>逢 <code>10</code> 进 <code>1</code></td>
+<td>逢 <code>2</code> 进 <code>1</code></td>
+<td>逢 <code>8</code> 进 <code>1</code></td>
+<td>逢 <code>16</code> 进 <code>1</code></td>
+</tr>
+<tr>
+<td>0123456789</td>
+<td>01</td>
+<td>01234567</td>
+<td>0123456789abcdef</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   1 0 0 1 0 0 1 1</span><br><span class="line">   1 0 1 0 1 0 0 1</span><br><span class="line">-------------------</span><br><span class="line"> 1 0 0 1 1 1 1 0 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="思考：计算机只能保存-0-和-1-那咋表示负数呢？"><a href="#思考：计算机只能保存-0-和-1-那咋表示负数呢？" class="headerlink" title="思考：计算机只能保存 0 和 1 那咋表示负数呢？"></a>思考：计算机只能保存 <code>0</code> 和 <code>1</code> 那咋表示负数呢？</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">借用数学中 “用已知来研究未知” 的思想</span><br><span class="line"></span><br><span class="line">现实生活中：</span><br><span class="line"></span><br><span class="line">    数字前添加 + 表示正数，+ 可省略不写</span><br><span class="line"></span><br><span class="line">    数字前添加 - 表示负数</span><br><span class="line"></span><br><span class="line">比葫芦画瓢，既然我们用每 8 位表示一个数字，那么我们可不可以用第 1 位来表示正负号呢 ？比如：</span><br><span class="line"></span><br><span class="line">    0 代表正数</span><br><span class="line"></span><br><span class="line">    1 代表负数</span><br><span class="line"></span><br><span class="line">按照我们的想法，数字 -1 就被表示成了</span><br><span class="line"></span><br><span class="line">    1 0 0 0 0 0 0 1</span><br><span class="line"></span><br><span class="line">验证一下我们的想法，比如计算一下 1 + (-1)</span><br><span class="line"></span><br><span class="line">    0 0 0 0 0 0 0 1</span><br><span class="line">  + 1 0 0 0 0 0 0 1</span><br><span class="line">  ------------------</span><br><span class="line">    1 0 0 0 0 0 1 0 =&gt; -2</span><br><span class="line"></span><br><span class="line">验证失败，故 =&gt; `在计算机中，负数不能直接表示成其二进制的方式`</span><br><span class="line"></span><br><span class="line">重来！我们期望 00000001 + (-1的二进制表示) =&gt; 00000000，不妨设 -1 的二进制表示为 x</span><br><span class="line"></span><br><span class="line">     0 0 0 0 0 0 0 1</span><br><span class="line">   +               x =&gt; 显然这里的 x 是不存在的 ！思考怎样才能让这个 x 存在 ？</span><br><span class="line">  -------------------</span><br><span class="line">     0 0 0 0 0 0 0 0</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>既然：我们使用 8 位表示一个数字，多则溢出舍弃</p>
+<p>那么我们不妨从“多则溢出舍弃”这里寻找突破口 ！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">要想让 x 存在，那么我们只能思考：能否给被加数或结果添加溢出位，以达到让 x 存在的目的</span><br><span class="line"></span><br><span class="line">	显然如果给被加数添加溢出位，那么 x 仍然不存在</span><br><span class="line"></span><br><span class="line">	而如果给结果添加一个溢出位 1，即将结果写成 100000000，x 就存在了！</span><br><span class="line"></span><br><span class="line">     0 0 0 0 0 0 0 1</span><br><span class="line">   + 1 1 1 1 1 1 1 1 &lt;=&gt; x</span><br><span class="line">  -------------------</span><br><span class="line"> (1) 0 0 0 0 0 0 0 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>故：<code>-1 在计算机中就用 11111111 来表示（即直观上用 -127 表示了 -1）</code></p>
+<blockquote>
+<p>为了庆祝负数在计算机中有了合理的表示形式，诞生了以下三个名词，以 -1 为例</p>
+<p>原码：10000001</p>
+<p>反码（符号位不动，其余位取反）：11111110</p>
+<p>补码（反码加一）：11111111</p>
+</blockquote>
+<p>ok，到此为止问题解决，结论：计算机中，负数以补码的形式来存储</p>
+<blockquote>
+<p>意外的收获：我们顺带解决了 -0 和 +0 在计算机存储中的表示方式不一样的问题</p>
+<p>0 &#x3D;&gt; 00000000</p>
+<p>-0 &#x3D;&#x3D;原&#x3D;&gt; 10000000 &#x3D;&#x3D;反&#x3D;&gt; 11111111 &#x3D;&#x3D;补&#x3D;&gt; <code>1</code>00000000（1溢出）&#x3D;&gt; 00000000</p>
+<p>注意：</p>
+<p>在原码反码补码的问题上，一般不讨论正数，因为这三个概念本身就只是问了让负数在计算机中有合理的表示而诞生的</p>
+<p>非要说的话，那正数的原反补都是该正数的二进制</p>
+</blockquote>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; (<span class="type">unsigned</span> <span class="type">int</span>)(<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>先不管无符号这一回事，有符号的 -1 是以补码存储的</p>
+<p>原：10000000 00000000 00000000 00000001<br>反：11111111 11111111 11111111 11111110<br>补：11111111 11111111 11111111 11111111</p>
+<p>所谓无符号，就是将符号位变为数据位</p>
+<p>所以输出结果就是</p>
+<p>11111111 11111111 11111111 11111111</p>
+<p>即：2^32 - 1</p>
+<hr>
+<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><p><strong>背景</strong>：在计算机中，数据都是以二进制的形式存储的</p>
+<p><strong>问</strong>：对于有符号数，请写出 1000 0000 的十进制表示形式</p>
+<p><strong>分析</strong>：</p>
+<p>有符号 &#x3D;&gt; 若 1 是符号位 &#x3D;&gt; 则说明这是一个负数 &#x3D;&gt; 计算该负数的原码：1000 0000 &#x3D;&gt; 0111 1111 &#x3D;&gt; 0000 0000 &#x3D;&gt; 得出 0，这与该数是个负数相矛盾 &#x3D;&gt; 说明 1 是数据位 &#x3D;&gt; 说明符号位溢出了 &#x3D;&gt; 若符号位是 0，即：0 1000 0000 &#x3D;&gt; 128 &#x3D;&gt; 与最大值 2^7-1，即 127 相矛盾 &#x3D;&gt; 说明符号位是 1，即：1 1000 0000 &#x3D;&gt; 计算该负数的原码：1 1000 0000 &#x3D;&gt; 1 0111 1111 &#x3D;&gt; 1 1000 0000 &#x3D;&gt; -128</p>
+<h2 id="补充知识-1"><a href="#补充知识-1" class="headerlink" title="补充知识"></a>补充知识</h2><p><strong>背景</strong>:</p>
+<p>十进制的科学计数法表示，eg：十进制的 1.5 &#x3D;&gt; 1 * 10^0 + 5 * 10^(-1)</p>
+<p>二进制的科学计数法表示，eg：二进制的 1.1 &#x3D;&gt; 1 * 2^0 + 1 * 2^(-1) &#x3D;&gt; 这也就转成了十进制 ！！！</p>
+<p>二进制的科学计数法表示，eg：二进制的 11.111 &#x3D;&gt; 1 * 2^1 + 1 * 2^0 + 1 * 2^(-1) + 1 * 2^(-2) + 1 * 2^(-3) &#x3D;&gt; 这也就转成了十进制 ！！！</p>
+<p><strong>分析</strong>:</p>
+<p>不难发现：有的十进制数是无法用二进制精确表示的</p>
+<p>比如十进制的 0.1 就无法用二进制精确表示，1&#x2F;16 + 1&#x2F;32 + 1&#x2F;256 + … 约等于 0.1，你只能无限趋近 0.1 但永远也到不了 0.1</p>
+<p><strong>结论</strong>:</p>
+<p>因此，在以二进制的形式存储数据的计算机中，浮点数存在误差</p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

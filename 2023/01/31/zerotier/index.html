@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>zerotier 简明教程 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">zerotier 简明教程</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2023-01-31</span>
+  </div>
+  <div class="post-content">
+    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一台 ArchLinux 放家里，一台 Windows10 放单位</p>
+<p>用 zerotier 将这俩机器放到一个虚拟局域网</p>
+<p>用 ssh 就能相互访问</p>
+<h3 id="用-zerotier-创建一个私有的-private-虚拟局域网，获取到网络ID"><a href="#用-zerotier-创建一个私有的-private-虚拟局域网，获取到网络ID" class="headerlink" title="用 zerotier 创建一个私有的(private)虚拟局域网，获取到网络ID"></a>用 zerotier 创建一个私有的(private)虚拟局域网，获取到网络ID</h3><p><a target="_blank" rel="noopener" href="https://my.zerotier.com/">https://my.zerotier.com/</a></p>
+<p>创建私有网络的好处是：任何机器想加入该网络都需要获得你的许可</p>
+<h3 id="ArchLinux-设置步骤"><a href="#ArchLinux-设置步骤" class="headerlink" title="ArchLinux 设置步骤"></a>ArchLinux 设置步骤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S zerotier-one</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now zerotier-one.service</span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> 网络ID</span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows10-设置步骤"><a href="#Windows10-设置步骤" class="headerlink" title="Windows10 设置步骤"></a>Windows10 设置步骤</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://www.zerotier.com/download/">https://www.zerotier.com/download/</a></p>
+<p>启动 zerotier，加入网络</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>到 <a target="_blank" rel="noopener" href="https://my.zerotier.com/">https://my.zerotier.com/</a> 对成员节点勾选授权</p>
+<p>ok，至此，两台机器可以<a href="http://liupj.top/2022/05/20/ssh-ubuntu/">通过 ssh 相互访问</a>了</p>
+<h3 id="参考了"><a href="#参考了" class="headerlink" title="参考了"></a>参考了</h3><p><a target="_blank" rel="noopener" href="https://www.zerotier.com/manual/">https://www.zerotier.com/manual/</a></p>
+<p><a target="_blank" rel="noopener" href="https://jiajunhuang.com/articles/2019_09_11-zerotier.md.html">https://jiajunhuang.com/articles/2019_09_11-zerotier.md.html</a></p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

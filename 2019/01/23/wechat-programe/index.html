@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>微信小程序初尝试-Pic装扮 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">微信小程序初尝试-Pic装扮</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2019-01-23</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>从期末考试结束开始着手做这个小程序，到 2019-01-22 正式上线，今天终于有时间来总结一下这些日子学到的东西，以便日后复习。</p>
+</blockquote>
+<h4 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h4><blockquote>
+<p>这是一款用于图片编辑的工具小程序，(可以操作一波表情包啦)，来认识一下它吧~</p>
+</blockquote>
+<p><del><a target="_blank" rel="noopener" href="https://github.com/Brannua/wx-PicDec">源码</a></del></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220503114239459.png" alt="image-20220503114239459"></p>
+<h4 id="它的功能"><a href="#它的功能" class="headerlink" title="它的功能"></a>它的功能</h4><ol>
+<li>你可以从主页面上传手机相册中的图片，上传成功后会自动跳转到图片编辑页面</li>
+<li>你可将底部滚动栏中的挂饰图片添加到你上传的图片上，并可以用手调整挂饰的大小和位置</li>
+<li>点击保存并同意保存权限后小程序就会将编辑好的图片保存在你的相册中啦~</li>
+</ol>
+<p>接下来，你可以分享 or 斗图 or … if you like</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lewky/bilibili-avatar-pendant">挂件来源</a></p>
+<h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h4><ul>
+<li>wxml&lt;-&gt;html，wxss&lt;-&gt;css</li>
+<li>微信小程序默认提供了很多 wxml 组件供我们使用</li>
+<li>微信小程序默认提供了很多强大的 API 接口供我们调用，本小程序用到的接口有</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Explaination</th>
+<th align="left">API</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">上传图片</td>
+<td align="left">wx.chooseImage()</td>
+</tr>
+<tr>
+<td align="left">获取图片信息</td>
+<td align="left">wx.getImageInfo()</td>
+</tr>
+<tr>
+<td align="left">创建画布地图</td>
+<td align="left">wx.createCanvasContext(“canvasId”)</td>
+</tr>
+<tr>
+<td align="left">保存图片到系统相册</td>
+<td align="left">wx.saveImageToPhotosAlbum()</td>
+</tr>
+<tr>
+<td align="left">当前画布指定区域内容导出生成指定大小的图片</td>
+<td align="left">wx.canvasToTempFilePath()</td>
+</tr>
+<tr>
+<td align="left">显示消息提示框</td>
+<td align="left">wx.showToast()</td>
+</tr>
+<tr>
+<td align="left">创建 SelectorQuery 对象实例</td>
+<td align="left">wx.createSelectorQuery()</td>
+</tr>
+</tbody></table>
+<h4 id="图片等比例缩放原理"><a href="#图片等比例缩放原理" class="headerlink" title="图片等比例缩放原理"></a>图片等比例缩放原理</h4><ul>
+<li>图片宽 &#x2F; 图片高 &#x3D; 画布宽 &#x2F; 画布高</li>
+</ul>
+<h4 id="图片大小自适应原理"><a href="#图片大小自适应原理" class="headerlink" title="图片大小自适应原理"></a>图片大小自适应原理</h4><ul>
+<li>首先<code>wx.createSelectorQuery()</code>得到容器的宽高</li>
+<li>然后<code>wx.getImageInfo()</code>得到上传的图片的宽高</li>
+</ul>
+<ol>
+<li>图片瘦高 -&gt; 即：图片高度&#x2F;图片宽度 &gt; 容器高度&#x2F;容器宽度，则 -&gt; 画布高 &#x3D; 容器高，再由等比例缩放原理计算画布宽</li>
+<li>图片胖宽 -&gt; 即：图片高度&#x2F;图片宽度 &lt; 容器高度&#x2F;容器宽度，则 -&gt; 画布宽 &#x3D; 容器宽，再由等比例缩放原理计算画布高</li>
+</ol>
+<h4 id="图片拖动原理"><a href="#图片拖动原理" class="headerlink" title="图片拖动原理"></a>图片拖动原理</h4><blockquote>
+<p>其实图片的拖拽和最初电影的原理是一样的，都是由一帧帧的画面连起来形成了一种移动的视觉效果</p>
+</blockquote>
+<p>👉偏移值 x &#x3D; 触摸点的clientX - 挂饰图片的clientX</p>
+<p>👉偏移值 y &#x3D; 触摸点的clientY - 挂饰图片的clientY</p>
+<p><strong>偏移值 x 和偏移值 y 在拖拽过程中保持不变 ！</strong></p>
+<p>And then~</p>
+<p>拖拽一旦开始，每时每刻我们都能获取到 touchPoint 的 clientX 和 clientY</p>
+<p>分别减去对应的偏移值便可得到挂饰图片新位置的 clientX 和 clientY</p>
+<p>然后进行实时更新（即在拖拽过程中不停地画新的场景）</p>
+<h4 id="图片缩放原理"><a href="#图片缩放原理" class="headerlink" title="图片缩放原理"></a>图片缩放原理</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实时计算缩放比例，然后在缩放过程中不停地画新场景以实现缩放</span></span><br><span class="line">cfg.<span class="property">scale</span> = cfg.<span class="property">scale</span> + <span class="number">0.0001</span> * (cfg.<span class="property">curDistance</span> - cfg.<span class="property">initialDistance</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>由勾股定理计算当前两手指之间的距离</li>
+<li>可以设置不能无限放大或缩小</li>
+</ul>
+<h4 id="BUG-处理"><a href="#BUG-处理" class="headerlink" title="BUG 处理"></a>BUG 处理</h4><ul>
+<li>由于缩放结束的一瞬间会触发 touchEnd 事件，相当于又一次触碰到了屏幕，就会触发此函数🌚，为了解决这个问题，设置若离上次结束小于 600ms，则不处理</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">onTouchEnd</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">  cfg.<span class="property">endTime</span> = date.<span class="title function_">getTime</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() - cfg.<span class="property">endTime</span> &lt; <span class="number">600</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">move</span>(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><ol>
+<li>触摸事件中，要判断执行的是拖拽操作还是缩放操作，可由触摸点的个数，即 <code>event.touches.length</code> 是否大于 1 来判断</li>
+<li>挂饰图片拖动结束都要记录下来其位置，这样更换挂饰时就会在当前挂饰位置而不会归位</li>
+<li>缩放比例需记录，防止更换挂饰时挂饰大小复原</li>
+<li>由于有可能在拖拽图片前进行了图片缩放，所以需要在获取挂饰图片的原始宽高后由当前的缩放比例计算新的宽高</li>
+</ol>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
