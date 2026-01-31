@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>C 语法入门 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">C 语法入门</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2021-08-11</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>GNU&#x2F;Linux（64位）+ GCC_11.2.0</p>
+</blockquote>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h5 id="4-种基本数据类型"><a href="#4-种基本数据类型" class="headerlink" title="4 种基本数据类型"></a>4 种基本数据类型</h5><table>
+<thead>
+<tr>
+<th align="left">数据类型</th>
+<th align="left">中文名称</th>
+<th align="left">所开辟的存储空间的大小（Byte）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int</td>
+<td align="left">整型</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">单精度浮点型</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">双精度浮点型</td>
+<td align="left">8</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">字符型</td>
+<td align="left">1</td>
+</tr>
+</tbody></table>
+<h5 id="4-种限定符（施加于基本数据类型）"><a href="#4-种限定符（施加于基本数据类型）" class="headerlink" title="4 种限定符（施加于基本数据类型）"></a>4 种限定符（施加于基本数据类型）</h5><p><code>short</code>、<code>long</code>、<code>signed</code>、<code>unsigned</code></p>
+<p>signed 和 unsigned 用于限定所有整型和字符型（包括被 short 或 long 限定了的整型）</p>
+<h5 id="给数据类型起别名，使用-typedef"><a href="#给数据类型起别名，使用-typedef" class="headerlink" title="给数据类型起别名，使用 typedef"></a>给数据类型起别名，使用 typedef</h5><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509221931771.png" alt="image-20220509221931771"></p>
+<h4 id="sizeof-根据数据类型获取数据元素所占内存空间的字节数"><a href="#sizeof-根据数据类型获取数据元素所占内存空间的字节数" class="headerlink" title="sizeof 根据数据类型获取数据元素所占内存空间的字节数"></a>sizeof 根据数据类型获取数据元素所占内存空间的字节数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>( ElemType );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 举个例子</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>)); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>可将变量理解为存储数据的容器</p>
+<h5 id="变量的命名规则"><a href="#变量的命名规则" class="headerlink" title="变量的命名规则"></a>变量的命名规则</h5><ol>
+<li>字母或下划线开头，可包含数字</li>
+<li>字母严格区分大小写</li>
+<li>以下划线开头的变量名是有可能和系统定义的变量名冲突的</li>
+<li>拒绝使用关键字和保留字</li>
+</ol>
+<h5 id="变量的声明-amp-初始化"><a href="#变量的声明-amp-初始化" class="headerlink" title="变量的声明 &amp; 初始化"></a>变量的声明 &amp; 初始化</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> foo;  <span class="comment">// 声明变量</span></span><br><span class="line">foo = <span class="number">1</span>;  <span class="comment">// 初始化变量</span></span><br></pre></td></tr></table></figure>
+
+<p>变量的声明和初始化可合二为一</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> foo2 = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>只声明不初始化的变量其所在内存是脏的</p>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>一旦初始化，则其值无法被改变的量</p>
+<h5 id="字符常量"><a href="#字符常量" class="headerlink" title="字符常量"></a>字符常量</h5><p>字符 + 单引号 &lt;&#x3D;&gt; 字符常量</p>
+<p>字符常量参与运算时，实际上是其对应的 ASCII 码参与运算</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="number">1</span> + <span class="string">&#x27;0&#x27;</span>); <span class="comment">// 49</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h5><p>请参考<a href="https://liupj.top/2021/11/19/str/">这里</a></p>
+<h4 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h4><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p><code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code></p>
+<p><code>++</code>、<code>--</code>、</p>
+<p><a href="http://liupj.top/2022/04/20/modulo_operation/">除法运算 &amp; 取模运算（Python3 vs C）</a></p>
+<h5 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h5><p><code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code></p>
+<p><code>=</code></p>
+<h5 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h5><p><code>==</code>、<code>!=</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;</code>、<code>&lt;=</code></p>
+<h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p><code>&amp;&amp;</code>、<code>||</code>、<code>!</code></p>
+<h5 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h5><p>按位与<code>&amp;</code>、按位或<code>|</code>、按位异或<code>^</code>、按位取反<code>~</code></p>
+<p>「左移<code>&lt;&lt;</code>、右移<code>&gt;&gt;</code>」&#x3D;&gt; 保持符号位不变 ！</p>
+<blockquote>
+<p>如果你想看二进制，可以使用 C++ 的 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/utility/bitset">bitset</a></p>
+</blockquote>
+<p>eg:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">short</span> <span class="type">int</span> a = <span class="number">6</span>;</span><br><span class="line">cout &lt;&lt; <span class="built_in">bitset</span>&lt;<span class="built_in">sizeof</span>(a) * <span class="number">8</span>&gt;(a) &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<h5 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h5><p><code>expression1 ? res1 : res2</code></p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>在同一表达式中出现不同类型变量时，为了得出更精确或更能描述实际情况的结果</p>
+<p>表达式中的变量们会根据某种规则，统一转换成某种类型</p>
+<h5 id="自动的类型转换"><a href="#自动的类型转换" class="headerlink" title="自动的类型转换"></a>自动的类型转换</h5><blockquote>
+<p>数据位短的类型会向数据位长的类型转换（可使用 C++ 的 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/typeid">typeid()</a>验证）</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509085908279.png" alt="image-20220509085908279"></p>
+<blockquote>
+<p>相比于 int，unsigned int 的数据位多一个</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509090104459.png" alt="image-20220509090104459"></p>
+<blockquote>
+<p>char 和 short int 统一向 int 转换</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">short</span> <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="type">char</span> b = <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(a + b)); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有可能损失数据精度</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> a = <span class="number">100.5f</span>;</span><br><span class="line"><span class="type">int</span> b = a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, b); <span class="comment">// 100, 损失了数据精度</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> c = <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> d = c;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, d); <span class="comment">// 100, 没损失数据精度</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="控制"><a href="#控制" class="headerlink" title="控制"></a>控制</h4><h5 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (表达式<span class="number">1</span>) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (表达式<span class="number">2</span>) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (表达式) &#123;</span><br><span class="line">  <span class="keyword">case</span> 常量表达式<span class="number">1</span>: ...; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> 常量表达式<span class="number">2</span>: ...; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> 常量表达式<span class="number">3</span>: ...; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>一个良好的代码风格是：永远都加上花括号，即使只有一行代码。</p>
+</blockquote>
+<h5 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当循环次数不确定，较适合用 while 循环</span></span><br><span class="line"><span class="keyword">while</span> (表达式) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> () &#123;</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当确定循环次数，较适合用 for 循环</span></span><br><span class="line"><span class="keyword">for</span> (表达式<span class="number">1</span>; 表达式<span class="number">2</span>; 表达式<span class="number">3</span>) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">表达式<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (表达式<span class="number">2</span>) &#123;</span><br><span class="line">  ...</span><br><span class="line">  表达式<span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 因此如下是一种死循环</span></span><br><span class="line"><span class="keyword">for</span> (;;) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先斩后奏型循环</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> () &#123;</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">while</span> (表达式);</span><br></pre></td></tr></table></figure>
+
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于无参函数，参数列表建议写为 void</span></span><br><span class="line">返回值类型 函数名 (参数列表) &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回值类型默认为整型</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508223746456.png" alt="image-20220508223746456"></p>
+<p>抽象、封装、复用</p>
+<p>开发者得以将更多时间用于专注业务逻辑的实现</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><blockquote>
+<p>除全局作用域外，一个花括号就能形成一个作用域</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508232147708.png" alt="image-20220508232147708"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508232342233.png" alt="image-20220508232342233"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508233126388.png" alt="image-20220508233126388"></p>
+<p>结论：</p>
+<p>外层作用域无法访问内层作用域</p>
+<p>内层作用域可以访问外层作用域</p>
+<h4 id="生存期"><a href="#生存期" class="headerlink" title="生存期"></a>生存期</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">foo</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> a = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line">  foo();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a); <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><p>相当于拥有局部作用域的全局生存期变量</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508231315863.png" alt="image-20220508231315863"></p>
+<h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><h5 id="指针与-const"><a href="#指针与-const" class="headerlink" title="指针与 const"></a>指针与 const</h5><p><a href="https://liupj.top/2021/11/18/pointer&amp;const/">https://liupj.top/2021/11/18/pointer&amp;const/</a></p>
+<h5 id="指向函数的指针"><a href="#指向函数的指针" class="headerlink" title="指向函数的指针"></a>指向函数的指针</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> (*ptr)(<span class="type">int</span> a, <span class="type">int</span> b);</span><br><span class="line"></span><br><span class="line">  ptr = add;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ptr(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接递归（形式上是自调用）+ 单递归入口</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">r</span><span class="params">()</span> &#123;</span><br><span class="line">  r();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接递归（形式上是自调用）+ 多递归入口</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">r</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (i &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    r();</span><br><span class="line">    r();</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码优化思路：将全局变量 i 改为静态变量，放到 r() 的函数体中，以获得更好的封装性和可读性</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509212113718.png" alt="image-20220509212113718"></p>
+<blockquote>
+<p>本文不介绍间接递归</p>
+</blockquote>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509214046922.png" alt="image-20220509214046922"></p>
+<h5 id="数组的声明与初始化"><a href="#数组的声明与初始化" class="headerlink" title="数组的声明与初始化"></a>数组的声明与初始化</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">4</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> &#125;;</span><br><span class="line"><span class="comment">// 数组容量可省略不写，由元素个数决定数组容量</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">4</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i ++) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, arr[i]); &#125; <span class="comment">// 0000</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> arr2[<span class="number">4</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i ++) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, arr2[i]); &#125; <span class="comment">// 乱七八糟</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> arr3[<span class="number">4</span>] = &#123; <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i ++) &#123; <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, arr3[i]); &#125; <span class="comment">// 1000</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="数组与指针"><a href="#数组与指针" class="headerlink" title="数组与指针"></a>数组与指针</h5><p><a href="https://liupj.top/2022/04/05/array&amp;pointer/">https://liupj.top/2022/04/05/array&amp;pointer/</a></p>
+<h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p>数组中元素的数据类型相同，结构体中元素的数据类型可以不同</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  只能有成员变量</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c">c reference</a></p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp">c++ reference</a></p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

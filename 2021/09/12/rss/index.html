@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>RSS 新手入门指南 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">RSS 新手入门指南</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2021-09-12</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>本文基于<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349349861">这篇文章</a>，对其进行了精简和提炼并补充记录了笔者实践 rss 的步骤，在此感谢这篇带我入门 rss 的文章的作者，致敬让我们的生活更方便的每一位开发者</p>
+</blockquote>
+<h4 id="为什么会诞生-rss-这么个东西（有需求，才会有产出）"><a href="#为什么会诞生-rss-这么个东西（有需求，才会有产出）" class="headerlink" title="为什么会诞生 rss 这么个东西（有需求，才会有产出）"></a>为什么会诞生 rss 这么个东西（有需求，才会有产出）</h4><ul>
+<li>生活中，你获取信息的方式可能是这样的<ul>
+<li>比如你想获取一个歌手的最新消息，可能就需要关注他的（微博、B站、抖音、……），于是你就需要下载安装这些平时你可能并不使用的 APP，并在订阅关注该歌手的同时给这些新安装的 APP 打开通知权限</li>
+<li>于是这些 APP 就会频繁地往你手机下拉通知面板中发送各种消息，如果你没给手机设置静音或免打扰模式，你的工作就很可能被这些时不时主动发送到你手机上的消息打断甚至打乱</li>
+<li>当你有一会儿没看你手机的下拉通知面板，里面就很可能接收到了一大堆消息，这些消息不仅杂乱无章，并且很可能含有很多由推荐算法和商业广告发来的垃圾消息，导致你很难快速地定位到你想知道的消息</li>
+<li>甚至你很可能一不小心就点到了你手机下拉通知面板的清空按钮，造成你可能就错过了你想知道的消息</li>
+</ul>
+</li>
+<li>总结<ol>
+<li>你不想安装一大堆你并不使用的 APP</li>
+<li>你需要这样一个入口<ol>
+<li>这个入口中拥有所有你想要及时获取的消息，而没有（各种推荐算法，商业广告）发来的垃圾消息</li>
+<li>这个入口中的消息可以被很好地归类，而不是像手机下拉通知面板中那样消息杂乱无章</li>
+<li>这个入口中的消息可以被很好地保存下来，但每条消息本身都有“已读”和“未读”两种状态</li>
+<li>这个入口可以在任何时候被你主动打开查阅，而不是像手机下拉通知面板中那样主动打扰你的手机</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="什么是-rss？"><a href="#什么是-rss？" class="headerlink" title="什么是 rss？"></a>什么是 rss？</h4><blockquote>
+<p>Really Simple Syndication</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/rss/24470">rss-百度百科</a></li>
+<li>rss 的用途：资讯聚合，并且它满足了上述总结中提到的所有需求</li>
+<li>别的不说，用 rss 来追番剧、追漫画、追星，可太舒服了……</li>
+</ul>
+<h4 id="我怎么用的-rss？"><a href="#我怎么用的-rss？" class="headerlink" title="我怎么用的 rss？"></a>我怎么用的 rss？</h4><ul>
+<li><p>我的需求：</p>
+<ul>
+<li>使用 rss 订阅一些我喜欢的网络博客和其他平台的内容创作者</li>
+<li>让别人可以通过 rss 订阅我的网络博客</li>
+</ul>
+</li>
+<li><p>如何实现我的第一个需求（以订阅<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/">阮一峰大佬的博客</a>为例）：</p>
+<ul>
+<li><p>首先，在手机上安装开源应用商店<a target="_blank" rel="noopener" href="https://f-droid.org/">F-Droid</a>，然后从该应用商店中安装一款好用的 rss 阅读器，我选择：Feeder，开源软件，其源码仓库有以下两个</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gitlab.com/spacecowboy/Feeder">https://gitlab.com/spacecowboy/Feeder</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spacecowboy/Feeder">https://github.com/spacecowboy/Feeder</a></li>
+</ul>
+</li>
+<li><p>然后，给 chrome 浏览器安装插件<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/rsshub-radar/kefjpfngnndepjbopdmoebkipbgkggaa">RSSHub Radar</a>，开源软件，源码仓库如下</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/DIYgod/RSSHub-Radar">https://github.com/DIYgod/RSSHub-Radar</a></li>
+</ul>
+</li>
+<li><p>点击阮神博客右上角 WIFI 形状的“订阅Feed”按钮，跳转页面，复制阮神提供的订阅链接</p>
+</li>
+<li><p>打开手机上安装的 Feeder，点击右上角添加订阅，将链接粘贴进去，回车确认即可，这样就订阅了阮神的博客</p>
+</li>
+<li><p>在 Feeder 阅读器中自行分类管理</p>
+</li>
+<li><p>rss 源 + rss 阅读器，这便是 rss 最简单的用法</p>
+</li>
+</ul>
+</li>
+<li><p>第二个需求，对<a target="_blank" rel="noopener" href="https://brannua.github.io/">我的博客网站</a>做了如下配置，搞定</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># blog：/</span></span><br><span class="line">npm install hexo-generator-feed --save <span class="comment"># https://github.com/hexojs/hexo-generator-feed</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># blog：/source/_data/yun.yml</span></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">RSS</span></span><br><span class="line">    <span class="attr">link:</span> <span class="string">/atom.xml</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">icon-rss-line</span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">orange</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="怎么获取-rss-源"><a href="#怎么获取-rss-源" class="headerlink" title="怎么获取 rss 源"></a>怎么获取 rss 源</h4><blockquote>
+<p>实际上，本身提供 rss 订阅的网站实在是太少了，这也是 rss 难以流行起来的一大原因</p>
+</blockquote>
+<ol>
+<li><p>一些网站平台会提供 rss 链接，你可以自行寻找，或借助 chrome 插件<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/rsshub-radar/kefjpfngnndepjbopdmoebkipbgkggaa">RSSHub Radar</a>来寻找</p>
+</li>
+<li><p>那些不提供 rss 的网站，上<a target="_blank" rel="noopener" href="https://docs.rsshub.app/">RSSHub</a>看有没有办法生成，但是！官方提供的 RSSHub 域名已经被墙了，解决这个问题不难，你可以科学上网，自建服务替换官方域名，或白嫖别人搭建好的服务（不推荐）</p>
+</li>
+<li><p>技巧：你可以 百度／Google 关键词「Welcome to RSSHub!」就能轻松找到不少别人搭好的 RSSHub 服务了，域名一换，搞定</p>
+</li>
+</ol>
+<h4 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h4><ul>
+<li><p>自建 RSSHub 服务，替换官方域名（以下为<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349349861">这篇文章</a>的拷贝，笔者尚未实践，因为能**）</p>
+<p>你首先需要去腾讯云免费注册一个账号：<a href="https://link.zhihu.com/?target=https://cloud.tencent.com/">https://cloud.tencent.com/</a></p>
+<p>注册好之后登录，点击左上角产品 » 基础 » 找到「云开发」</p>
+<p>点击进去，选择免费开通，然后在弹出的页面，新建一个环境，并点击更多</p>
+<p>第一次使用腾讯云搭建 RSSHub 的话，需要先新建空模板，建好空模板之后点击「更多」才有 RSSHub 和其他的模板</p>
+<p>你会发现，这里提供了 RSSHub 的一键搭建服务！</p>
+<p>选中它并点击下一步</p>
+<p>选择地区+自己给环境命名（这个随意）</p>
+<p>然后选择「系统默认环境」即可，接着点击立即开通</p>
+<p>然后切换到左边「我的应用」一栏，耐心等待等待等待等待等待，别看显示的预计 2－3 分钟，实际大概需要等待 10 分钟</p>
+<p>自己多刷新几下，一直耐心等待到，状态显示为「运行中」则说明部署成功了</p>
+<p>然后配置 RSSHub Rader 域名，无论你是白嫖别人的，还是自建的：复制 RSShub 页面的地址，打开 RSSHub Rader，设置到自定义域名</p>
+<p>OK，你终于做好一切准备，基本上可以畅游 RSS 的世界了</p>
+</li>
+</ul>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
