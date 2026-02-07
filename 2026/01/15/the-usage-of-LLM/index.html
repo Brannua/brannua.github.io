@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>理解并应用生成式(大)语言模型(LLM)，提升职场人士工作效能 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">理解并应用生成式(大)语言模型(LLM)，提升职场人士工作效能</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2026-01-15</span>
+  </div>
+  <div class="post-content">
+    <h1 id="LLM-的本质"><a href="#LLM-的本质" class="headerlink" title="LLM 的本质"></a>LLM 的本质</h1><p>LLM &#x3D;&gt; Large Language Model &#x3D;&gt; 大语言模型</p>
+<p>你可以把它想象成一个通过阅读整个互联网而成为“文字接龙”世界冠军的超级大脑。</p>
+<ul>
+<li>你输入 → 就像给出了接龙的开头几个字。</li>
+<li>它输出 → 它根据从海量文本中学到的“下一个词最可能是什么”的概率，一个字一个字地接下去，直到生成一段完整的、通顺的回答。</li>
+</ul>
+<p>总结来说，大语言模型是一个用海量数据和算力训练出来的、能够模拟和生成人类语言的巨型概率模型，是一个用数据和数学模拟语言规律的复杂函数。它功能强大且通用，但本质上仍是基于统计规律的“模式大师”，而非拥有理解力和意识的智能体。</p>
+<ul>
+<li><p>“大” 是它当前最突出的特征，体现在三个方面：</p>
+<ol>
+<li>数据大：训练数据来自整个互联网，规模以万亿词汇计。</li>
+<li>参数大：模型内部的“知识连接点”多达数百亿至数万亿个。</li>
+<li>算力大：训练和运行需要巨大的计算资源。</li>
+</ol>
+</li>
+<li><p>局限：</p>
+<ul>
+<li>知识有时效性：知识截止于训练数据，无法知晓最新事件（但是可以联网搜索，比如腾讯元宝就有这个功能）</li>
+<li>不理解真实世界：它处理的是文本符号和统计规律，而非真实世界的物理逻辑和情感。</li>
+<li>AI 的幻觉，详见下文</li>
+</ul>
+</li>
+</ul>
+<h1 id="LLM：eg：deepseek-的用法技巧"><a href="#LLM：eg：deepseek-的用法技巧" class="headerlink" title="LLM：eg：deepseek 的用法技巧"></a>LLM：eg：deepseek 的用法技巧</h1><h2 id="撰写高质量输入-提示词-的技巧"><a href="#撰写高质量输入-提示词-的技巧" class="headerlink" title="撰写高质量输入(提示词)的技巧"></a>撰写高质量输入(提示词)的技巧</h2><ul>
+<li><p>LLM 的本质是一个输入输出程序，这意味着：</p>
+<ul>
+<li>【结构化的(eg: markdown)、表达清晰充分的、引导性强的】输入(即：好问题)，能获得更棒的输出(good question can get good answer)</li>
+<li>结构化能帮助 LLM 精准辨识：对于输入，哪些部分应当被识别为一个完整的意义单元</li>
+</ul>
+</li>
+<li><p>赋予 LLM 特定的角色 &amp; 约束其回答范畴(即：规则限制，eg：让其只能给出法律相关的回答)</p>
+<ul>
+<li>这能让 LLM 身临其境地充分理解当前需求的场景上下文，以便给出更准确、更符合预期的内容</li>
+</ul>
+</li>
+<li><p>复杂问题可拆解成 n 个小问题，让 LLM 逐个击破</p>
+</li>
+<li><p>可给 LLM 提供高质量输出的例子，让其模仿</p>
+</li>
+</ul>
+<h2 id="既然如此，编写高质量输入能不能总结出来套路-x2F-范式-x2F-模板-x2F-框架？这不就省事了么，也便于引导-AI，产出更准确、更符合预期的内容"><a href="#既然如此，编写高质量输入能不能总结出来套路-x2F-范式-x2F-模板-x2F-框架？这不就省事了么，也便于引导-AI，产出更准确、更符合预期的内容" class="headerlink" title="既然如此，编写高质量输入能不能总结出来套路&#x2F;范式&#x2F;模板&#x2F;框架？这不就省事了么，也便于引导 AI，产出更准确、更符合预期的内容"></a>既然如此，编写高质量输入能不能总结出来套路&#x2F;范式&#x2F;模板&#x2F;框架？这不就省事了么，也便于引导 AI，产出更准确、更符合预期的内容</h2><ol>
+<li><p>5W1H</p>
+<ul>
+<li>Who</li>
+<li>What</li>
+<li>Why</li>
+<li>When</li>
+<li>Where</li>
+<li>How</li>
+</ul>
+</li>
+<li><p>BROKE</p>
+<ul>
+<li>Background    说明背景</li>
+<li>Role          定义角色</li>
+<li>Objectives    实现什么</li>
+<li>Keyresult     具体效果</li>
+<li>Evolve        循环改进(eg: 可以改进输入，可以改进输出，可以让 AI 不断重新回答优中选优…)</li>
+</ul>
+</li>
+</ol>
+<p>…</p>
+<p>上述套路&#x2F;范式&#x2F;模板&#x2F;框架的本质就是【高效表达的方法论】</p>
+<h2 id="这也太复杂了，既然我不太会写高质量的输入，那就让-AI-来写！"><a href="#这也太复杂了，既然我不太会写高质量的输入，那就让-AI-来写！" class="headerlink" title="这也太复杂了，既然我不太会写高质量的输入，那就让 AI 来写！"></a>这也太复杂了，既然我不太会写高质量的输入，那就让 AI 来写！</h2><p>AI智能体: eg: Kimi-提示词专家</p>
+<h2 id="AI智能体"><a href="#AI智能体" class="headerlink" title="AI智能体"></a>AI智能体</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.coze.cn/">https://www.coze.cn/</a></li>
+<li>coze 平台提供了一些很好的提示词模板；也允许我们自定义提示词模板，保存到提示词模板个人仓库里，便于以后复用。</li>
+</ul>
+<ol>
+<li>赋予 LLM 特定角色(编写提示词)</li>
+<li>插件(第三方工具集)</li>
+<li>知识库<ul>
+<li>知识库是一系列文档的集合，能够存储，管理、检索大量的知识数据</li>
+<li>是智能体的重要信息扩展来源和知识支撑，能帮助智能体在回答问题时提供准确和详细的答案</li>
+<li>能有效降低AI幻觉</li>
+<li>腾讯的知识库应用：ima</li>
+</ul>
+</li>
+<li>记忆系统<ul>
+<li><p>人类的记忆</p>
+<ul>
+<li>感官记忆<ul>
+<li>视觉记忆</li>
+<li>听觉记忆</li>
+<li>触觉记忆</li>
+</ul>
+</li>
+<li>长时记忆<ul>
+<li>显性的、陈述性的记忆<ul>
+<li>语义记忆（概念、事实、…）</li>
+<li>外显记忆（生活事件）</li>
+</ul>
+</li>
+<li>隐性的、程序性的记忆（无意识、技能）</li>
+</ul>
+</li>
+<li>短时记忆（工作记忆）</li>
+</ul>
+</li>
+<li><p>对应到AI的记忆</p>
+<ul>
+<li>短时记忆：上下文学习，短暂且有限，因受到transformer架构的上下文窗口长度的限制</li>
+<li>长时记忆：智能体在查询时可关注的外部存储，可通过快速检索进行访问</li>
+<li>感官记忆：对原始输入（包括文本、图像或其它模态）的嵌入表示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>工作流<ul>
+<li>在 AI Agent 中，支持通过可视化的方式，对【大语言模型、插件、代码块、…】等功能进行组合，</li>
+<li>来确保系统可以高效、准确地执行复杂的业务流程</li>
+<li>这就是工作流</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>爆火的通用智能体：Manus</li>
+<li>字节旗下的通用智能体：扣子空间</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>LLM -&gt; 提示词工程 -&gt; 工作流（链式调用）-&gt; 智能体（广义上的）-&gt; 多智能体系统</p>
+<h2 id="未来的-AI-智能体"><a href="#未来的-AI-智能体" class="headerlink" title="未来的 AI 智能体"></a>未来的 AI 智能体</h2><ul>
+<li>即：狭义上的 AI 智能体</li>
+<li>以 LLM 为大脑，以工具为手臂，以循环为模式的任务执行系统</li>
+</ul>
+<h2 id="DeepSeek-的深度思考模式是什么鬼？"><a href="#DeepSeek-的深度思考模式是什么鬼？" class="headerlink" title="DeepSeek 的深度思考模式是什么鬼？"></a>DeepSeek 的深度思考模式是什么鬼？</h2><p>深度思考模式调用的是【推理型模型】，与【指令型模型】不同</p>
+<ul>
+<li>指令型模型，对提示词的依赖程度高，好的提示词，效果立竿见影，eg: DeepSeek V3<ul>
+<li>聪明又听话，高效又便捷，适合大多数任务，即规范性任务</li>
+</ul>
+</li>
+<li>推理型模型，对提示词的依赖程度低，eg: DeepSeek R1, Kimi1.5 …<ul>
+<li>聪明但没有那么听话的分析推理官，适用于创意思考、分析推理、…</li>
+</ul>
+</li>
+</ul>
+<h2 id="深度思考模式下，编写高质量输入的套路-x2F-范式-x2F-模板-x2F-框架"><a href="#深度思考模式下，编写高质量输入的套路-x2F-范式-x2F-模板-x2F-框架" class="headerlink" title="深度思考模式下，编写高质量输入的套路&#x2F;范式&#x2F;模板&#x2F;框架"></a>深度思考模式下，编写高质量输入的套路&#x2F;范式&#x2F;模板&#x2F;框架</h2><ol>
+<li>背景信息：AI 需要了解上下文</li>
+<li>直接需求：注意结构化(eg: markdown)</li>
+<li>约束条件</li>
+</ol>
+<h2 id="有时候-AI-会一本正经地胡说八道？"><a href="#有时候-AI-会一本正经地胡说八道？" class="headerlink" title="有时候 AI 会一本正经地胡说八道？"></a>有时候 AI 会一本正经地胡说八道？</h2><p>即：AI 生成看似可信、但实际上不准确、虚构或与事实不符的内容，就像人类的幻觉一样，这是 AI 对现实世界理解不完整所导致的现象</p>
+<p>这被称为“AI的幻觉”</p>
+<h2 id="如何从应用层面尽可能地解决-AI-的幻觉？"><a href="#如何从应用层面尽可能地解决-AI-的幻觉？" class="headerlink" title="如何从应用层面尽可能地解决 AI 的幻觉？"></a>如何从应用层面尽可能地解决 AI 的幻觉？</h2><ol>
+<li>提供尽可能具体清晰的输入，避免模糊或者有歧义的表述</li>
+<li>明确限制 AI 的回答范畴，这能避免 AI 在回答的过程中引入不相关的内容，比如可以限定 AI 只能给出法律范畴内的回答</li>
+<li>必要时，可以要求 AI 提供信息来源或出处，以便我们后续的核实和验证</li>
+<li>还可以将一个 AI 给出的回答作为输入，输入给另一个 AI，让第二个 AI 对第一个 AI 的回答的正确性和合理性进行评估和矫正，这种 AI 之间的相互校对有利于减少单一 AI 错误信息的传播</li>
+<li>在一些重要场景中，必要时需要引入我们人类的审核环节，可以通过专家反馈或者用户反馈，对 AI 的输出进行定期审查和矫正</li>
+</ol>
+<ul>
+<li>【AI 终究只是一个辅助】</li>
+</ul>
+<h2 id="日常怎么跟-AI-打交道？"><a href="#日常怎么跟-AI-打交道？" class="headerlink" title="日常怎么跟 AI 打交道？"></a>日常怎么跟 AI 打交道？</h2><ul>
+<li>想像成你自己是曹操，AI们都是你的文臣&#x2F;军师<ul>
+<li>你要做到【兼听则明、不轻信AI的输出、要有自己的思考、不透漏机密】</li>
+</ul>
+</li>
+</ul>
+<h1 id="AI-PPT"><a href="#AI-PPT" class="headerlink" title="AI-PPT"></a>AI-PPT</h1><h2 id="全套快速制作"><a href="#全套快速制作" class="headerlink" title="全套快速制作"></a>全套快速制作</h2><ul>
+<li>AI智能体: eg: kimi-PPT助手</li>
+<li>部分网站&#x2F;应用提供自定义PPT模板的功能: eg: <a target="_blank" rel="noopener" href="https://www.aippt.cn/">https://www.aippt.cn/</a></li>
+</ul>
+<h2 id="单页快速美化"><a href="#单页快速美化" class="headerlink" title="单页快速美化"></a>单页快速美化</h2><ul>
+<li>用好 AI 工具</li>
+<li>用好 WPS 的 AI 功能<ul>
+<li><a target="_blank" rel="noopener" href="https://ai.wps.cn/">https://ai.wps.cn/</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="LLM-赋能公文处理"><a href="#LLM-赋能公文处理" class="headerlink" title="LLM 赋能公文处理"></a>LLM 赋能公文处理</h1><p>AI工具补充：秘塔、纳米AI搜索</p>
+<p>大模型本地化部署，以处理涉密文件（这是考虑到数据安全的做法）</p>
+<h2 id="一：信息搜集"><a href="#一：信息搜集" class="headerlink" title="一：信息搜集"></a>一：信息搜集</h2><ol>
+<li>注意信息来源可信度，通常来说可信度较高的信息来源有：政府网站、党报官媒、期刊论文（CSSCI期刊&gt;核心期刊&gt;普通期刊）</li>
+<li>自己要对所得信息的（真实性、有效性、正确性、…）有自己的判断和见解</li>
+</ol>
+<h2 id="二：分析处理（擅长批量）"><a href="#二：分析处理（擅长批量）" class="headerlink" title="二：分析处理（擅长批量）"></a>二：分析处理（擅长批量）</h2><h2 id="三：文本生成"><a href="#三：文本生成" class="headerlink" title="三：文本生成"></a>三：文本生成</h2><ul>
+<li>AI 的作用不是替你写出文稿<ul>
+<li>而是帮你减轻诸如【搜索信息,改写,扩写,缩写,…】等重复性劳动</li>
+<li>帮助你发散思维，做你的智囊团</li>
+</ul>
+</li>
+<li>而你作为真正的主角，要在脑海里有【好公文】的样子，并指挥 AI 和你一起朝着正确的方向努力</li>
+</ul>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

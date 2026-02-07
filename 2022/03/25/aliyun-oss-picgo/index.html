@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>基于阿里云对象存储，搭建自用图床服务 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">基于阿里云对象存储，搭建自用图床服务</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-03-25</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>本文仅供参考</p>
+</blockquote>
+<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><p>使用截图软件将截图保存至剪贴板，然后使用 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">picgo</a> 将剪贴板中的图片上传至 <a target="_blank" rel="noopener" href="https://www.aliyun.com/product/oss">aliyun-oss</a></p>
+<h4 id="为什么需要自建图床"><a href="#为什么需要自建图床" class="headerlink" title="为什么需要自建图床"></a>为什么需要自建图床</h4><ol>
+<li>自己的资源自己要有绝对掌控权（故任何第三方图床都不值得被推荐）</li>
+<li>第三方代码托管平台都不太适合被白嫖成图床的模样（<del>白嫖虽香</del>，但服务的可用性稳定性以及数据安全性都毫无保障）</li>
+<li>大厂（如：阿里云、腾讯云、又拍云、七牛云…）在云存储服务的（可用性、长期稳定性、数据安全性、经济实惠性）等方面都不错</li>
+</ol>
+<blockquote>
+<p><del>我看阿里云的对象存储顺眼，就用它了 ！</del></p>
+</blockquote>
+<h4 id="参考了如下视频"><a href="#参考了如下视频" class="headerlink" title="参考了如下视频"></a>参考了如下视频</h4><blockquote>
+<p>注意：由于 typora 为专有软件，代码闭源，故笔者放弃使用 typora</p>
+</blockquote>
+<iframe
+  src="//player.bilibili.com/player.html?aid=542640402&bvid=BV1ci4y1L7j8&cid=254410245&page=1"
+  scrolling="no"
+  border="0"
+  frameborder="no"
+  framespacing="0"
+  allowfullscreen="true"
+></iframe>
+
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221127103638.png" alt="20221127103638"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221127103803.png" alt="20221127103803"></p>
+<h4 id="本地可视化管理云端文件"><a href="#本地可视化管理云端文件" class="headerlink" title="本地可视化管理云端文件"></a>本地可视化管理云端文件</h4><p>不建议使用 AUR 中的软件包，如果真要使用，先备份</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aliyun/oss-browser/">oss-browser（阿里云对象存储浏览器）</a></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

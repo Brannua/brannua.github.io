@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>我在 Linux 上听歌的方式 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">我在 Linux 上听歌的方式</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-12-09</span>
+  </div>
+  <div class="post-content">
+    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我喜欢听歌，但苦于国内各大音乐平台的割据状态（版权、音质、网速、…）</p>
+<p>而我又喜欢双手不离开键盘（不用鼠标，尽可能地少用触控板）且我希望将尽可能多的工作在一个终端窗口中完成</p>
+<p>于是我开始了如下探索，试图建立适合自己的听歌方式…</p>
+<h3 id="最佳的音乐播放体验"><a href="#最佳的音乐播放体验" class="headerlink" title="最佳的音乐播放体验"></a>最佳的音乐播放体验</h3><p>当然是从互联网中搜索无损音乐(.flac)，下载到本地进行播放咯</p>
+<h3 id="从哪找没听过的歌呢"><a href="#从哪找没听过的歌呢" class="headerlink" title="从哪找没听过的歌呢"></a>从哪找没听过的歌呢</h3><p><a target="_blank" rel="noopener" href="https://github.com/listen1">listen1</a></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221210150913.png" alt="20221210150913"></p>
+<h3 id="本地音乐播放器推荐"><a href="#本地音乐播放器推荐" class="headerlink" title="本地音乐播放器推荐"></a>本地音乐播放器推荐</h3><p><a target="_blank" rel="noopener" href="https://github.com/audacious-media-player">audacious</a></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221210150313.png" alt="20221210150313"></p>
+<h3 id="怎么把想听的歌下载到本地呢"><a href="#怎么把想听的歌下载到本地呢" class="headerlink" title="怎么把想听的歌下载到本地呢"></a>怎么把想听的歌下载到本地呢</h3><p><a target="_blank" rel="noopener" href="https://github.com/zonemeen/musicn">https://github.com/zonemeen/musicn</a> 404 了</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/musicn">musicn|npmjs</a></p>
+<p>注意：该软件依赖 node.js 16+ 版本，我设置的版本为 <code>v16.18.1</code>，设置方式可参考<a href="https://liupj.top/2022/03/15/nvm-nodejs-npm-nrm/">这里</a></p>
+<p>小技巧：<code>echo &quot;alias msc=&quot;msc -p DIR_TO_STORE_MUSICS&quot; &gt;&gt; ~/.bashrc</code> if you use bash.</p>
+<p>哎嗨 ！我们已经可以在终端中搜索并下载音乐了，测试使用效果如下</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221209150558.png" alt="20221209150558"></p>
+<hr>
+<blockquote>
+<p>以下播放音乐的方式仅适用于播放单个音频文件，仅供参考，选看。</p>
+</blockquote>
+<h3 id="sox"><a href="#sox" class="headerlink" title="sox"></a>sox</h3><p>如果只是想在终端中简单地播放一个音频文件&#x2F;一首歌，那么推荐使用软件 <a target="_blank" rel="noopener" href="https://archlinux.org/packages/community/x86_64/sox/">sox</a> 提供的 <code>play</code> 命令</p>
+<p>Install by executing <code>sudo pacman -S sox</code> if you use ArchLinux like me.</p>
+<p>测试使用效果如下</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221209152728.png" alt="20221209152728"></p>
+<p><em>参考了：<a target="_blank" rel="noopener" href="https://askubuntu.com/questions/920539/how-do-you-play-a-sound-from-the-terminal">https://askubuntu.com/questions/920539/how-do-you-play-a-sound-from-the-terminal</a></em></p>
+<h3 id="ranger-vlc"><a href="#ranger-vlc" class="headerlink" title="ranger + vlc"></a>ranger + vlc</h3><p>vlc 是一款在 Linux 上广受好评的多媒体播放器，能播放视频和音乐</p>
+<p>而且我习惯使用 <a target="_blank" rel="noopener" href="https://github.com/ranger/ranger">Ranger</a>, 一款为 vim&#x2F;neovim 用户打造的文件浏览器，很好用 ！</p>
+<p>所以我希望 Ranger 能识别我的音乐文件并自动调用 vlc 播放</p>
+<p>Luckily, Ranger ships with <code>rifle</code>, a file launcher that is good at automatically finding out which program to use for what file type. —— knowing from Ranger’s <a target="_blank" rel="noopener" href="https://github.com/ranger/ranger">doc</a></p>
+<p>所以我只需对 <code>rifle</code> 的<a target="_blank" rel="noopener" href="https://github.com/Brannua/dotfiles/blob/8cf1bea49226938e1c41c245e84792f9c2b728cc/advanced/ranger/rifle.conf">配置文件</a>进行一下简单的修改即可</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221210153018.png" alt="20221210153018"></p>
+<p>测试使用效果如下，可以看到 Ranger 自动调用 vlc 开始播放音乐文件了</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20221209160452.png" alt="20221209160452"></p>
+<p><em>参考了：<a target="_blank" rel="noopener" href="https://superuser.com/questions/724689/open-vlc-in-background">https://superuser.com/questions/724689/open-vlc-in-background</a></em></p>
+<h3 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h3><p>受限于目前的工作和技术水平，我对目前的听歌方式还不够满意，希望在未来能打造一个适合我自己的音乐播放软件（GUI or CLI）running on linux which is both open-source、lightweight and reliable.</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

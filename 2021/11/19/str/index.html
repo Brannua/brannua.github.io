@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>C 语言的字符串 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">C 语言的字符串</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2021-11-19</span>
+  </div>
+  <div class="post-content">
+    <p><a href="https://liupj.top/ics/#/docs/3?id=char-argv-%E7%9A%84%E7%AD%89%E4%BB%B7%E5%86%99%E6%B3%95">知识铺垫</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符数组</span></span><br><span class="line"><span class="type">char</span> arr[] = &#123; <span class="string">&#x27;m&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;g&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符数组 + &#x27;\0&#x27; &lt;=&gt; 字符串</span></span><br><span class="line"><span class="type">char</span> str[] = &#123; <span class="string">&#x27;m&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;\0&#x27;</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>所以：可以用访问数组的方式访问字符串～</p>
+</blockquote>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>是<code>&#39;\0&#39;</code>，而不是 ‘0’</p>
+<p>另外，<code>0</code>也能将字符数组变为字符串</p>
+<p>但**推荐用 ‘\0’**，因为这能从字面上强调 「字符串的结束标志占 <code>1</code> Byte」！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str1[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;s&#x27;</span>, <span class="string">&#x27;\0&#x27;</span> &#125;;</span><br><span class="line"><span class="type">char</span> str2[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;s&#x27;</span>, <span class="number">0</span> &#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;str1 = %s, str2 = %s\n&quot;</span>, str1, str2);</span><br></pre></td></tr></table></figure>
+
+<p>下例代码编译运行输出 3，但其实字符串 str 的长度为 2，因为：**’\0’ 仅标志着字符串的结束，而并非字符串的一部分**</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[] = &#123; <span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;\0&#x27;</span> &#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(str) / <span class="keyword">sizeof</span>(str[<span class="number">0</span>]));</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h4><p>≥ 0 个字符，被双引号引起来，就是字符串常量（eg：””、”hello”、…）</p>
+<p>eg：<code>&quot;asd&quot;</code> &#x3D;&gt; 字符串常量 &#x3D;&gt; 会被转换成<code>&#123;&#39;a&#39;, &#39;s&#39;, &#39;d&#39;, &#39;\0&#39;&#125;</code> &#x3D;&gt; 系统只会保留一份 &#x3D;&gt; 放在一片<strong>只读</strong>的存储空间中 &#x3D;&gt; 共享</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> * str1 = <span class="string">&quot;asd&quot;</span>;</span><br><span class="line"><span class="type">char</span> * str2 = <span class="string">&quot;asd&quot;</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;position of str1: %p\n&quot;</span>, str1);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;position of str2: %p\n&quot;</span>, str2);</span><br></pre></td></tr></table></figure>
+
+<p>试想：</p>
+<p>如果字符串常量所存放的位置不是只读的</p>
+<p>那当有很多指针指向它，其中任何一个指针对其的修改，都会导致其它指针对这种修改的不知情</p>
+<p>从而可能导致不可预知的严重后果</p>
+<p>举例如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> * s = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<p>s 是一个指针，初始化为指向一个字符串常量</p>
+<p>所以这行代码实际上是 <code>const char * s = &quot;hello&quot;;</code></p>
+<p>虽然由于历史原因，在这里，编译器不接受带 const 的写法</p>
+<p>但任何试图对 s 所指向的内存空间做写入的操作都会导致严重后果 ！</p>
+<blockquote>
+<p>相邻的字符串常量默认会被连接起来 ！</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, <span class="string">&quot;hel&quot;</span>  <span class="string">&quot;lo world&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串变量"><a href="#字符串变量" class="headerlink" title="字符串变量"></a>字符串变量</h4><p>可用字符串常量初始化字符串变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<p>用只读的 <code>&#123;&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;\0&#39;&#125;</code> 初始化一个可读写的普通字符数组 str</p>
+<p>‘\0’ 让字符数组变成了字符串</p>
+<p>当然写成下面这样也完全 ok</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[<span class="number">10</span>] = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>空字符串 “” 其实是 { ‘\0’ }</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;length of str = %d\n&quot;</span>, <span class="keyword">sizeof</span>(str) / <span class="keyword">sizeof</span>(str[<span class="number">0</span>]));</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类比字符数组</span></span><br><span class="line"><span class="type">char</span> arr[] = &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;s&#x27;</span>, <span class="string">&#x27;d&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串数组</span></span><br><span class="line"><span class="type">char</span>* arr[] = &#123;</span><br><span class="line">  <span class="string">&quot;hello&quot;</span>,</span><br><span class="line">  <span class="string">&quot;world&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可用二维字符数组，但第二维一定要有确切的大小（strArr[0] &lt;=&gt; char str[10]）</span></span><br><span class="line"><span class="type">char</span> strArr[][<span class="number">10</span>] = &#123;</span><br><span class="line">  <span class="string">&quot;hello&quot;</span>,</span><br><span class="line">  <span class="string">&quot;world&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211119204540151.png" alt="image-20211119204540151"></p>
+<h5 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* arr[] = &#123;</span><br><span class="line">  <span class="string">&quot;Jan&quot;</span>,</span><br><span class="line">  <span class="string">&quot;Feb&quot;</span>,</span><br><span class="line">  <span class="string">&quot;Mar&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;请输入月份：&quot;</span>); <span class="type">int</span> month; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;month);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr[month]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="I-x2F-O"><a href="#I-x2F-O" class="headerlink" title="I&#x2F;O"></a>I&#x2F;O</h4><h5 id="scanf-其实“破绽百出”"><a href="#scanf-其实“破绽百出”" class="headerlink" title="scanf() 其实“破绽百出”"></a>scanf() 其实“破绽百出”</h5><ol>
+<li>「空格、tab、回车」 都是 scanf 输入结束的标志，这就导致 scanf 其实只能读入“单词”</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, str);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 试试输入「hello world」</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其实输出的只有「hello」</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：「空格、tab、回车」 只是输入结束的标志，不会被输到 str 中（在 Linux 上验证如下）</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508163507995.png" alt="image-20220508163507995"></p>
+<p>关于上图中的 $ 符号，请看 &#x3D;&gt; <a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0310vi.php#tips_dos">DOS 与 Linux 的断行字元</a></p>
+<ol start="2">
+<li>单论读取“单词”而言，由于 scanf 并不知道需要读入多少字符，当输入的字符串过长，就可能导致缓冲区溢出，所以 scanf 并不安全</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安全的做法：在 %s 中间加一个数字，以此告诉 scanf 最多能读入几个字符</span></span><br><span class="line"><span class="type">char</span> str[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%9s&quot;</span>, str);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>那如果我们就是要读入一个英文句子，而不仅仅是一个单词</strong></p>
+<p>在 C 语言的<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c">官方文档</a>中可查阅到曾有人设计了<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io/gets">gets()</a>函数，但该函数已被废除，因为文档描述了这样一段话：</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220508171150196.png" alt="image-20220508171150196"></p>
+<p>另外，如果你是一名 c++ 开发者，可以使用<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/string/basic_string/getline">getline()</a>函数，但我偏爱更简单纯粹的 C :)</p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
