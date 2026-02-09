@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>scrcpy，跨平台的多屏协同解决方案 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">scrcpy，跨平台的多屏协同解决方案</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-02-26</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>本文的实践目的如下图</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220226194133613.png" alt="image-20220226194133613"></p>
+<h4 id="本文诞生的背景"><a href="#本文诞生的背景" class="headerlink" title="本文诞生的背景"></a>本文诞生的背景</h4><p>我一直都是使用电脑学习网课，但最近买的资料书的配套视频是通过手机扫描二维码，跳转到微信公众号观看不支持分享链接的视频，这就很难受，手机屏幕太小了。。。</p>
+<p>诶 ？如果能把手机投屏到电脑上就好了，就像 <a target="_blank" rel="noopener" href="https://consumer.huawei.com/cn/support/huaweishareonehop/">华为分享&#x2F;多屏协同</a> 那样</p>
+<p>可是咱的手机就只是个装着 安卓-10 的荣耀8x呀，咱的电脑是个装了 <a target="_blank" rel="noopener" href="https://manjaro.org/">manjaro</a> 的宏碁笔记本呀，看来只能自己找其他解决方案了</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p><a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy"><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220226192113702.png" alt="image-20220226192113702"></a></p>
+<ul>
+<li>还是 <a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy/blob/master/README.zh-Hans.md">中文文档</a> 看着舒服</li>
+</ul>
+<ol>
+<li>首先使用 usb 将安卓手机和 linux 电脑相连接，usb 连接方式为「传输文件」，然后打开安卓手机的 adb 调试，步骤依次为：设置 -&gt; 关于手机 -&gt; 连续点击版本号直到提示当前处于开发者模式 -&gt; 返回一级 -&gt; 搜索「开发人员选项」点击进入 -&gt; 勾选 usb 调试 -&gt; 确定</li>
+<li>linux 电脑安装 scrcpy</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S scrcpy</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>linux 电脑运行 scrcpy</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrcpy</span><br></pre></td></tr></table></figure>
+
+<p>你有可能会遇到下图的问题，导致无法运行 scrcpy</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220226200053185.png" alt="image-20220226200053185"></p>
+<p>解决办法在<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy/blob/master/FAQ.md#exception">这里</a>，我执行如下命令就成功运行了 scrcpy，手机屏幕被投屏到了电脑上 ！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrcpy -m 1920</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>截个图（成功的喜悦）</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220226200620540.png" alt="image-20220226200620540"></p>
+<ul>
+<li>我不想让手机屏幕亮着，只想在电脑上操作，所以在启动 scrcpy 的时候，需要加一个<code>-S</code>参数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrcpy -S -m 1920</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我想让投屏到电脑上的手机保持常亮，而不是静置一会就熄屏了，所以需要加一个<code>-w</code>参数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrcpy -w -S -m 1920</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最后，我希望将现在的有线投屏变成无线投屏（TCP&#x2F;IP）<ul>
+<li>文档中说的很详细了，参见下图</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220226202538716.png" alt="image-20220226202538716"></p>
+<blockquote>
+<p>查看 scrcpy 的<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">文档</a>可知，其实 scrcpy 远不止投屏一个功能，查看其官网说明自行探索按需使用即可</p>
+</blockquote>
+<h4 id="下次开机的无线投屏方式"><a href="#下次开机的无线投屏方式" class="headerlink" title="下次开机的无线投屏方式"></a>下次开机的无线投屏方式</h4><ol>
+<li>使用 usb 将手机和电脑连接</li>
+<li>电脑执行命令<code>adb tcpip 5555</code>启用网络 adb 功能</li>
+<li>断开 usb 连接</li>
+</ol>
+<hr>
+<ol start="4">
+<li>电脑执行命令<code>adb connect phoneIP:5555</code>，让电脑和手机无线连接</li>
+<li>将 scrcpy 按照你希望的方式运行起来（比如我希望手机熄屏，而手机画面投屏到电脑上并保持常量，则只需解锁手机后在电脑上执行命令<code>scrcpy -w -S -m 1920</code>）</li>
+<li>音频共享：参见下文</li>
+</ol>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220226204709518.png" alt="image-20220226204709518"></p>
+<h4 id="音频转发"><a href="#音频转发" class="headerlink" title="音频转发"></a>音频转发</h4><blockquote>
+<p>最好的音频转发方式是通过蓝牙将手机和电脑相连接</p>
+</blockquote>
+<hr>
+<p>如果你的蓝牙连接不好用，可以考虑使用如下方式</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rom1v/sndcpy"><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220227103251252.png" alt="image-20220227103251252"></a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S vlc sndcpy</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>保持无线投屏正常运行，电脑终端执行命令<code>sndcpy</code>即可将音频在电脑上播放了，然后手机关静音即可，不影响电脑的音频正常播放</li>
+</ul>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

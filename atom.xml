@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>peijie&#39;s wiki</title>
+  
+  
+  <link href="https://liupj.top/atom.xml" rel="self"/>
+  
+  <link href="https://liupj.top/"/>
+  <updated>2026-02-09T10:59:06.081Z</updated>
+  <id>https://liupj.top/</id>
+  
+  <author>
+    <name>lpj</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>macOS 里关于“名字”的那些事</title>
+    <link href="https://liupj.top/2026/02/09/names-in-macbook/"/>
+    <id>https://liupj.top/2026/02/09/names-in-macbook/</id>
+    <published>2026-02-09T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.081Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># System Configuration Utility</span></span><br><span class="line"></span><br><span class="line">scutil</span><br><span class="line">    --get NAME</span><br><span class="line">    --<span class="built_in">set</span> NAME</span><br><span class="line"></span><br><span class="line">NAME:</span><br><span class="line">    ComputerName: Mac 给人看的名字: 系统设置=&gt;通用=&gt;关于本机=&gt;名称</span><br><span class="line">    LocalHostName: Mac 在局域网里的网络名: 系统设置=&gt;通用=&gt;共享=&gt;本地主机名</span><br><span class="line">    HostName: Mac 给 Shell 看的内核名，run <span class="built_in">command</span> `hostname` to show，NO GUI</span><br><span class="line"></span><br><span class="line"><span class="comment"># Looking fo help? run `tldr scutil`</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>将 CapsLock 映射为 Escape，对于macos</title>
+    <link href="https://liupj.top/2026/02/07/mapCapsLock-2-Escape-macbookairm1/"/>
+    <id>https://liupj.top/2026/02/07/mapCapsLock-2-Escape-macbookairm1/</id>
+    <published>2026-02-07T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>ENV: macbook-air-m1, Tahoe 26.2</p><p>系统设置 &#x3D;&gt; 键盘 &#x3D;&gt; 键盘快捷键 &#x3D;&gt; 修饰键 &#x3D;&gt;【接下来自行修改即可】</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;ENV: macbook-air-m1, Tahoe 26.2&lt;/p&gt;
+&lt;p&gt;系统设置 &amp;#x3D;&amp;gt; 键盘 &amp;#x3D;&amp;gt; 键盘快捷键 &amp;#x3D;&amp;gt; 修饰键 &amp;#x3D;&amp;gt;【接下来自行修改即可】&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>拔智齿后的食谱</title>
+    <link href="https://liupj.top/2026/01/24/liquidDietRecipesForMe(haveHadTeethExtracted)/"/>
+    <id>https://liupj.top/2026/01/24/liquidDietRecipesForMe(haveHadTeethExtracted)/</id>
+    <published>2026-01-24T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.080Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="流食"><a href="#流食" class="headerlink" title="流食"></a>流食</h1><p>五谷杂粮糊</p><p>黄豆、红豆、黑豆、薏米、花生 &#x3D;&gt; 豆浆机 &#x3D;&gt; 放凉</p><p>蛋花汤</p><p>一碗水、俩鸡蛋、食用盐、生抽、香油 &#x3D;&gt; 放凉</p><p>香蕉牛奶饮</p><p>一根香蕉一杯奶 &#x3D;&gt; 豆浆机 &#x3D;&gt; 放凉</p><p>凉拌嫩豆腐</p><p>一盒嫩豆腐，放生抽食用</p><p>小米稀饭</p><p>小米、白薯、燕麦 &#x3D;&gt; 煮粥 &#x3D;&gt; 放凉</p><p>黑芝麻杂粮糊</p><p>现成的黑芝麻糊、五谷杂粮 &#x3D;&gt; 豆浆机 &#x3D;&gt; 放凉</p><p>青食钙奶饼干泡牛奶</p><p>四片 + 一袋牛奶 &#x3D;&gt; 微波炉 &#x3D;&gt; 温温地即可</p><h1 id="软质食物"><a href="#软质食物" class="headerlink" title="软质食物"></a>软质食物</h1><p>土豆泥、红薯泥、南瓜泥、山药泥、胡萝卜泥</p><p>荞麦面条、大米、杂粮豆浆</p><hr><p>肉蛋堡、青椒碎末炒鸡蛋碎末、绿豆饼、红豆饼</p><p>黑芝麻糊 + 红豆 + 扁桃仁 &#x3D;&gt; 豆浆机 &#x3D;&gt; 放温</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;流食&quot;&gt;&lt;a href=&quot;#流食&quot; class=&quot;headerlink&quot; title=&quot;流食&quot;&gt;&lt;/a&gt;流食&lt;/h1&gt;&lt;p&gt;五谷杂粮糊&lt;/p&gt;
+&lt;p&gt;黄豆、红豆、黑豆、薏米、花生 &amp;#x3D;&amp;gt; 豆浆机 &amp;#x3D;&amp;gt; 放凉&lt;/p&gt;
+&lt;p&gt;蛋花汤&lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>理解并应用生成式(大)语言模型(LLM)，提升职场人士工作效能</title>
+    <link href="https://liupj.top/2026/01/15/the-usage-of-LLM/"/>
+    <id>https://liupj.top/2026/01/15/the-usage-of-LLM/</id>
+    <published>2026-01-15T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.082Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LLM-的本质"><a href="#LLM-的本质" class="headerlink" title="LLM 的本质"></a>LLM 的本质</h1><p>LLM &#x3D;&gt; Large Language Model &#x3D;&gt; 大语言模型</p><p>你可以把它想象成一个通过阅读整个互联网而成为“文字接龙”世界冠军的超级大脑。</p><ul><li>你输入 → 就像给出了接龙的开头几个字。</li><li>它输出 → 它根据从海量文本中学到的“下一个词最可能是什么”的概率，一个字一个字地接下去，直到生成一段完整的、通顺的回答。</li></ul><p>总结来说，大语言模型是一个用海量数据和算力训练出来的、能够模拟和生成人类语言的巨型概率模型，是一个用数据和数学模拟语言规律的复杂函数。它功能强大且通用，但本质上仍是基于统计规律的“模式大师”，而非拥有理解力和意识的智能体。</p><ul><li><p>“大” 是它当前最突出的特征，体现在三个方面：</p><ol><li>数据大：训练数据来自整个互联网，规模以万亿词汇计。</li><li>参数大：模型内部的“知识连接点”多达数百亿至数万亿个。</li><li>算力大：训练和运行需要巨大的计算资源。</li></ol></li><li><p>局限：</p><ul><li>知识有时效性：知识截止于训练数据，无法知晓最新事件（但是可以联网搜索，比如腾讯元宝就有这个功能）</li><li>不理解真实世界：它处理的是文本符号和统计规律，而非真实世界的物理逻辑和情感。</li><li>AI 的幻觉，详见下文</li></ul></li></ul><h1 id="LLM：eg：deepseek-的用法技巧"><a href="#LLM：eg：deepseek-的用法技巧" class="headerlink" title="LLM：eg：deepseek 的用法技巧"></a>LLM：eg：deepseek 的用法技巧</h1><h2 id="撰写高质量输入-提示词-的技巧"><a href="#撰写高质量输入-提示词-的技巧" class="headerlink" title="撰写高质量输入(提示词)的技巧"></a>撰写高质量输入(提示词)的技巧</h2><ul><li><p>LLM 的本质是一个输入输出程序，这意味着：</p><ul><li>【结构化的(eg: markdown)、表达清晰充分的、引导性强的】输入(即：好问题)，能获得更棒的输出(good question can get good answer)</li><li>结构化能帮助 LLM 精准辨识：对于输入，哪些部分应当被识别为一个完整的意义单元</li></ul></li><li><p>赋予 LLM 特定的角色 &amp; 约束其回答范畴(即：规则限制，eg：让其只能给出法律相关的回答)</p><ul><li>这能让 LLM 身临其境地充分理解当前需求的场景上下文，以便给出更准确、更符合预期的内容</li></ul></li><li><p>复杂问题可拆解成 n 个小问题，让 LLM 逐个击破</p></li><li><p>可给 LLM 提供高质量输出的例子，让其模仿</p></li></ul><h2 id="既然如此，编写高质量输入能不能总结出来套路-x2F-范式-x2F-模板-x2F-框架？这不就省事了么，也便于引导-AI，产出更准确、更符合预期的内容"><a href="#既然如此，编写高质量输入能不能总结出来套路-x2F-范式-x2F-模板-x2F-框架？这不就省事了么，也便于引导-AI，产出更准确、更符合预期的内容" class="headerlink" title="既然如此，编写高质量输入能不能总结出来套路&#x2F;范式&#x2F;模板&#x2F;框架？这不就省事了么，也便于引导 AI，产出更准确、更符合预期的内容"></a>既然如此，编写高质量输入能不能总结出来套路&#x2F;范式&#x2F;模板&#x2F;框架？这不就省事了么，也便于引导 AI，产出更准确、更符合预期的内容</h2><ol><li><p>5W1H</p><ul><li>Who</li><li>What</li><li>Why</li><li>When</li><li>Where</li><li>How</li></ul></li><li><p>BROKE</p><ul><li>Background    说明背景</li><li>Role          定义角色</li><li>Objectives    实现什么</li><li>Keyresult     具体效果</li><li>Evolve        循环改进(eg: 可以改进输入，可以改进输出，可以让 AI 不断重新回答优中选优…)</li></ul></li></ol><p>…</p><p>上述套路&#x2F;范式&#x2F;模板&#x2F;框架的本质就是【高效表达的方法论】</p><h2 id="这也太复杂了，既然我不太会写高质量的输入，那就让-AI-来写！"><a href="#这也太复杂了，既然我不太会写高质量的输入，那就让-AI-来写！" class="headerlink" title="这也太复杂了，既然我不太会写高质量的输入，那就让 AI 来写！"></a>这也太复杂了，既然我不太会写高质量的输入，那就让 AI 来写！</h2><p>AI智能体: eg: Kimi-提示词专家</p><h2 id="AI智能体"><a href="#AI智能体" class="headerlink" title="AI智能体"></a>AI智能体</h2><ul><li><a href="https://www.coze.cn/">https://www.coze.cn/</a></li><li>coze 平台提供了一些很好的提示词模板；也允许我们自定义提示词模板，保存到提示词模板个人仓库里，便于以后复用。</li></ul><ol><li>赋予 LLM 特定角色(编写提示词)</li><li>插件(第三方工具集)</li><li>知识库<ul><li>知识库是一系列文档的集合，能够存储，管理、检索大量的知识数据</li><li>是智能体的重要信息扩展来源和知识支撑，能帮助智能体在回答问题时提供准确和详细的答案</li><li>能有效降低AI幻觉</li><li>腾讯的知识库应用：ima</li></ul></li><li>记忆系统<ul><li><p>人类的记忆</p><ul><li>感官记忆<ul><li>视觉记忆</li><li>听觉记忆</li><li>触觉记忆</li></ul></li><li>长时记忆<ul><li>显性的、陈述性的记忆<ul><li>语义记忆（概念、事实、…）</li><li>外显记忆（生活事件）</li></ul></li><li>隐性的、程序性的记忆（无意识、技能）</li></ul></li><li>短时记忆（工作记忆）</li></ul></li><li><p>对应到AI的记忆</p><ul><li>短时记忆：上下文学习，短暂且有限，因受到transformer架构的上下文窗口长度的限制</li><li>长时记忆：智能体在查询时可关注的外部存储，可通过快速检索进行访问</li><li>感官记忆：对原始输入（包括文本、图像或其它模态）的嵌入表示</li></ul></li></ul></li><li>工作流<ul><li>在 AI Agent 中，支持通过可视化的方式，对【大语言模型、插件、代码块、…】等功能进行组合，</li><li>来确保系统可以高效、准确地执行复杂的业务流程</li><li>这就是工作流</li></ul></li></ol><ul><li>爆火的通用智能体：Manus</li><li>字节旗下的通用智能体：扣子空间</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>LLM -&gt; 提示词工程 -&gt; 工作流（链式调用）-&gt; 智能体（广义上的）-&gt; 多智能体系统</p><h2 id="未来的-AI-智能体"><a href="#未来的-AI-智能体" class="headerlink" title="未来的 AI 智能体"></a>未来的 AI 智能体</h2><ul><li>即：狭义上的 AI 智能体</li><li>以 LLM 为大脑，以工具为手臂，以循环为模式的任务执行系统</li></ul><h2 id="DeepSeek-的深度思考模式是什么鬼？"><a href="#DeepSeek-的深度思考模式是什么鬼？" class="headerlink" title="DeepSeek 的深度思考模式是什么鬼？"></a>DeepSeek 的深度思考模式是什么鬼？</h2><p>深度思考模式调用的是【推理型模型】，与【指令型模型】不同</p><ul><li>指令型模型，对提示词的依赖程度高，好的提示词，效果立竿见影，eg: DeepSeek V3<ul><li>聪明又听话，高效又便捷，适合大多数任务，即规范性任务</li></ul></li><li>推理型模型，对提示词的依赖程度低，eg: DeepSeek R1, Kimi1.5 …<ul><li>聪明但没有那么听话的分析推理官，适用于创意思考、分析推理、…</li></ul></li></ul><h2 id="深度思考模式下，编写高质量输入的套路-x2F-范式-x2F-模板-x2F-框架"><a href="#深度思考模式下，编写高质量输入的套路-x2F-范式-x2F-模板-x2F-框架" class="headerlink" title="深度思考模式下，编写高质量输入的套路&#x2F;范式&#x2F;模板&#x2F;框架"></a>深度思考模式下，编写高质量输入的套路&#x2F;范式&#x2F;模板&#x2F;框架</h2><ol><li>背景信息：AI 需要了解上下文</li><li>直接需求：注意结构化(eg: markdown)</li><li>约束条件</li></ol><h2 id="有时候-AI-会一本正经地胡说八道？"><a href="#有时候-AI-会一本正经地胡说八道？" class="headerlink" title="有时候 AI 会一本正经地胡说八道？"></a>有时候 AI 会一本正经地胡说八道？</h2><p>即：AI 生成看似可信、但实际上不准确、虚构或与事实不符的内容，就像人类的幻觉一样，这是 AI 对现实世界理解不完整所导致的现象</p><p>这被称为“AI的幻觉”</p><h2 id="如何从应用层面尽可能地解决-AI-的幻觉？"><a href="#如何从应用层面尽可能地解决-AI-的幻觉？" class="headerlink" title="如何从应用层面尽可能地解决 AI 的幻觉？"></a>如何从应用层面尽可能地解决 AI 的幻觉？</h2><ol><li>提供尽可能具体清晰的输入，避免模糊或者有歧义的表述</li><li>明确限制 AI 的回答范畴，这能避免 AI 在回答的过程中引入不相关的内容，比如可以限定 AI 只能给出法律范畴内的回答</li><li>必要时，可以要求 AI 提供信息来源或出处，以便我们后续的核实和验证</li><li>还可以将一个 AI 给出的回答作为输入，输入给另一个 AI，让第二个 AI 对第一个 AI 的回答的正确性和合理性进行评估和矫正，这种 AI 之间的相互校对有利于减少单一 AI 错误信息的传播</li><li>在一些重要场景中，必要时需要引入我们人类的审核环节，可以通过专家反馈或者用户反馈，对 AI 的输出进行定期审查和矫正</li></ol><ul><li>【AI 终究只是一个辅助】</li></ul><h2 id="日常怎么跟-AI-打交道？"><a href="#日常怎么跟-AI-打交道？" class="headerlink" title="日常怎么跟 AI 打交道？"></a>日常怎么跟 AI 打交道？</h2><ul><li>想像成你自己是曹操，AI们都是你的文臣&#x2F;军师<ul><li>你要做到【兼听则明、不轻信AI的输出、要有自己的思考、不透漏机密】</li></ul></li></ul><h1 id="AI-PPT"><a href="#AI-PPT" class="headerlink" title="AI-PPT"></a>AI-PPT</h1><h2 id="全套快速制作"><a href="#全套快速制作" class="headerlink" title="全套快速制作"></a>全套快速制作</h2><ul><li>AI智能体: eg: kimi-PPT助手</li><li>部分网站&#x2F;应用提供自定义PPT模板的功能: eg: <a href="https://www.aippt.cn/">https://www.aippt.cn/</a></li></ul><h2 id="单页快速美化"><a href="#单页快速美化" class="headerlink" title="单页快速美化"></a>单页快速美化</h2><ul><li>用好 AI 工具</li><li>用好 WPS 的 AI 功能<ul><li><a href="https://ai.wps.cn/">https://ai.wps.cn/</a></li></ul></li></ul><h1 id="LLM-赋能公文处理"><a href="#LLM-赋能公文处理" class="headerlink" title="LLM 赋能公文处理"></a>LLM 赋能公文处理</h1><p>AI工具补充：秘塔、纳米AI搜索</p><p>大模型本地化部署，以处理涉密文件（这是考虑到数据安全的做法）</p><h2 id="一：信息搜集"><a href="#一：信息搜集" class="headerlink" title="一：信息搜集"></a>一：信息搜集</h2><ol><li>注意信息来源可信度，通常来说可信度较高的信息来源有：政府网站、党报官媒、期刊论文（CSSCI期刊&gt;核心期刊&gt;普通期刊）</li><li>自己要对所得信息的（真实性、有效性、正确性、…）有自己的判断和见解</li></ol><h2 id="二：分析处理（擅长批量）"><a href="#二：分析处理（擅长批量）" class="headerlink" title="二：分析处理（擅长批量）"></a>二：分析处理（擅长批量）</h2><h2 id="三：文本生成"><a href="#三：文本生成" class="headerlink" title="三：文本生成"></a>三：文本生成</h2><ul><li>AI 的作用不是替你写出文稿<ul><li>而是帮你减轻诸如【搜索信息,改写,扩写,缩写,…】等重复性劳动</li><li>帮助你发散思维，做你的智囊团</li></ul></li><li>而你作为真正的主角，要在脑海里有【好公文】的样子，并指挥 AI 和你一起朝着正确的方向努力</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;LLM-的本质&quot;&gt;&lt;a href=&quot;#LLM-的本质&quot; class=&quot;headerlink&quot; title=&quot;LLM 的本质&quot;&gt;&lt;/a&gt;LLM 的本质&lt;/h1&gt;&lt;p&gt;LLM &amp;#x3D;&amp;gt; Large Language Model &amp;#x3D;&amp;gt; 大语言</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>proxy搭建稳如老狗的原理(老白版）</title>
+    <link href="https://liupj.top/2026/01/10/proxy/"/>
+    <id>https://liupj.top/2026/01/10/proxy/</id>
+    <published>2026-01-10T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.081Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>将经过加密的数据流量伪装成https协议的流量<ul><li>将服务端节点放在web服务的后面，这能有效对抗“重chong放攻击”</li></ul></li></ul><h3 id="提速操作"><a href="#提速操作" class="headerlink" title="提速操作"></a>提速操作</h3><ol start="0"><li>线路长度（是否绕路）</li><li>线路质量（CN2 GIA）</li><li>协议设计</li></ol><h3 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h3><p><a href="https://bandwagonhost.com/">https://bandwagonhost.com</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;将经过加密的数据流量伪装成https协议的流量&lt;ul&gt;
+&lt;li&gt;将服务端节点放在web服务的后面，这能有效对抗“重chong放攻击”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;提速操作&quot;&gt;&lt;a href=&quot;#提速操作&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>混音原理，Linux混音实操，有线麦克风录音+混录系统BGM+耳返监听</title>
+    <link href="https://liupj.top/2025/12/12/mix-audio/"/>
+    <id>https://liupj.top/2025/12/12/mix-audio/</id>
+    <published>2025-12-12T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.081Z</updated>
+    
+    <content type="html"><![CDATA[<p>背景知识：<br>在Linux音频系统中，“输出设备” &#x3D; 这个设备可以接收声音，然后播放出来，并非声音的生产者，它只是声音的播放者<br>而“输入设备”负责采集声音，是声音的起点，声音从输入设备开始传播</p><p>如此一来，就不难理解TUI工具pulsemixer的output标签下的内容，output即输出设备，下含<br>1.有线麦克风（因为我的这个麦克风有用于播放声音的3.5mm耳机孔，我的这个麦克风可以接收声音然后播放出来，所以是输出设备）<br>2.电脑内置声卡（能接收声音然后播放&lt;无论是接耳机还是接扬声器&gt;，当然是输出设备）<br>3.虚拟混音池（接收音乐播放器的声音、接收麦克风的声音；并且能播放给录音软件等物件儿；当然是输出设备）</p><p>也不难理解TUI工具pulsemixer的input标签下的内容，input即输入设备，下含<br>1.有线麦克风<br>2.电脑内置声卡<br>～～<br>每个输出设备都有一个对应的监听口，这些监听口都是输入设备，即Monitor of …<br>简言之：每个“喇叭”都有个“窃听器”，录音软件只需要接窃听器，就能录到喇叭正在播放的声音</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =======================================</span></span><br><span class="line"><span class="comment"># 音乐（电脑播放的）-&gt; 流入水池，即：采集BGM</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 你的人声 -&gt; 流入水池，即：采集人声</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 水池有俩出水口：</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 出水口A -&gt; 录音软件录音，即：同时录到BGM和人声</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 出水口B -&gt; 耳返监听，即：同时听到BGM和人声</span></span><br><span class="line"><span class="comment"># =======================================</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=== 查找音频设备 ===&quot;</span></span><br><span class="line"></span><br><span class="line">UGREEN_IN=$(pactl list short sources | rg input | <span class="built_in">tail</span> -1 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;你的输入设备：<span class="variable">$UGREEN_IN</span>&quot;</span></span><br><span class="line"></span><br><span class="line">PC_OUT=$(pactl list short sinks | rg <span class="string">&quot;alsa_output&quot;</span> | <span class="built_in">head</span> -1 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;你的输出设备：<span class="variable">$PC_OUT</span>&quot;</span></span><br><span class="line"></span><br><span class="line">pactl unload-module module-null-sink 2&gt;/dev/null</span><br><span class="line">pactl unload-module module-loopback 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=== 创建虚拟混音池 ===&quot;</span></span><br><span class="line">pactl load-module module-null-sink sink_name=record_pool</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=== 配置音频流 ===&quot;</span></span><br><span class="line"></span><br><span class="line">pactl set-default-sink record_pool</span><br><span class="line">pactl load-module module-loopback <span class="built_in">source</span>=<span class="string">&quot;<span class="variable">$UGREEN_IN</span>&quot;</span> sink=record_pool latency_msec=5</span><br><span class="line">pactl load-module module-loopback <span class="built_in">source</span>=record_pool.monitor sink=<span class="string">&quot;<span class="variable">$PC_OUT</span>&quot;</span> latency_msec=5</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;✅配置完成！&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;在 Simple Screen Recorder 中：&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;1. 勾选 &#x27;Record audio&#x27;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;2. Source 选择: &#x27;Monitor of record_pool......&#x27;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;3. 开始录制&quot;</span></span><br></pre></td></tr></table></figure><p>注意：latency_msec&#x3D;5 是指明的低延迟参数，因为是软件实现的监听</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;背景知识：&lt;br&gt;在Linux音频系统中，“输出设备” &amp;#x3D; 这个设备可以接收声音，然后播放出来，并非声音的生产者，它只是声音的播放者&lt;br&gt;而“输入设备”负责采集声音，是声音的起点，声音从输入设备开始传播&lt;/p&gt;
+&lt;p&gt;如此一来，就不难理解TUI工具pulsemi</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 搜索最佳实践【入门版】</title>
+    <link href="https://liupj.top/2025/12/11/search-on-linux/"/>
+    <id>https://liupj.top/2025/12/11/search-on-linux/</id>
+    <published>2025-12-11T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.081Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搜文件名"><a href="#搜文件名" class="headerlink" title="搜文件名"></a>搜文件名</h1><p>yazi, z</p><p>ref: <a href="https://yazi-rs.github.io/docs/plugins/builtins/#usage">https://yazi-rs.github.io/docs/plugins/builtins/#usage</a></p><h1 id="搜文本内容"><a href="#搜文本内容" class="headerlink" title="搜文本内容"></a>搜文本内容</h1><p>vim, ripgrep | fzf, &lt;C-f&gt;</p><p>ref: <a href="https://github.com/junegunn/fzf.vim">https://github.com/junegunn/fzf.vim</a></p><h1 id="搜历史命令"><a href="#搜历史命令" class="headerlink" title="搜历史命令"></a>搜历史命令</h1><p>shell, fzf, &lt;C-r&gt;</p><p>ref: <a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;搜文件名&quot;&gt;&lt;a href=&quot;#搜文件名&quot; class=&quot;headerlink&quot; title=&quot;搜文件名&quot;&gt;&lt;/a&gt;搜文件名&lt;/h1&gt;&lt;p&gt;yazi, z&lt;/p&gt;
+&lt;p&gt;ref: &lt;a href=&quot;https://yazi-rs.github.io/docs/pl</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>线材库存</title>
+    <link href="https://liupj.top/2025/10/26/cables/"/>
+    <id>https://liupj.top/2025/10/26/cables/</id>
+    <published>2025-10-26T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<p>macbookair-m1-charger: 1<br>asus-ac-adapter: 1<br>philips-usb-1-4: 1<br>notCommon-mobileHDD-cable: 1<br>common C-C: 1<br>C-interface wire-headset: 1<br>3.5-interface wire-headset: 1<br>A-C: 2<br>3-C: 1<br>HDMI-HDMI: 1</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;macbookair-m1-charger: 1&lt;br&gt;asus-ac-adapter: 1&lt;br&gt;philips-usb-1-4: 1&lt;br&gt;notCommon-mobileHDD-cable: 1&lt;br&gt;common C-C: 1&lt;br&gt;C-interface wire</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>药品库存</title>
+    <link href="https://liupj.top/2025/10/25/medicine/"/>
+    <id>https://liupj.top/2025/10/25/medicine/</id>
+    <published>2025-10-25T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.080Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>请注意药品有效期 &amp; 药品性状</strong></p><table><thead><tr><th>药品名称</th><th>数量</th><th>有效期至</th></tr></thead><tbody><tr><td>洛索洛芬那片</td><td>1盒</td><td>2027-11</td></tr><tr><td>复方氨酚烷胺片</td><td>2片</td><td>2027-12</td></tr><tr><td>复方对乙酰氨基酚片</td><td>1盒</td><td>2029-02</td></tr><tr><td>连花清瘟颗粒</td><td>4顿</td><td>2027-01</td></tr><tr><td>麝香痔疮栓</td><td>1盒</td><td>2026-10</td></tr><tr><td>复方嗜酸乳杆菌片</td><td>1盒</td><td>2026-09</td></tr><tr><td>荜铃胃痛颗粒</td><td>1盒</td><td>2027-02</td></tr><tr><td>头孢克肟片</td><td>4粒</td><td>2026-06</td></tr><tr><td>马来酸曲美布汀分散片</td><td>7&#x2F;20片</td><td>2026-07</td></tr><tr><td>泮托拉唑钠肠溶片</td><td>1盒</td><td>2026-06</td></tr><tr><td>醋酸地塞米松片</td><td>1盒</td><td>2028-06</td></tr><tr><td>&lt;++&gt;</td><td>&lt;++&gt;</td><td>&lt;++&gt;</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;请注意药品有效期 &amp;amp; 药品性状&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;药品名称&lt;/th&gt;
+&lt;th&gt;数量&lt;/th&gt;
+&lt;th&gt;有效期至&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;洛索洛芬</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>pacman</title>
+    <link href="https://liupj.top/2025/06/28/pacman/"/>
+    <id>https://liupj.top/2025/06/28/pacman/</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.081Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">pacman -S &lt;package_name&gt;</span><br><span class="line">有一定风险！！！</span><br><span class="line">有可能静默安装旧包</span><br><span class="line">有可能安装成最新包，但静默安装旧依赖</span><br><span class="line"></span><br><span class="line">pacman -Sy 刷新本地数据库</span><br><span class="line">pacman -Syy 强制！刷新本地数据库</span><br><span class="line">如果直接跟包名，仍然有风险，比如假设你的系统中安装了libvpx-1.14，当你执行pacman -Sy firefox，此时系统会直接安装最新版firefox和libvpx-1.15（最新版），但是你的系统中的ffmpeg依赖libvpx-1.14，此时依赖链断裂，系统崩溃</span><br><span class="line"></span><br><span class="line">pacman -Su</span><br><span class="line">基于旧数据库升级包</span><br><span class="line">有一定风险！！！</span><br><span class="line">有可能静默升级成旧包</span><br><span class="line">有可能升级成最新包，但安装了旧依赖</span><br><span class="line">如果跟包名，基于旧数据库升级指定包，就更有风险了，毕竟上面基于新数据库升级指定包都有风险</span><br><span class="line"></span><br><span class="line">pacman -Syu</span><br><span class="line">刷新本地数据库然后更新所有软件包（更新系统）</span><br><span class="line">pacman -Syu &lt;package_name&gt;</span><br><span class="line">这是安装软件包的标杆做法</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">pacman -R</span><br><span class="line">卸载包，保留所有依赖和配置文件</span><br><span class="line"></span><br><span class="line">pacman -Rs</span><br><span class="line">卸载包，卸载无用依赖</span><br><span class="line"></span><br><span class="line">pacman -Rsc</span><br><span class="line">卸载包，卸载无用依赖，卸载配置文件</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">-Q 查询所有已安装的包</span><br><span class="line">-Qd 仅查询依赖（dependence）</span><br><span class="line">-Qdt 仅查询独立的依赖（dependence independent）</span><br><span class="line">-Qdtq 仅查询独立的依赖（dependence independent）q <span class="keyword">for</span> --quiet 仅显示包名，不显示版本号</span><br><span class="line">-Qs ，关键词，本地查询</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">-Ss 关键词，联网查询</span><br><span class="line">-Ss <span class="string">&#x27;^package_name$&#x27;</span>，精准匹配包名</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>chinese-input-method-setup</title>
+    <link href="https://liupj.top/2025/06/15/chinese-input-method-setup/"/>
+    <id>https://liupj.top/2025/06/15/chinese-input-method-setup/</id>
+    <published>2025-06-15T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<p>与时俱进，用fcitx5</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syu fcitx5-im</span><br><span class="line">sudo pacman -Syu fcitx5-chinese-addons</span><br><span class="line">sudo pacman -Syu fcitx5-pinyin-zhwiki</span><br><span class="line"></span><br><span class="line">sudo vim /etc/environment</span><br><span class="line"><span class="comment"># Add then :wq</span></span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用i3wm，需在~/.config/i3/config文件中添加一条配置信息exec fcitx5 -d</span></span><br><span class="line"><span class="comment"># 使用sway，需在~/.config/sway/config文件中添加一条配置信息exec fcitx5 -d，注意配置文件先从/etc/sway/config拷贝过来一份再修改</span></span><br></pre></td></tr></table></figure><p>重启系统，使用fcitx5-configtool添加中文输入法，使用ctrl+space进行输入法的切换</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;与时俱进，用fcitx5&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Programming Concepts and Algorithms/Solutions</title>
+    <link href="https://liupj.top/2025/04/05/3-programmingConcepts-and-algorithms/"/>
+    <id>https://liupj.top/2025/04/05/3-programmingConcepts-and-algorithms/</id>
+    <published>2025-04-05T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="The-type-of-thinking-that-enables-you-to-write-computer-programs-are-called-Computational-Thinking"><a href="#The-type-of-thinking-that-enables-you-to-write-computer-programs-are-called-Computational-Thinking" class="headerlink" title="(The type of thinking that enables you to write computer programs) are called Computational Thinking"></a>(The type of thinking that enables you to write computer programs) are called Computational Thinking</h2><p>Programming is great for solving problems that have a lot of computation or repetition in them.</p><hr><blockquote><p>Computers only work with numbers &#x3D;&gt; so Everything is a Number</p></blockquote><p>Hardware: bits(0, 1), can only do math.</p><p>Do not need to worry about bits due to a wonderful principle called abstraction.</p><blockquote><p>Abstraction: Separation of interface(what-it-does&#x2F;how-you-use-it) &amp; implementation(how-it-does-it&#x2F;how-it-works).</p></blockquote><p>Abstraction often comes in layers, and what layer you need to work at depends on what you need to do.</p><hr><h2 id="Importance-of-Everything-is-a-Number"><a href="#Importance-of-Everything-is-a-Number" class="headerlink" title="Importance of Everything is a Number"></a>Importance of Everything is a Number</h2><ul><li>Can expose numeric properities(eg: Math with letters can be Cryptography)</li><li>Interpretation of numbers&#x2F;How to operate on numbers &#x3D;&gt; Types<ul><li>eg:<ul><li>“1” + “1” &#x3D; “11”</li><li>1  +  1  &#x3D; 2</li></ul></li></ul></li><li>Whenever you have data you want to work with, you need to represent it as numbers.<ul><li>You may be able to use existing types such as strings, which already represent information as numbers, to help you out.</li></ul></li></ul><h2 id="The-Green-Screen-Problem-Developing-an-Algorithm"><a href="#The-Green-Screen-Problem-Developing-an-Algorithm" class="headerlink" title="The Green Screen Problem(Developing an Algorithm)"></a>The Green Screen Problem(Developing an Algorithm)</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;The-type-of-thinking-that-enables-you-to-write-computer-programs-are-called-Computational-Thinking&quot;&gt;&lt;a href=&quot;#The-type-of-thinking-t</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Programming Foundations with CSS</title>
+    <link href="https://liupj.top/2025/03/30/2-programming-foundations-with-CSS/"/>
+    <id>https://liupj.top/2025/03/30/2-programming-foundations-with-CSS/</id>
+    <published>2025-03-30T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>Web pages are often designed to accommodate [different device&#x2F;different screen] so that to decide how to display and even what to dispaly.</p></li><li><p>Users experience webpages differently, some users are color-blind, some can’t see well, some have trouble hearing, some can’t clicking, etc…</p></li></ol><p>So to ensure GoodUserExperience:</p><p><strong>web-designers must take [devices &amp; users] into account when creating webpages.</strong></p><p><strong>and webpages should load quickly.</strong></p><hr><h2 id="CSS-Cascading-Style-Sheets"><a href="#CSS-Cascading-Style-Sheets" class="headerlink" title="CSS: Cascading Style Sheets"></a>CSS: Cascading Style Sheets</h2><p>[HTML specifies the content | CSS specifies the look &amp; formating] of webpages.</p><p>This allows web-designers to separate the content from how it’s presented, which can accommodate different users and different display devices to make sure that even in other countries, these can be displayed without changing the content of the webpage.</p><p>And if you’re creating thousands of webpages for a website, changing the color or font or the size of an HTML element can be localized in one place, rather than repeated in a thousand places which would make changes difficult. This is called [Maintainability] in response to changing design requirments &amp; [Reusability] across multiple elements or even multiple webpages.</p><h2 id="CSS-Basics"><a href="#CSS-Basics" class="headerlink" title="CSS Basics"></a>CSS Basics</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You could include CSS by either using &lt;style&gt; or &lt;link&gt; tag which are go in the &lt;head&gt; portion of you HTML.</span><br></pre></td></tr></table></figure><hr><ul><li>Selector<ul><li>tag_name</li><li>class</li><li>id</li><li>combinators: select by relationship(eg: style <code>&lt;li&gt;</code> inside of <code>&lt;ul&gt;</code>: <code>ul li &#123; ... &#125;</code>)</li></ul></li></ul><p>Note: You should make name descriptive.(eg: foodLi &#x3D;&gt; can means food-list-items)</p><hr><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference</a></p><p>Q&amp;A:</p><ol><li><p><a href="http://stackoverflow.com/questions/544010/whats-the-difference-between-an-id-and-a-class">whats-the-difference-between-an-id-and-a-class</a></p></li><li><p><a href="https://stackoverflow.com/questions/68901619/what-error-will-i-get-if-i-use-the-same-id-for-multiple-html-elements">what-error-will-i-get-if-i-use-the-same-id-for-multiple-html-elements</a></p></li></ol><h2 id="Colors"><a href="#Colors" class="headerlink" title="Colors"></a>Colors</h2><p><a href="https://www.w3.org/TR/2022/REC-css-color-3-20220118/">https://www.w3.org/TR/2022/REC-css-color-3-20220118/</a></p><p>140 standard color names.</p><blockquote><p>An important concept: Everything is a number for a computer.</p></blockquote><p>Red + Green + Blue, 0-255, &#x3D;&gt; can specify about 16 million colors. &#x3D;&gt; more than humans can distinguish.</p><p>eg: Gold &#x3D;&#x3D; rgb(255, 215, 0)</p><p>because of that 0-255 is 256 possible colors, which can be presented by 两个十六进制的数字</p><p>FF &#x3D;&#x3D; 15 * 16 + 15 &#x3D;&#x3D; 255</p><p>D7 &#x3D;&#x3D; 13 * 16 + 7  &#x3D;&#x3D; 215</p><p>00 &#x3D;&#x3D; 0  * 16 + 0  &#x3D;&#x3D; 0</p><p>so, Gold &#x3D;&#x3D; #FFD700</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Tools/ColorPicker_Tool">https://developer.mozilla.org/en-US/docs/Web/CSS/Tools/ColorPicker_Tool</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Web pages are often designed to accommodate [different device&amp;#x2F;different screen] so that to decide how to display and even w</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Programming Foundations with HTML</title>
+    <link href="https://liupj.top/2025/03/25/1-programming-foundations-with-HTML/"/>
+    <id>https://liupj.top/2025/03/25/1-programming-foundations-with-HTML/</id>
+    <published>2025-03-25T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>OFFERED BY Duke UNIVERSITY<br><a href="https://www.dukelearntoprogram.com/">https://www.dukelearntoprogram.com</a></p></blockquote><p>Let’s begin to learn how to think like a programmer:</p><p>analyzing problems, designing solutions called algorithms, and translating your algorithms into programs.</p><hr><p>Reading document please, so that you will know what methods you can use in a programming language.</p><p>Use <a href="https://codepen.io/">https://codepen.io</a> to play around !</p><hr><ul><li><p>HTML is [not] a programming language but rather a Markup Language.</p></li><li><p>HTML is used by web browsers to display a webpage.</p></li></ul><p>Note: You may have written documents in which you select text and make it bold or underlined or italics, [this is a way of marking up the text to display in certain ways ! ]</p><p><a href="https://www.bilibili.com/video/BV1GkewzwEbK">https://www.bilibili.com/video/BV1GkewzwEbK</a></p><hr><h2 id="Metadata-Elements"><a href="#Metadata-Elements" class="headerlink" title="Metadata Elements"></a>Metadata Elements</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  - specifies using HTML standard</span><br><span class="line">  - contains all other elements</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  - information about the page: title, css, scripts, ...</span><br><span class="line"></span><br><span class="line">  &lt;title&gt;</span><br><span class="line">    - specifies page title</span><br><span class="line">    - nested inside &lt;head&gt;&lt;/head&gt; tags</span><br><span class="line"></span><br><span class="line">etc...</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Sectioning-Elements"><a href="#Sectioning-Elements" class="headerlink" title="Sectioning Elements"></a>Sectioning Elements</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  - contains all items seen on page</span><br><span class="line"></span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    - defines section of webpage</span><br><span class="line">    - [useful for grouping elements together to use CSS styling ! ]</span><br><span class="line"></span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    - section header</span><br><span class="line">    - also &lt;h2&gt;, &lt;h3&gt;, ..., &lt;h6&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    - paragraphs.</span><br><span class="line"></span><br><span class="line">etc...</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Semantic-or-Style-HTML-Tags"><a href="#Semantic-or-Style-HTML-Tags" class="headerlink" title="Semantic or Style HTML Tags"></a>Semantic or Style HTML Tags</h2><p>Tags surround [text]&#x2F;[page elements]</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;Make text stylistically different, Traditionally bold face, but can change&lt;/b&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">If you have trouble seeing, then it&#x27;s(&lt;b&gt;&lt;/b&gt;) a semantics/meaning</span><br><span class="line">to helps screen reader to change how text is read to you(a blind user).</span><br></pre></td></tr></table></figure><h2 id="Adding-Images-Audios-x2F-Videos"><a href="#Adding-Images-Audios-x2F-Videos" class="headerlink" title="Adding Images, Audios&#x2F;Videos"></a>Adding Images, Audios&#x2F;Videos</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;http://xyz.png&quot; width=&quot;75%&quot; /&gt;</span><br><span class="line">&lt;img src=&quot;http://xyz.png&quot; /&gt;</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">We can add Options(eg: src, width) in the image tags,</span><br><span class="line">which give information about what we&#x27;re doing.</span><br><span class="line"></span><br><span class="line">Some Options are required!(eg: src, which means source),</span><br><span class="line">because of that we have to specify what image we want to display.</span><br></pre></td></tr></table></figure><h2 id="copyright"><a href="#copyright" class="headerlink" title="copyright"></a>copyright</h2><p>What to use for src&#x3D;”..” ?</p><p>In some cases, there may be concern with the person, organization or group that create the photo you display on a webpage you create. The creator has certain rights called copyrights.</p><p>Many images are in the public_domain and are not copyrighted.(eg: Wikimedia commons website)</p><p>Some images have what are called creative commons licenses, which specify how you can use the images, and some creative_commons_images are not copyrighted.</p><h2 id="Images-Storage"><a href="#Images-Storage" class="headerlink" title="Images Storage"></a>Images Storage</h2><p>In some cases, there may be storage&#x2F;hosting concerns.</p><p>Where are the images stored that you’ve included on your webpage? And who pays.</p><p><a href="https://liupj.top/2022/03/25/aliyun-oss-picgo/">我曾经自建图床</a></p><p>Suppose one million people view your webpage, it means that the image is sent from the website which stores it, across the Internet to one million users that might be scattered all over the world! Someone pays, even if it’s not you.</p><h3 id="Inline-Linking-x2F-Hot-Linking"><a href="#Inline-Linking-x2F-Hot-Linking" class="headerlink" title="Inline-Linking&#x2F;Hot-Linking"></a>Inline-Linking&#x2F;Hot-Linking</h3><p>When you use a URL in a webpage you create as part of an IMG tag,<br>you’ve included what’s called an Inline Linking, also called Hot Linking.<br>It means that the image is stored on another site but visually it appears in the site you create.</p><p>If you create a webpage with lots of views or traffic, there may be storage costs or server costs that might be a concern. &#x3D;&gt; Thus some sites don’t allow hot-linking!</p><p><a href="https://www.quora.com/What-is-hotlinking-and-why-do-some-sites-not-allow-it-Is-there-any-way-around-this-limitation-without-hosting-the-images-ourselves">Further reason and solution.</a></p><h2 id="Linking-Pages-Together"><a href="#Linking-Pages-Together" class="headerlink" title="Linking Pages Together"></a>Linking Pages Together</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://asd.org/en-US/HTML&quot;&gt;EXAMPLE_LINKS&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">a means anchor.</span><br><span class="line">href is required!</span><br><span class="line"></span><br><span class="line">You must specify some text between the start and end anchor tag,</span><br><span class="line">and this text will be clickable to take you to an another website.</span><br></pre></td></tr></table></figure><h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// unordered list</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">// ordered list</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br><span class="line"></span><br><span class="line">li tag stands for list items, [is required],</span><br><span class="line">and are the only type of tag you can put as direct children of ul/ol tag.</span><br><span class="line"></span><br><span class="line">inside li tags we can put much more than just text,</span><br><span class="line">we can put images, links or even another list.</span><br></pre></td></tr></table></figure><h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">&lt;tr&gt; =&gt; table row</span><br><span class="line">&lt;th&gt; =&gt; table header</span><br><span class="line">&lt;td&gt; =&gt; table data</span><br></pre></td></tr></table></figure><h2 id="Test-your-webpage"><a href="#Test-your-webpage" class="headerlink" title="Test your webpage"></a>Test your webpage</h2><p>You can use private browsing to be sure that you are behaving like an anonymous user,<br>rather than being logged in as yourself when looking at a webpage.</p><p>eg: to be sure that you can see images.</p><h2 id="Be-aware-of…"><a href="#Be-aware-of…" class="headerlink" title="Be aware of…"></a>Be aware of…</h2><p>Making a webpage good isn’t easy.</p><p>Webpages can be displayed on different types of divices, such as your laptop, your phone.</p><p>Webpages can be used by different types of people, such as normal user, blind user.</p><p>…</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;OFFERED BY Duke UNIVERSITY&lt;br&gt;&lt;a href=&quot;https://www.dukelearntoprogram.com/&quot;&gt;https://www.dukelearntoprogram.com&lt;/a&gt;&lt;/p&gt;
+&lt;/blo</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何高效地学习一门编程语言</title>
+    <link href="https://liupj.top/2025/03/24/programming-language-learning/"/>
+    <id>https://liupj.top/2025/03/24/programming-language-learning/</id>
+    <published>2025-03-24T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.081Z</updated>
+    
+    <content type="html"><![CDATA[<p>请使用英文原版教材！！！</p><p>一门语言的特定【实现】，可以是编译型或解释型</p><p>语言 &#x3D; { 特性1，特性2，…，特性n }</p><p>一个世界就是一堆独立运转的节点在相互发送和处理消息。—— Alan Kay &#x3D;&gt; 这揭示了 Object-Oriented 的首要特征：messaging（发送 &amp; 处理消息）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;请使用英文原版教材！！！&lt;/p&gt;
+&lt;p&gt;一门语言的特定【实现】，可以是编译型或解释型&lt;/p&gt;
+&lt;p&gt;语言 &amp;#x3D; { 特性1，特性2，…，特性n }&lt;/p&gt;
+&lt;p&gt;一个世界就是一堆独立运转的节点在相互发送和处理消息。—— Alan Kay &amp;#x3D;&amp;gt; 这揭示</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>低卡火锅蘸料</title>
+    <link href="https://liupj.top/2025/03/23/%E4%BD%8E%E5%8D%A1%E7%81%AB%E9%94%85%E8%98%B8%E6%96%99/"/>
+    <id>https://liupj.top/2025/03/23/%E4%BD%8E%E5%8D%A1%E7%81%AB%E9%94%85%E8%98%B8%E6%96%99/</id>
+    <published>2025-03-23T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.082Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="以下都无辣椒（可自行添加）"><a href="#以下都无辣椒（可自行添加）" class="headerlink" title="以下都无辣椒（可自行添加）"></a>以下都无辣椒（可自行添加）</h1><blockquote><p>版本一</p></blockquote><ol><li>一勺香醋</li><li>一勺生抽</li><li>半勺蒜蓉</li><li>半勺小葱</li><li>半勺香菜</li></ol><blockquote><p>版本二</p></blockquote><ol><li>一勺香醋</li><li>半勺腐乳</li><li>半勺韭花酱</li><li>半勺蒜蓉</li><li>半勺小葱</li><li>半勺香菜</li></ol><blockquote><p>版本三（海鲜版）</p></blockquote><ol><li>一勺海鲜汁</li><li>半勺蒜蓉</li><li>半勺小葱</li><li>半勺香菜</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;以下都无辣椒（可自行添加）&quot;&gt;&lt;a href=&quot;#以下都无辣椒（可自行添加）&quot; class=&quot;headerlink&quot; title=&quot;以下都无辣椒（可自行添加）&quot;&gt;&lt;/a&gt;以下都无辣椒（可自行添加）&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;版本一&lt;/p&gt;
+&lt;/blo</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用键盘组合键启动iTerm</title>
+    <link href="https://liupj.top/2025/03/19/launch-iTerm-by-shortcut/"/>
+    <id>https://liupj.top/2025/03/19/launch-iTerm-by-shortcut/</id>
+    <published>2025-03-19T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考了：<a href="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/">https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/</a></p><p>用键盘组合键启动应用程序无疑是最高效的方式，话不多说，下面演示如何实现用键盘组合键启动iTerm</p><ol><li><p>运行【自动操作】，即：automator</p></li><li><p>新建文稿，选取文稿类型，快速操作</p></li><li><p>搜索AppleScript，双击【运行AppleScript】</p></li><li><p>粘贴代码</p></li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> application <span class="string">&quot;iTerm&quot;</span> <span class="keyword">is</span> running then</span><br><span class="line">tell application <span class="string">&quot;iTerm&quot;</span></span><br><span class="line">activate</span><br><span class="line">end tell</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">activate application <span class="string">&quot;iTerm&quot;</span></span><br><span class="line">end <span class="keyword">if</span></span><br></pre></td></tr></table></figure><ol start="5"><li><p>Command+S 保存，命名为【运行iTerm】</p></li><li><p>系统设置&#x3D;》键盘&#x3D;》键盘快捷键…&#x3D;》服务&#x3D;》通用，设置组合键即可，我设置成了[command+shift+m]</p></li></ol><p>Have a try!</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;参考了：&lt;a href=&quot;https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/&quot;&gt;https://shinyu0430.github.io/2023/05/12/iterm-shortcu</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>中餐厨艺课</title>
+    <link href="https://liupj.top/2025/01/02/be-cook-at-home/"/>
+    <id>https://liupj.top/2025/01/02/be-cook-at-home/</id>
+    <published>2025-01-02T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>清炒绿叶菜：菜+油+盐+味精+鸡精&#x3D;出锅，注意清洗蔬菜要用滤网！！！</li><li>清炒蔬菜更精彩的调味品：大蒜（蒜香味）、干辣椒（糊辣味）、干花椒（麻辣味）</li></ol><p>一天一斤蔬菜，方能补充：维生素、矿物质、膳食纤维<br>be more healthier ！</p><p>——</p><p>冬瓜汤 &amp;&amp; 羊肉冬瓜汤<br>炊具：炒菜铁锅即可、汤勺<br>准备食材：冬瓜适量（切片，2～3mm）、生姜（切片，2～3片）、食盐、味精、鸡精、食用油、葱花、枸杞子、羊肉片<br>水烧开，生姜和冬瓜下锅、转二档火（中小火）炖煮（大概10mins左右），加入羊肉片食盐味精鸡精食用油搅和搅和，2～3mins出锅撒上葱花枸杞子</p><p>——</p><p>生抽、蚝油（都能提味增鲜）<br>素炒冬瓜</p><p>——</p><p>青椒土豆丝<br>主料：青椒、土豆<br>辅料：油、大蒜、盐、味精、鸡精</p><p>——</p><p>扬州炒饭</p><p>主料：黄瓜、胡萝卜、火腿肠、鸡蛋、大米饭（熟冷）<br>辅料：小葱、生姜、油、盐、味精、鸡精</p><p>步骤：<br>    鸡蛋打散备用<br>    黄瓜、胡萝卜、火腿肠均适量切成6mm的方丁备用<br>    切一点姜末备用<br>    切一些葱花备用</p><p>——</p><p>葱油饼</p><p>冷水、面粉、鸡蛋、盐、葱花、油</p><p>——</p><p>蒜蓉油麦菜&#x2F;生菜&#x2F;空心菜&#x2F;菠菜…</p><p>主料：3颗油麦菜+半头大蒜</p><p>——</p><p>素炒胡萝卜</p><p>4根红色细长的胡萝卜（滚刀块）+3瓣大蒜（切片）</p><p>——</p><p>万能凉拌菜调料</p><p>以下调料均可适量减少（for your health）</p><p>1勺盐<br>1勺味精<br>1勺白糖<br>3勺生抽<br>2勺陈醋<br>半勺芝麻油<br>半勺花椒油<br>2勺辣椒油<br>一点姜蒜末<br>两三个红小米椒切成小圈圈，然后用刀改小</p><p>——</p><p>青椒炒茄子</p><p>主料：茄子、青椒<br>调料：油、蒜、青花椒粒、盐、鸡精、味精</p><p>——</p><p>炒豆腐</p><p>主料：一块豆腐<br>调料：油、蒜、盐、味精、鸡精、干辣椒</p><p>——</p><p>家常豆腐</p><p>主料：一块豆腐、一小块猪瘦肉<br>调料：<br>油、盐、<br>豆瓣酱、生姜、大蒜、<br>料酒、胡椒粉、<br>生抽、<br>味精、鸡精、<br>蒜苗、水淀粉</p><hr><p>素面碗汁</p><p>姜蒜末、盐、味精、鸡精、生抽两勺、半勺陈醋、一点蚝油、香油</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;清炒绿叶菜：菜+油+盐+味精+鸡精&amp;#x3D;出锅，注意清洗蔬菜要用滤网！！！&lt;/li&gt;
+&lt;li&gt;清炒蔬菜更精彩的调味品：大蒜（蒜香味）、干辣椒（糊辣味）、干花椒（麻辣味）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一天一斤蔬菜，方能补充：维生素、矿物质、膳食纤维&lt;br&gt;be</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于网卡、网口、路由器、ip、mac之间的数量对应关系</title>
+    <link href="https://liupj.top/2024/12/23/ip-mac-router-netInterface-netCard/"/>
+    <id>https://liupj.top/2024/12/23/ip-mac-router-netInterface-netCard/</id>
+    <published>2024-12-23T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.080Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>以下为观看视频 <a href="https://www.bilibili.com/video/BV124411k7uV">https://www.bilibili.com/video/BV124411k7uV</a> 所交的作业，小爱同学提供了一定支持</p></blockquote><p>首先，二层交换机作为一种网络设备，具有全球唯一的MAC地址<br>但是，二层交换机的MAC只是为了实现局域网内的数据转发，即局域网内的设备通信<br>所以，二层交换机本身无网卡</p><p>但是二层交换机有很多网口啊，所以这就解释了网口和网卡其实并无严格的对应关系（虽然大多数家用电脑的一个网口确实对应一张网卡）</p><p>—————————</p><p>ip和mac确实都是网卡的属性</p><p>一张网卡通常具备 1 个全球唯一的mac地址<br>但是特殊网卡可能存在多个mac地址，比如某些网卡可能支持虚拟网络接口，可能存在多个mac地址，但不常见</p><p>一张网卡通常具备 1 个ip地址<br>但在一些特殊情况下，可以给 1 张网卡分配多个ip地址，比如这样可以同时连接多个不同的网络进行通信</p><p>—————————</p><p>路由器通常具备 2 个ip，即WAN侧的ip和LAN侧的ip<br>但由于路由器本身就是个linux系统，所以完全可以登录进去，给他的网卡配更多ip</p><p>—————————</p><p>诚然，从理论上来说，一个路由器中可以只有1张网卡，但是在实际应用中，这样做并不好<br>至于为什么不好，你可以问问小爱同学【既然一张网卡可以配置多个ip，那么常见家用路由器中为什么给WAN口和LAN口使用了不同的网卡（或从逻辑和功能上认为是不同的网卡）】<br>简要来说大致是因为：</p><ol><li>便于ip地址的管理</li><li>便于针对WAN口和LAN口的特定需求进行网络优化</li><li>两张网卡实现了内外网物理层面的隔离，更安全</li><li>便于故障的排查和维护</li></ol><p>常见的情况：<br>路由器中有多少网卡需要具体情况具体分析<br>不考虑Wi-Fi功能的话，一般家用路由器通常具备LAN口网卡和WAN口网卡<br>考虑Wi-Fi功能的话，还会有无线网卡提供无线连接；单频路由器提供1个无线网卡工作在2.4GHz频段，双频路由器相比单频路由器再多一个无线网卡工作在5GHz频段</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;以下为观看视频 &lt;a href=&quot;https://www.bilibili.com/video/BV124411k7uV&quot;&gt;https://www.bilibili.com/video/BV124411k7uV&lt;/a&gt; 所交的作业，小爱同学提供了一</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>童言即诗</title>
+    <link href="https://liupj.top/2024/10/19/childrensWordsIsPoem/"/>
+    <id>https://liupj.top/2024/10/19/childrensWordsIsPoem/</id>
+    <published>2024-10-19T00:00:00.000Z</published>
+    <updated>2026-02-09T10:59:06.079Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>以下内容选摘自互联网络，仅仅因为觉得可爱故分享于此，如有雷同纯属巧合，侵权可删</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">《拔牙》</span><br><span class="line"></span><br><span class="line">昨晚我的一颗牙齿</span><br><span class="line"></span><br><span class="line">想去旅行</span><br><span class="line"></span><br><span class="line">他一定会后悔的</span><br><span class="line"></span><br><span class="line">再也尝不到</span><br><span class="line"></span><br><span class="line">棒棒糖的美味了</span><br></pre></td></tr></table></figure><ul><li><p>一个小婴儿哭了，旁边的小朋友说：“阿姨你的宝宝响了！”</p></li><li><p>4 岁娃坐车上，外面阳光照他脸上，说：“我被太阳发现了！”</p></li><li><p>小孩不会读“逸”字，他说：”妈妈，这个小兔子有滑板车～“</p></li><li><p>坐地铁遇到一个小朋友，因为地铁摇晃站不稳，这个小朋友说了句：”地铁先生你不要乱动！“</p></li><li><p>女儿跟妈妈说怕黑，妈妈对女儿说要勇敢，她说：”我不怕红不怕绿不怕蓝不怕黄，还不够勇敢吗？“</p></li><li><p>小朋友蹲马桶腿麻了，他突然眼睛睁好大说：”我的腿里面好疯狂啊！“</p></li><li><p>给一个孩子上钢琴课，从大三度转到小三度音程时，他说这个音抑郁了…真的，这感觉太到位了</p></li><li><p>我儿子第一次见到黑人，头默默地埋在我怀里，很小声地问我：“叔叔是不是过期了”</p></li><li><p>我儿子小时候有一次问我要“驼背的花生”吃，原来他是要吃腰果</p></li><li><p>我儿子脚麻了，他说：“妈妈我的脚在放烟花”</p></li><li><p>我女儿洗完手，非常大声地说：“谢谢水龙头”，然后鞠躬，我当时简直是呆住了</p></li><li><p>我小女儿两三岁的时候每次拉完粑粑都要跟粑粑说再见，还要挥着手手说</p></li><li><p>风把门吹开了，小朋友说：“妈妈，风有我们家的钥匙“</p></li><li><p>我二宝坐在安全座椅里，被遮光帘碰到了，她说：”风在踢我“</p></li><li><p>我娃说90多岁拄着拐颤巍巍走路的老奶奶该换电池了</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;以下内容选摘自互联网络，仅仅因为觉得可爱故分享于此，如有雷同纯属巧合，侵权可删&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

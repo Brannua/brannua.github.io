@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>个人数据存储方案 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">个人数据存储方案</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-07-12</span>
+  </div>
+  <div class="post-content">
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>事实证明，网盘服务提供商提供的并非安全的数据备份服务，而是一种公开的数据共享服务</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/82606227/">我在网盘中看到了无数人泄露的私密文件|知乎</a></p>
+<p>故数据存储&#x2F;数据备份，不使用网盘</p>
+<p>另外，同步盘并不能承担备份的任务，因为任何本地的修改都会直接影响另一端，这哪还叫数据备份嘛。。</p>
+<h2 id="如果你不得不使用网盘服务"><a href="#如果你不得不使用网盘服务" class="headerlink" title="如果你不得不使用网盘服务"></a>如果你不得不使用网盘服务</h2><ol>
+<li>你需要学会翻墙&#x2F;科学上网</li>
+<li>然后使用新西兰的一款网盘 &#x3D;&gt; <a target="_blank" rel="noopener" href="https://mega.io/">Mega</a>，因为其会自动将用户上传的文件加密，然后才存储于其服务端，数据安全性相对较高</li>
+</ol>
+<h2 id="如果你不得不从外网访问家庭内网"><a href="#如果你不得不从外网访问家庭内网" class="headerlink" title="如果你不得不从外网访问家庭内网"></a>如果你不得不从外网访问家庭内网</h2><p>就比如你身在公司，但是需要访问家中的电脑</p>
+<p>推荐 &#x3D;&gt; <a target="_blank" rel="noopener" href="https://my.zerotier.com/">ZeroTier</a></p>
+<p>其通过技术手段，允许用户构建类似于虚拟局域网的网络，任何加入用户自行创建的网络的主机均可相互通信</p>
+<h2 id="个人数据存储方案"><a href="#个人数据存储方案" class="headerlink" title="个人数据存储方案"></a>个人数据存储方案</h2><blockquote>
+<p>考虑：数据安全性 &amp; 服务稳定性 &amp; 费用（包括存储费、流量费）</p>
+</blockquote>
+<blockquote>
+<p>当存储体剩余不到 20% 空间时，就需要扩容了</p>
+</blockquote>
+<ul>
+<li><p>需求一：自建图床</p>
+<ul>
+<li><a href="https://liupj.top/2022/03/24/aliyun-oss-picgo">https://liupj.top/2022/03/24/aliyun-oss-picgo</a></li>
+<li>另外：阿里云OSS可以临时存放任何需要外链的文件资料，考虑到流量问题，不放视频</li>
+</ul>
+</li>
+<li><p>需求二：个人工作环境配置文件的备份</p>
+<ul>
+<li>在 github 托管</li>
+</ul>
+</li>
+<li><p>需求三：个人操作系统的备份</p>
+<ul>
+<li>一个 240GB 的移动固态硬盘就足够了（反正配置文件和重要数据都有备份，即使系统崩了，大不了重做）</li>
+<li>用 timeshift 维护一组线性的系统镜像</li>
+</ul>
+</li>
+<li><p>需求四：其余数据的备份</p>
+<ul>
+<li>一份归档存 3 处（2 处于本地的两台 500GB linux 笔记本电脑上，1 处放阿里云的归档存储）</li>
+<li>归档只读</li>
+</ul>
+</li>
+</ul>
+<h2 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h2><ul>
+<li>给备份融入版本控制系统</li>
+</ul>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

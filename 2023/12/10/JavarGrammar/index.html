@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Java Grammar - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Java Grammar</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2023-12-10</span>
+  </div>
+  <div class="post-content">
+    <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1c54y1U7pp">初学编程的常见误区</a></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/image-20230330001856416.png" alt="image-20230330001856416"></p>
+<h2 id="Module-1-Java-Fundamentals"><a href="#Module-1-Java-Fundamentals" class="headerlink" title="Module 1: Java Fundamentals"></a>Module 1: Java Fundamentals</h2><p>Variables: store data</p>
+<p>Conditionals: control how your code runs</p>
+<p>Arrays: store and work with many values</p>
+<p>Loops: control how many times a piece of code needs to run</p>
+<p>Functions: perform tasks</p>
+<h2 id="Module-2-Object-Oriented-Programming"><a href="#Module-2-Object-Oriented-Programming" class="headerlink" title="Module 2: Object Oriented Programming"></a>Module 2: Object Oriented Programming</h2><p>objects、immutable objects、list collections、map collections、exception handling、</p>
+<p>package and import、static and final、enums、unit test、inheritance and polymorphism、</p>
+<p>higher order functions、big decimal、interface、concurrency and multithreading</p>
+<h2 id="Reasons-to-learn-Java"><a href="#Reasons-to-learn-Java" class="headerlink" title="Reasons to learn Java"></a>Reasons to learn Java</h2><p>Java is general-purpose, which means that Java powers a wide range of applications.<br>As a Java developer,</p>
+<ul>
+<li>you can build web applications using Spring boot,</li>
+<li>you can build applications on Android,</li>
+<li>you can automate tasks using Selenium,</li>
+<li>you can develop cloud native applications,</li>
+<li>you can integrate microservices,</li>
+<li>you can …</li>
+</ul>
+<p>Java can run on any machine, it’s well known for its “write once, run anywhere”</p>
+<ul>
+<li>This is because the Java Virtual Machine, the JVM, which is responsible for executing compiled Java code, can be installed on any platform</li>
+</ul>
+<p>Java is the No.1 language for developing enterprise applications</p>
+<h2 id="To-run-Java-code-you-need"><a href="#To-run-Java-code-you-need" class="headerlink" title="To run Java code, you need"></a>To run Java code, you need</h2><ol>
+<li><p>A Java Compiler - to compile your code.</p>
+</li>
+<li><p>A Java Runtime - to run the compiled code.</p>
+<p> So, this is why JDK provides a Compiler、a Runtime、and a lot of other things.</p>
+<p> <img style="width: 12rem;" src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20230307213835.png"></img></p>
+</li>
+</ol>
+<h2 id="Roadmap"><a href="#Roadmap" class="headerlink" title="Roadmap"></a>Roadmap</h2><ol>
+<li><p>Install a JDK(Java Development Kit) on your machine &#x3D;&gt; from Amazon Corretto is recomended.</p>
+<p> Amazon Corretto is just a distribution which once installed, does the work of setting up a JDK on your machine.<br> Basically all you need to do is install it and it’s going to do the heavy lifting.</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac -version  # check compiler</span><br><span class="line">java -version   # check runtime</span><br></pre></td></tr></table></figure>
+
+<p> Finished ! you’ve just installed a JDK, now your computer can compile and run Java code.</p>
+</li>
+<li><p>Download a text editor to write code</p>
+<p> I use vim &amp; vscode(the extension pack for java is must).</p>
+<p> Now you have everything you need to start building Java applications!</p>
+</li>
+<li><p>Write &amp; Run your first Java code</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Every java file needs to follow the naming convention -&gt; CamelCase</span></span><br><span class="line">touch HelloJava.java</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// In java, you must write all of your code in a class.</span></span><br><span class="line"><span class="comment">// And the ClassName needs to be the same as your FileName.</span></span><br><span class="line"><span class="comment">// So here we create a class.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloJava</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> All right, so what’s next is the <code>main()</code> method, which is the entry point of a Java application.</p>
+<p> And inside main, we’re going to print the message “Hello Java”</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HelloJava</span> &#123;</span><br><span class="line">       <span class="comment">// not understand this line is doesn&#x27;t matter now.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello Java&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Notice:</span></span><br><span class="line"><span class="comment">       the semicolon is really important, which means end of statement.</span></span><br><span class="line"><span class="comment">       every statement in Java, every line of code, needs a semicolon at the end.</span></span><br><span class="line"><span class="comment">       so if you forget your semicolon, your code is not gonna run.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p> Now we’re ready to compile and run our Java code.</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The javac <span class="built_in">command</span> compiles your javaCode into byteCode</span></span><br><span class="line">javac &lt;FileName&gt;.java</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The java <span class="built_in">command</span> executes the compiled code</span></span><br><span class="line">java &lt;FileName&gt;</span><br></pre></td></tr></table></figure>
+<p> For example</p>
+<p> <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/image-20230331230902548.png" alt="image-20230331230902548"></p>
+</li>
+</ol>
+<p>See you in workbook 1.1</p>
+<h2 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h2><blockquote>
+<p>Store data inside variable.</p>
+</blockquote>
+<h3 id="Java-is-strongly-typed"><a href="#Java-is-strongly-typed" class="headerlink" title="Java is strongly typed"></a>Java is strongly typed</h3><p>which means that variables can only store values of their type.</p>
+<h3 id="Java-is-case-sensitive"><a href="#Java-is-case-sensitive" class="headerlink" title="Java is case sensitive"></a>Java is case sensitive</h3><p>eg: <code>people</code> is not the same as <code>People</code></p>
+<h3 id="The-convention-to-naming-a-variable"><a href="#The-convention-to-naming-a-variable" class="headerlink" title="The convention to naming a variable"></a>The convention to naming a variable</h3><p><strong>lowerCamelCase</strong></p>
+<p>eg: <code>int peopleOnBus = 20;</code></p>
+<h3 id="Update-the-value-inside-a-variable"><a href="#Update-the-value-inside-a-variable" class="headerlink" title="Update the value inside a variable"></a>Update the value inside a variable</h3><p>Just set it equal to a new value, or use <code>+=</code>、<code>-=</code>、…</p>
+<p>See you in workbook 2.1</p>
+<h2 id="Use-variables-to-store-numeric-data"><a href="#Use-variables-to-store-numeric-data" class="headerlink" title="Use variables to store numeric data"></a>Use variables to store numeric data</h2><h3 id="Types-int-and-long"><a href="#Types-int-and-long" class="headerlink" title="Types: int and long"></a>Types: int and long</h3><p>We can use <code>int</code> and <code>long</code> variables to store whole numbers.</p>
+<p>You should know the difference between <code>int</code> and <code>long</code> and when to use <code>int</code> vs <code>long</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">numberOfFans</span> <span class="operator">=</span> <span class="number">5000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如下两行等价，但显然第二行的可读性更好</span></span><br><span class="line"><span class="type">long</span> <span class="variable">population</span> <span class="operator">=</span> <span class="number">7000000000L</span>;</span><br><span class="line"><span class="type">long</span> <span class="variable">population</span> <span class="operator">=</span> <span class="number">7_000_000_000L</span>;</span><br></pre></td></tr></table></figure>
+
+<p>为什么要在 7000000000 这个数后面加个 L ？</p>
+<p>如果你不加 L，那么 Java 就只会看到这是一个很大的数，它并不知道你这个傻乎乎的开发者要将这个数存到什么地方，所以 Java 就慌了</p>
+<p>因此，你只需在这个数后面加个 L 来告诉 Java：“放松啦～ 咱们要存的地方存得下这个数的。”，然后 Java 就平静了</p>
+<h3 id="Type-double"><a href="#Type-double" class="headerlink" title="Type: double"></a>Type: double</h3><p>We can use <code>double</code> variables to store decimal numbers, which are given so much size in memory that a double value can reach 15 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97">significant digits</a>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">percentage</span> <span class="operator">=</span> <span class="number">55.7</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Be-careful"><a href="#Be-careful" class="headerlink" title="Be careful !!!"></a>Be careful !!!</h3><p>Avoid just using integers for math calculations,</p>
+<p>because if you multiply or divide two integers, the result will always be an integer,</p>
+<p>because Java’s going to cut off all the decimals.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">integer * integer =&gt; integer</span><br><span class="line">integer / integer =&gt; integer</span><br></pre></td></tr></table></figure>
+
+<p>eg</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">people</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">wallet</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">System.out.println(wallet / people); <span class="comment">// 6, which is not the result we want.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// So we need to make sure that at least one of these values is stored as a decimal,</span></span><br><span class="line"><span class="comment">// then Java&#x27;s going to know to return a decimal result.</span></span><br><span class="line"><span class="type">int</span> <span class="variable">people</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">wallet</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">System.out.println(wallet / people); <span class="comment">// 6.666666666666667, this is the result we want.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Golden-Rule"><a href="#Golden-Rule" class="headerlink" title="Golden Rule"></a>Golden Rule</h3><p>If precision is important, use <code>double</code> for math calculations.</p>
+<h3 id="Type-String"><a href="#Type-String" class="headerlink" title="Type: String"></a>Type: String</h3><p>We can use the type <code>String</code> to store text.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">sentence</span> <span class="operator">=</span> <span class="string">&quot;Hello world !&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>String unlike <code>int</code> in memory, </p>
+<p>no matter what you store in the integer variable, it’s always 4 bytes,</p>
+<p>but with String, empty text alone takes up 24 bytes, and the more text that you add to a string, the more memory it takes up.</p>
+<hr>
+<p>You can use the <code>+</code> operator to join two String values.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">sentence</span> <span class="operator">=</span> <span class="string">&quot;His name is: &quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">placeholder</span> <span class="operator">=</span> <span class="string">&quot;Harry&quot;</span>;</span><br><span class="line">System.out.println(sentence + placeholder);</span><br></pre></td></tr></table></figure>
+
+<p>You can use the <code>+</code> operator to blend values into a string.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">points</span> <span class="operator">=</span> <span class="number">50</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">announcement</span> <span class="operator">=</span> <span class="string">&quot; points for Gryffindor&quot;</span>;</span><br><span class="line">System.out.println(points + announcement); <span class="comment">// 50.0 points for Gryffindor</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Type-char"><a href="#Type-char" class="headerlink" title="Type: char"></a>Type: char</h3><p>We can use the <code>char</code> type to store single characters.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">gender</span> <span class="operator">=</span> <span class="string">&#x27;F&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>We can join a String value with a char value using the <code>+</code> operator.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;Gender: &quot;</span> + <span class="string">&#x27;F&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">gender</span> <span class="operator">=</span> <span class="string">&quot;F&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>It seems that String is more flexible than char,</p>
+<p>so why not always use String ?</p>
+<p>The answer is【memory】and【performance】!</p>
+<p>char consumes less memory, and char is faster than String !</p>
+<h3 id="Summarize"><a href="#Summarize" class="headerlink" title="Summarize"></a>Summarize</h3><p>There are 6 core data types (we didn’t cover <code>boolean</code> yet).</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Value</th>
+<th>Amount of Memory (Bytes)</th>
+<th>Valid Range of Values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>Whole numbers</td>
+<td>4</td>
+<td>From: -2147483648 To: 2147483647</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Very large whole numbers</td>
+<td>8</td>
+<td>From: -9223372036854775808 To: 9223372036854775807</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Decimals</td>
+<td>8</td>
+<td>Decimal can reach 15 significant digits</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Text</td>
+<td>Varies, 24 bytes for empty text.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>char</td>
+<td>A single character</td>
+<td>2</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<p>平时开发我基本不使用 <code>byte, short, float</code></p>
+<p>See you in workbook 2.2</p>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><p>在以二进制存储数据的计算机中，浮点数存在误差 ！&#x3D;&gt; <a href="https://liupj.top/2021/08/31/01/">https://liupj.top/2021/08/31/01/</a></p>
+<h2 id="Math-operators"><a href="#Math-operators" class="headerlink" title="Math operators"></a>Math operators</h2><p>So far you’ve learned about: <code>int</code>、<code>long</code>、<code>double</code>、<code>String</code> and <code>char</code>.</p>
+<p>Now, you can use math operators shown as below to play with these values.</p>
+<p><code>+, -, *, /, %, ++, --, +=, -=, ...</code></p>
+<h3 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h3><p>An operation between whole numbers returns a whole number.</p>
+<p>An operation between decimals will always perserve the decimal.</p>
+<h3 id="Think-about-that-why-do-we-care-about-the-remainder"><a href="#Think-about-that-why-do-we-care-about-the-remainder" class="headerlink" title="Think about that why do we care about the remainder ?"></a>Think about that why do we care about the remainder ?</h3><p>It’s very useful if you want to identify odd or even numbers.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">remainder</span> <span class="operator">=</span> <span class="number">10</span> % <span class="number">2</span>; <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>See you in workbook 2.3</p>
+<h2 id="Type-casting"><a href="#Type-casting" class="headerlink" title="Type casting"></a>Type casting</h2><p>In Java, we can cast variables from one type to another.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cast double to int</span></span><br><span class="line"><span class="comment">// Just telling Java the type that we&#x27;re casting to.</span></span><br><span class="line"><span class="type">double</span> <span class="variable">decimal</span> <span class="operator">=</span> <span class="number">4.3</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">integer</span> <span class="operator">=</span> (<span class="type">int</span>)decimal;</span><br></pre></td></tr></table></figure>
+
+<p>See you in workbook 2.4</p>
+<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><p>Scanner contains many methods that we can use to scan for user input.</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>scan for</th>
+<th>explaination</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nextInt()</td>
+<td>integers</td>
+<td>skips the whiteSpace and picks up the next Integer</td>
+</tr>
+<tr>
+<td>nextLong()</td>
+<td>integers</td>
+<td>skips the whiteSpace and picks up the next Long</td>
+</tr>
+<tr>
+<td>nextDouble()</td>
+<td>decimals</td>
+<td>skips the whiteSpace and picks up the next Double</td>
+</tr>
+<tr>
+<td>next()</td>
+<td>text</td>
+<td>skips the whiteSpace and picks up the next String</td>
+</tr>
+<tr>
+<td>nextLine()</td>
+<td>text</td>
+<td>picks up a line of data</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>The default delimiter is white space.</p>
+</blockquote>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><p>1、Create an instance of Scanner which can receive input from the <code>System.in</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br></pre></td></tr></table></figure>
+
+<p>2、Use Scanner’s methods to pick up (integers、decimals、text、…) from user input.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">coffeeAmount</span>    <span class="operator">=</span> sc.nextInt();</span><br><span class="line"><span class="type">double</span> <span class="variable">coffeePrice</span>  <span class="operator">=</span> sc.nextDouble();</span><br><span class="line"><span class="type">String</span> <span class="variable">name</span>         <span class="operator">=</span> sc.nextLine();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>3、Once you are done with Scanner, always close it, otherwise you’re going to get a resource leak.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.close();</span><br></pre></td></tr></table></figure>
+
+<h3 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h3><p>Fixing bugs in your code is called debugging, which is a must have skill for any programmer.</p>
+<p>Debugging involves tracing the runTime step by step.</p>
+<p>Please do not clutter your code with print statements to understand what’s going on,</p>
+<p>use breakpoints instead !</p>
+<h2 id="the-trap-of-nextLine"><a href="#the-trap-of-nextLine" class="headerlink" title="the trap of nextLine()"></a>the trap of nextLine()</h2><h3 id="recap"><a href="#recap" class="headerlink" title="recap"></a>recap</h3><table>
+<thead>
+<tr>
+<th>method</th>
+<th>scans for</th>
+<th>explaination</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>next()</td>
+<td>text</td>
+<td><strong>skips the whiteSpace</strong> and picks up the next String</td>
+</tr>
+<tr>
+<td>nextLine()</td>
+<td>text</td>
+<td>picks up a line of data</td>
+</tr>
+</tbody></table>
+<h3 id="表面现象"><a href="#表面现象" class="headerlink" title="表面现象"></a>表面现象</h3><p><code>nextLine()</code> gets skipped when placed after <code>nextInt()</code>、<code>nextLong()</code>、<code>nextDouble()</code> and <code>next()</code></p>
+<h3 id="看清本质"><a href="#看清本质" class="headerlink" title="看清本质"></a>看清本质</h3><p>这不就是我在大一学 C 语言的时候，那个曾经让我头疼万分的所谓“没有吃回车”的问题嘛</p>
+<p>当时我还浅浅了解了一下什么是 Shell，什么是 Shell 的缓冲区</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>显而易见，用 <code>nextLine()</code> “吃一下残留在 Shell 的缓冲区中的回车”呗～</p>
+<p>即：place a throwaway nextLine before the ‘real’ nextLine</p>
+<h3 id="请阅读"><a href="#请阅读" class="headerlink" title="请阅读"></a>请阅读</h3><ul>
+<li><p><a href="http://liupj.top/2022/05/09/single-char-io&shell-buffer/">什么是 Shell 的缓冲区</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/22458575/whats-the-difference-between-next-and-nextline-methods-from-scanner-class">what’s-the-difference-between-next-and-nextline-methods-from-scanner-class</a></p>
+</li>
+</ul>
+<p>See you in workbook 2.5</p>
+<h1 id="Booleans-and-Conditionals"><a href="#Booleans-and-Conditionals" class="headerlink" title="Booleans and Conditionals"></a>Booleans and Conditionals</h1><p>In this section, you will gain full control over how your code runs.</p>
+<h3 id="Roadmap-1"><a href="#Roadmap-1" class="headerlink" title="Roadmap"></a>Roadmap</h3><ol>
+<li><p>Use conditions to control which parts of your code run.</p>
+</li>
+<li><p>Execute code by comaring a [value] against a list of [cases].</p>
+</li>
+</ol>
+<h2 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">bool1</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">bool2</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Summarize-1"><a href="#Summarize-1" class="headerlink" title="Summarize"></a>Summarize</h3><table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Value</th>
+<th>Amount of Memory (Bytes)</th>
+<th>Valid Range of Values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>Whole numbers</td>
+<td>4</td>
+<td>From: -2147483648 To: 2147483647</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Very large whole numbers</td>
+<td>8</td>
+<td>From: -9223372036854775808 To: 9223372036854775807</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Decimals</td>
+<td>8</td>
+<td>a decimal can reach 15 significant digits</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Text</td>
+<td>Varies, 24 bytes for empty text.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>char</td>
+<td>A single character</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td></td>
+<td>1</td>
+<td>true or false</td>
+</tr>
+</tbody></table>
+<h3 id="Comparison-Operators"><a href="#Comparison-Operators" class="headerlink" title="Comparison Operators"></a>Comparison Operators</h3><p><code>&gt;</code>, Greater than, returns <code>true</code> if the value on the left is greater than the value on the right.</p>
+<p><code>&lt;</code>, Less than, returns <code>true</code> if the value on the left is less than the value on the right.</p>
+<p><code>&gt;=</code>, Greater than or equal to, returns <code>true</code> if the value on the left is greater than or equal to the value on the right.</p>
+<p><code>&lt;=</code>, Less than or equal to, returns <code>true</code> if the value on the left is less than or equal to the value on the right.</p>
+<p><code>==</code>, returns <code>true</code> if two values are equal.</p>
+<p><code>!=</code>, returns <code>true</code> if two values are not equal.</p>
+<h3 id="Comparing-Strings"><a href="#Comparing-Strings" class="headerlink" title="Comparing Strings"></a>Comparing Strings</h3><p>Do not use <code>==</code> or <code>!=</code> to compare strings.</p>
+<p>Instead, you can compare one string to another by calling <code>equals()</code> from one of them.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"></span><br><span class="line">str1.equals(str2);  <span class="comment">// true</span></span><br><span class="line">!str1.equals(str2); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>You should know about how memory is being allocated. but 目前老师并没有讲</p>
+<p>See you in workbook 3.1</p>
+<h3 id="if-else"><a href="#if-else" class="headerlink" title="if - else"></a>if - else</h3><p>Goal: Use if - else to run specific code blocks based on various conditions.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">    <span class="comment">// Code runs if the condition is true</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Code runs if the condition is false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The condition is usually the result of a comparison that returns true or false.</p>
+<p>See you in workbook 3.2</p>
+<hr>
+<p>Not only can we test only one condition, but also many conditions by embedding a series of <code>else if (condition)</code> statements.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">    <span class="comment">// Code</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (condition) &#123;</span><br><span class="line">    <span class="comment">// Code</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (condition) &#123;</span><br><span class="line">    <span class="comment">// Code</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>See you in workbook 3.3 and 3.4</p>
+<h3 id="Logical-Operators"><a href="#Logical-Operators" class="headerlink" title="Logical Operators"></a>Logical Operators</h3><p>We can use logical operators to make our conditionals a little more complex.</p>
+<p>There are 3 types of logical operators,</p>
+<hr>
+<p><code>&amp;&amp;</code> returns true only if both comparisons are true.</p>
+<p>( comparison1 &amp;&amp; comparison2 )</p>
+<hr>
+<p><code>||</code> returns true if either one of the comparison is true.</p>
+<p>( comparison1 || comparison2 )</p>
+<hr>
+<p><code>!</code> reverses the value of a boolean expression.</p>
+<hr>
+<p>See you in workbook 3.5</p>
+<h3 id="Switch-Statements"><a href="#Switch-Statements" class="headerlink" title="Switch Statements"></a>Switch Statements</h3><p>whenever you’re comparing one variable against a long list of values, such as</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (weather.equals(<span class="string">&quot;sunny&quot;</span>)) &#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (weather.equals(<span class="string">&quot;cloudy&quot;</span>)) &#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (weather.equals(<span class="string">&quot;rainy&quot;</span>)) &#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>you should avoid having a long list of <code>else if</code> statements, because this looks so disgusting !</p>
+<p>Instead, you should favor using a <code>switch</code> statement which was designed to compare one variable against a list of cases.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (weather) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;sunny&quot;</span>:   <span class="comment">// code     break;</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;cloudy&quot;</span>:  <span class="comment">// code     break;</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;rainy&quot;</span>:   <span class="comment">// code     break;</span></span><br><span class="line">    <span class="keyword">default</span>:        <span class="comment">// code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Then you might be asking that when to use <code>if</code> vs <code>switch</code> ?</p>
+<p>The only thing you can really do with <code>switch</code> is compare one variable against a list of values.</p>
+<p><code>if</code> statement is more flexible so that suitable for complex conditions, such as when you need to compare multiple variables, they give you the flexibility to evaluate compound conditions using logical operators.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (temperature &gt;= <span class="number">80</span> &amp;&amp; humidity &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;It&#x27;s too hot and humid\n&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;It&#x27;s comfortable\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>See you in workbook 3.6 and 3.7</p>
+<p>As you write more and more code inside <code>main()</code>, you’ll notice that it becomes increasingly cluttered and messy.</p>
+<p>And the more code you write, the more unreadable that it becomes.</p>
+<h3 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h3><p>A function is a grouping of code, it <strong>performs a task</strong>, and obviously it’s <strong>reusable</strong>.</p>
+<p>Some functions rely on parameters to perform their task.</p>
+<p>Some functions will return a final value.</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/image-20230423202020449.png" alt="image-20230423202020449"></p>
+<p>Instead of writing all of your code inside of a single code block,</p>
+<p>you can split it up into functions and call them as needed.</p>
+<p>Let’s begin organizing your code using functions!</p>
+<h3 id="Define-functions-and-call-them"><a href="#Define-functions-and-call-them" class="headerlink" title="Define functions and call them"></a>Define functions and call them</h3><p>See video on udemy.</p>
+<h3 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h3><p>Functions’ name needs to represent the task it’s performing.</p>
+<h3 id="Notice-1"><a href="#Notice-1" class="headerlink" title="Notice"></a>Notice</h3><p><code>public</code> means the function can be publicly accessed from any package or subfolder,</p>
+<p>but because we’ve got only one package with a single class in it,</p>
+<p>it doesn’t really matter what level of access you specify.</p>
+<h3 id="Notice-2"><a href="#Notice-2" class="headerlink" title="Notice"></a>Notice</h3><p>You can notice that <code>main()</code> is also a function, it has a very similar signature to our functions.</p>
+<p>Every function has a specific task that it performs, the <code>main()</code> function performs the task of running our application.</p>
+<p>The <code>main()</code> function has a very specific signature that the JVM looks for when you run your app, when it finds <code>main()</code> function, it executes it.</p>
+<h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><p>Functions with parameters expect to receive values.(these functions rely on parameters to perform their task)</p>
+<p>Functions【without】parameters【do not expect】to receive values.</p>
+<p>Parameters are essentially just variables.</p>
+<h3 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h3><p>A value that you pass into a function is known as an argument.</p>
+<p><strong>Parameters and Arguments makes functions completely reusable</strong>!</p>
+<h3 id="Notice-3"><a href="#Notice-3" class="headerlink" title="Notice"></a>Notice</h3><p>When a function defines parameters, then in order to call it,</p>
+<p>you need to pass in a matching number of arguments based on the position of these parameters.</p>
+<h3 id="Return-Values"><a href="#Return-Values" class="headerlink" title="Return Values"></a>Return Values</h3><blockquote>
+<p>You can return values from a function.</p>
+</blockquote>
+<h3 id="Notice-4"><a href="#Notice-4" class="headerlink" title="Notice"></a>Notice</h3><p>Bad practice: Your function handles the final result.</p>
+<p>Good practice: Your function return the final result.</p>
+<h3 id="Notice-5"><a href="#Notice-5" class="headerlink" title="Notice"></a>Notice</h3><p>Whenever you specify a return type,</p>
+<p>you need to make sure that something gets returned no matter what gets passed in.</p>
+<h3 id="Terminate-the-runTime"><a href="#Terminate-the-runTime" class="headerlink" title="Terminate the runTime"></a>Terminate the runTime</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.exit(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>See you in workbook 4.3</p>
+<h3 id="Doc-Comments"><a href="#Doc-Comments" class="headerlink" title="Doc Comments"></a>Doc Comments</h3><blockquote>
+<p>Can be used to describe what a function does.</p>
+</blockquote>
+<p><strong>If you’re working in a team of developers, you should have a document for every function.</strong></p>
+<h3 id="How-to-write-Doc-Comments"><a href="#How-to-write-Doc-Comments" class="headerlink" title="How to write Doc Comments ?"></a>How to write Doc Comments ?</h3><p>See udemy</p>
+<p>See you in workbook 4.4</p>
+<h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><blockquote>
+<p>The scope of a variable determines its life span.</p>
+</blockquote>
+<p>The take home message is:<br>    You can never access a variable outside the scope that it was defined in.</p>
+<h3 id="Global-Scope"><a href="#Global-Scope" class="headerlink" title="Global Scope"></a>Global Scope</h3><p>Please against using global variables,</p>
+<p>instead, you should keep everything local and use parameters,</p>
+<p>because when you have too many global variables, you start losing track of what’s really going on(such as from your debugger in vscode).</p>
+<blockquote>
+<p>Please watch the video on udemy.</p>
+</blockquote>
+<h3 id="Built-in-Functions"><a href="#Built-in-Functions" class="headerlink" title="Built-in Functions"></a>Built-in Functions</h3><p>The JDK provides so many built-in functions that you can call out of the box.</p>
+<p>But to be honest, a good developer never memorizes code!</p>
+<p>Instead, a good developer uses the internet!<br>    to read documentation.<br>    to find resources.</p>
+<p>See you in workbook 4.5</p>
+<h3 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h3><p>For Loops: designed to run code a specific number of times.</p>
+<p>While Loops: designed to run code an unknown number of times.</p>
+<p>You will use the <code>break</code> and <code>continue</code> keywords to gain full control over your loops.</p>
+<h3 id="For-Loops"><a href="#For-Loops" class="headerlink" title="For Loops"></a>For Loops</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">3</span>; i ++) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="While-Loops"><a href="#While-Loops" class="headerlink" title="While Loops"></a>While Loops</h3><p>What is a while loop ?</p>
+<p>A while loop keeps running while a condition is true.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (condition) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>See you in workboook 5.8 ~ 5.10</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>The <code>continue</code> keyword skips a run in the loop and continues with the next one.</p>
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>The <code>break</code> keyword when invoked, breaks the loop entirely.</p>
+<h3 id="Nested-Loops"><a href="#Nested-Loops" class="headerlink" title="Nested Loops"></a>Nested Loops</h3><p>A nested loop is a loop inside of another loop.</p>
+<p>eg: useful when working with 2D arrays.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Arrays、2D_Arrays</p>
+<p>Looping Arrays、Updating Arrays</p>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>Sometimes values can be closely related and creating one variable after another can be very messy such as below.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">price1</span> <span class="operator">=</span> <span class="number">5.99</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">price2</span> <span class="operator">=</span> <span class="number">6.99</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">price3</span> <span class="operator">=</span> <span class="number">7.99</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">price4</span> <span class="operator">=</span> <span class="number">8.99</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">price5</span> <span class="operator">=</span> <span class="number">9.99</span>;</span><br></pre></td></tr></table></figure>
+
+<p>So what we can do is to store all of these values at the same time in an organized way which is called an array.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span>[] prices = &#123; <span class="number">5.99</span>, <span class="number">6.99</span>, <span class="number">7.99</span>, <span class="number">8.99</span>, <span class="number">9.99</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Although an array can hold many values, all of them have to share the same type. </p>
+<p>For example as below, <code>integers</code> <strong>points to</strong> an array of integer values.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] integers = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] kindoms = &#123; <span class="string">&quot;qwe&quot;</span>, <span class="string">&quot;asd&quot;</span>, <span class="string">&quot;zxc&quot;</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>The truth is:</p>
+<p>the variable <code>kingdoms</code> doesn’t store the array directly</p>
+<p>instead</p>
+<p>it stores a [reference] that points to it</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/202307291020173.png" alt="202307291020173"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// You can try to compile and run this line of code,</span></span><br><span class="line"><span class="comment">// you will get a hashcode representation of the reference.</span></span><br><span class="line">System.out.println(kingdoms);</span><br></pre></td></tr></table></figure>
+
+<p>and each element is stored at an index</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20230729103340.png" alt="20230729103340"></p>
+<p>what will happen if I try to access an element outside the range of the array ?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(kingdoms[<span class="number">3</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20230729105228.png" alt="20230729105228"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/20230729110015.png" alt="20230729110015"></p>
+<p>Java throws an ArrayIndexOutOfBoundsException, in essence, crashing our application, telling us that we have an error in our code —— “Index 3 is out of bounds”</p>
+<h3 id="Preparing-to-loop-arrays"><a href="#Preparing-to-loop-arrays" class="headerlink" title="Preparing to loop arrays"></a>Preparing to loop arrays</h3><p>The <code>length</code> of an array indicates the number of items it contains.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] items = &#123; <span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span> &#125;;</span><br><span class="line">System.out.println(items.length); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>So we can use the <code>length</code> property to loop arrays.</p>
+<h3 id="Looping-arrays"><a href="#Looping-arrays" class="headerlink" title="Looping arrays"></a>Looping arrays</h3><blockquote>
+<p>Arrays and loops are like siblings.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String[] numbers = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// If you want to access each element in the array</span></span><br><span class="line"><span class="comment">// Would you perfer to index them all individually ?</span></span><br><span class="line">numbers[<span class="number">0</span>]</span><br><span class="line">numbers[<span class="number">1</span>]</span><br><span class="line">numbers[<span class="number">2</span>]</span><br><span class="line">numbers[<span class="number">3</span>]</span><br><span class="line">numbers[<span class="number">4</span>]</span><br><span class="line">numbers[<span class="number">5</span>]</span><br><span class="line"><span class="comment">// or use some kind of loop that iterates through every single element in the array ?</span></span><br><span class="line"><span class="comment">// I think the looping approach would be more efficient.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Print the elements of an integer array using a loop</span></span><br><span class="line"><span class="type">int</span>[] numbers = &#123;<span class="number">22</span>, <span class="number">24</span>, <span class="number">26</span>, <span class="number">29</span>, <span class="number">30</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// autoComplete a for loop in vscode: fori&lt;ENTER&gt;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    System.out.println(numbers[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="foreach-循环"><a href="#foreach-循环" class="headerlink" title="foreach 循环"></a>foreach 循环</h4><p>foreach simplifies looping through an array without the need for a counter or a counter increment or anything.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// autoComplete a foreach loop in vscode: fore&lt;ENTER&gt;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> number : numbers) &#123;</span><br><span class="line">    System.out.println(number);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>It just automatically iterates through every single number inside of the numbers array.</p>
+<p>So as you can see, foreach is much cleaner and concise than the traditional for loop,</p>
+<p>but the traditional for loop is more flexible because the counter <code>i</code> give us more control over the looping process.</p>
+<p>I’m a bit tired of using loops to print an array,</p>
+<p>Java has a function called <code>toString</code>, it takes your array as an argument, and it returns a string that we can print.</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/toString.png" alt="toString"></p>
+<h3 id="Updating-Arrays"><a href="#Updating-Arrays" class="headerlink" title="Updating Arrays"></a>Updating Arrays</h3><blockquote>
+<p>It’s time to learn how to update arrays.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] flavours = &#123; <span class="string">&quot;Sweet&quot;</span>, <span class="string">&quot;Sour&quot;</span>, <span class="string">&quot;Bitter&quot;</span> &#125;;</span><br><span class="line">flavours[<span class="number">2</span>] = <span class="string">&quot;Salty&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Is-it-possible-to-change-the-array-length"><a href="#Is-it-possible-to-change-the-array-length" class="headerlink" title="Is it possible to change the array length ?"></a>Is it possible to change the array length ?</h3><p>NO.</p>
+<p>Once you create an array, you cannot resize it.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] menu = &#123; <span class="string">&quot;Espresso&quot;</span>, <span class="string">&quot;Iced Coffee&quot;</span>, <span class="string">&quot;Latte&quot;</span> &#125;;</span><br><span class="line">String[] newMenu = <span class="keyword">new</span> <span class="title class_">String</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-clipboard/newMenu.png" alt="newMenu"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; menu.length; i++) &#123;</span><br><span class="line">    newMenu[i] = menu[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="The-reference-trap"><a href="#The-reference-trap" class="headerlink" title="The reference trap"></a>The reference trap</h3><blockquote>
+<p>I told you earlier that a variable cannot store an array, it stores a reference that points to it.</p>
+<p>Because of this, another variable can actually store a reference that points to the same array.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] numbers = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"><span class="type">int</span>[] numbers2 = numbers;</span><br></pre></td></tr></table></figure>
+
+<p>Do not set array variables equal to each other!</p>
+<p>Instead, create a new array, then, copy every value using a for loop.</p>
+<h3 id="A-better-solution"><a href="#A-better-solution" class="headerlink" title="A better solution"></a>A better solution</h3><p>Arrays.copyOf(a, b);</p>
+<p><code>a</code> means that the array you want to copy.</p>
+<p><code>b</code> means that how much of it you want to copy.</p>
+<h3 id="2D-Arrays"><a href="#2D-Arrays" class="headerlink" title="2D Arrays"></a>2D Arrays</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[][] grades = &#123;</span><br><span class="line">    &#123;<span class="number">72</span>, <span class="number">74</span>, <span class="number">78</span>, <span class="number">76</span>&#125;,</span><br><span class="line">    &#123;<span class="number">65</span>, <span class="number">64</span>, <span class="number">61</span>, <span class="number">67</span>&#125;,</span><br><span class="line">    &#123;<span class="number">95</span>, <span class="number">98</span>, <span class="number">99</span>, <span class="number">96</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="When-to-work-with-2D-arrays"><a href="#When-to-work-with-2D-arrays" class="headerlink" title="When to work with 2D arrays ?"></a>When to work with 2D arrays ?</h3><blockquote>
+<p>2D arrays is perfect for data in the form of a table.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[][] integers = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>][<span class="number">4</span>]; <span class="comment">// 3 行 4 列</span></span><br><span class="line">System.out.println(Arrays.toString(grades[<span class="number">0</span>])); <span class="comment">// [0, 0, 0, 0]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="arrays-and-loops-are-like-siblings"><a href="#arrays-and-loops-are-like-siblings" class="headerlink" title="arrays and loops are like siblings"></a>arrays and loops are like siblings</h3><ul>
+<li><p>nested loops</p>
+<ul>
+<li>outer loop runs through every row (i)</li>
+<li>inner loop runs through every item in that row</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; grades.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; grades[i].length; j++) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

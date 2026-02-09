@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>什么是以太网 ？ - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">什么是以太网 ？</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-04-04</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>本文翻译自：<a target="_blank" rel="noopener" href="https://realpars.com/ethernet/">https://realpars.com/ethernet/</a></p>
+</blockquote>
+<ul>
+<li>你听说过 IEEE 802.3 吗 ? <del>它有着悠久的历史</del>，并且与我们今天的主题（以太网）有关</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HLziLmaYsO0/">https://www.youtube.com/watch?v=HLziLmaYsO0/</a></li>
+</ul>
+<h3 id="以太网简介"><a href="#以太网简介" class="headerlink" title="以太网简介"></a>以太网简介</h3><ul>
+<li>以太网是 80 年代早期开发的一种通信标准，用于在本地环境中连接计算机和其他设备</li>
+<li>本地环境（LAN，<code>L</code>ocal<code>A</code>rea<code>N</code>etwork），一般局限在一户普通人家或一个普通建筑物中，由多台设备互相连接而成，这些设备可以创建和存储信息，并且设备之间可以进行信息共享</li>
+<li>以太网是一种有线系统，其最初使用同轴电缆，现在已经成功发展到使用铜芯双绞线和光纤</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404094112203.png" alt="image-20220404094112203"></p>
+<blockquote>
+<p>1881 年，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%9A%E5%8E%86%E5%B1%B1%E5%A4%A7%C2%B7%E6%A0%BC%E6%8B%89%E6%B1%89%E5%A7%86%C2%B7%E8%B4%9D%E5%B0%94">亚历山大·格拉汉姆·贝尔</a>发明了<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E7%BB%9E%E7%BA%BF">双绞线</a></p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404113144725.png" alt="image-20220404113144725"></p>
+<ul>
+<li>1983 年，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%94%B5%E6%B0%94%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%BC%9A">电气电子工程师研究所（<code>I</code>nstitute of <code>E</code>lectrical and <code>E</code>lectronics <code>E</code>ngineers）</a>将以太网标准化为 IEEE 802.3 标准，这个标准定义了有线以太网的物理层和数据链路层的 MAC 部分（media access control，媒体接入的控制方法）</li>
+<li>物理层包含以下两部分：<ol>
+<li>线缆</li>
+<li>设备</li>
+</ol>
+</li>
+</ul>
+<h3 id="以太网的物理层"><a href="#以太网的物理层" class="headerlink" title="以太网的物理层"></a>以太网的物理层</h3><h4 id="线缆"><a href="#线缆" class="headerlink" title="线缆"></a>线缆</h4><ul>
+<li>同轴电缆（不常见了已经）</li>
+<li>双绞线（目前最常见）</li>
+<li>光纤（比较先进）</li>
+</ul>
+<h5 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h5><ul>
+<li>6 类双绞线的数据传输速率高达 1 Gbps</li>
+<li>6a 和 7 类双绞线的数据传输速率高达 10 Gbps</li>
+<li>5 和 5e 类双绞线仍在现有的许多应用中使用，但数据传输速度较低，介于 10～100 Mbps，且更容易受到噪声的影响</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404114118868.png" alt="image-20220404114118868"></p>
+<ul>
+<li>以太网双绞线在电缆两端使用 RJ-45 八针连接器，用于以半双工或全双工模式传输和接收数据</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404100922064.png" alt="image-20220404100922064"></p>
+<ul>
+<li>两对电线就能实现全双工</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404114324995.png" alt="image-20220404114324995"></p>
+<h5 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h5><ul>
+<li>光纤电缆使用玻璃或塑料光纤作为数据传输的导管，以光脉冲为数据载体，使以太网的数据传输速度更快，数据传输距离更远。</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404101516865.png" alt="image-20220404101516865"></p>
+<ul>
+<li>根据实际应用需求的不同，光纤电缆可以使用类型不同的连接器<ul>
+<li>一些类型属于SFP（小型可插拔）</li>
+<li>一些类型属于SC（用户连接器，也称为方形连接器或标准连接器）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404102032404.png" alt="image-20220404102032404"></p>
+<ul>
+<li>为了在使用双绞线进行布线的以太网网络中使用光纤，您需要使用“以太网到光纤转换器”</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404102259811.png" alt="image-20220404102259811"></p>
+<h4 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h4><ul>
+<li>以太网设备由计算机、打印机或其他任何具有内部 NIC（网络接口卡）或基于 USB 或 PCI 的外部 NIC 设备组成</li>
+</ul>
+<h5 id="交换机-amp-路由器"><a href="#交换机-amp-路由器" class="headerlink" title="交换机 &amp; 路由器"></a>交换机 &amp; 路由器</h5><ul>
+<li>使用交换机和路由器可以将多台设备甚至多个网络连接在一起，使不同设备之间可以互相通信</li>
+</ul>
+<h4 id="网关-amp-网桥"><a href="#网关-amp-网桥" class="headerlink" title="网关 &amp; 网桥"></a>网关 &amp; 网桥</h4><ul>
+<li>“网关”和“网桥”用于将多个以太网连接在一起，允许它们互相通信</li>
+<li>“网关”用于将两个“不同”的网络连接在一起</li>
+<li>“网桥”用于将两个“相似”的网络连接在一起，然后你就只能看到一个网络</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404103441426.png" alt="image-20220404103441426"></p>
+<h3 id="以太网的数据链路层"><a href="#以太网的数据链路层" class="headerlink" title="以太网的数据链路层"></a>以太网的数据链路层</h3><ul>
+<li>数据链路层可分为两部分：<ol>
+<li>逻辑链路控制（The <code>L</code>ogical <code>L</code>ink <code>C</code>ontrol）</li>
+</ol>
+<ul>
+<li>为以太网上的数据建立在设备之间传输的路径</li>
+</ul>
+<ol start="2">
+<li>媒体接入控制（The <code>M</code>edia <code>A</code>ccess <code>C</code>ontrol）</li>
+</ol>
+<ul>
+<li>使用分配给网络接口卡（NIC）的硬件地址来标识特定的计算机或其他设备，以显示数据传输的源和目标</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404104105804.png" alt="image-20220404104105804"></p>
+<ul>
+<li>以太网使用 CSMA&#x2F;CD 协议（载波监听多址接入&#x2F;碰撞检测）在数据链路层传输数据包</li>
+<li>CSMA&#x2F;CD 协议是以太网标准的一部分，用于减少数据冲突，提高数据传输的成功率</li>
+<li>使用 CSMA&#x2F;CD 协议的主机会对网络进行载波监听，一旦发现网络空闲，主机就会发送 1 比特数据并监测是否会发生碰撞</li>
+<li>如果这第一个 bit 的数据发送成功，那么主机就会继续一边发送数据，一边进行碰撞监测</li>
+<li>一旦监测到有碰撞发生，CSMA&#x2F;CD 协议（算法）就会计算出一个等待时间，待到这段时间耗尽，再重复上述过程，直到数据传输完成</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/CSMACD-Algorithm.gif" alt="CSMACD-Algorithm"></p>
+<ul>
+<li>1 个交换机 + 多台设备 + 全双工模式 &#x3D; 星型拓扑结构</li>
+<li>与所有设备共享同一路径的总线型拓扑结构相比，星型拓扑结构拥有多条传输路径，大大降低了冲突发生的概率</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404105944649.png" alt="image-20220404105944649"></p>
+<h3 id="以太网的优劣"><a href="#以太网的优劣" class="headerlink" title="以太网的优劣"></a>以太网的优劣</h3><ul>
+<li>时代变迁，新技术层出不穷，以太网的功能也在快速迭代变化</li>
+<li>近几年虽然数据传输速度越来越快，甚至出现了 10 Gbps，但这些新的以太网技术仍然价格不菲</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404110615311.png" alt="image-20220404110615311"></p>
+<ul>
+<li>当局域网接入更大的网络，你就能获得更多的信息，创造更多的价值，拥有更多的可能性</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404110854357.png" alt="image-20220404110854357"></p>
+<ul>
+<li>简言之，以太网几乎支持所有流行的网络协议，并且它在速度、成本和易于安装之间取得了良好的平衡</li>
+<li>因此，以太网很受欢迎，计算机市场广泛接收它</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220404115000603.png" alt="image-20220404115000603"></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>pacman - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">pacman</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2025-06-28</span>
+  </div>
+  <div class="post-content">
+    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">pacman -S &lt;package_name&gt;</span><br><span class="line">有一定风险！！！</span><br><span class="line">有可能静默安装旧包</span><br><span class="line">有可能安装成最新包，但静默安装旧依赖</span><br><span class="line"></span><br><span class="line">pacman -Sy 刷新本地数据库</span><br><span class="line">pacman -Syy 强制！刷新本地数据库</span><br><span class="line">如果直接跟包名，仍然有风险，比如假设你的系统中安装了libvpx-1.14，当你执行pacman -Sy firefox，此时系统会直接安装最新版firefox和libvpx-1.15（最新版），但是你的系统中的ffmpeg依赖libvpx-1.14，此时依赖链断裂，系统崩溃</span><br><span class="line"></span><br><span class="line">pacman -Su</span><br><span class="line">基于旧数据库升级包</span><br><span class="line">有一定风险！！！</span><br><span class="line">有可能静默升级成旧包</span><br><span class="line">有可能升级成最新包，但安装了旧依赖</span><br><span class="line">如果跟包名，基于旧数据库升级指定包，就更有风险了，毕竟上面基于新数据库升级指定包都有风险</span><br><span class="line"></span><br><span class="line">pacman -Syu</span><br><span class="line">刷新本地数据库然后更新所有软件包（更新系统）</span><br><span class="line">pacman -Syu &lt;package_name&gt;</span><br><span class="line">这是安装软件包的标杆做法</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">pacman -R</span><br><span class="line">卸载包，保留所有依赖和配置文件</span><br><span class="line"></span><br><span class="line">pacman -Rs</span><br><span class="line">卸载包，卸载无用依赖</span><br><span class="line"></span><br><span class="line">pacman -Rsc</span><br><span class="line">卸载包，卸载无用依赖，卸载配置文件</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">-Q 查询所有已安装的包</span><br><span class="line">-Qd 仅查询依赖（dependence）</span><br><span class="line">-Qdt 仅查询独立的依赖（dependence independent）</span><br><span class="line">-Qdtq 仅查询独立的依赖（dependence independent）q <span class="keyword">for</span> --quiet 仅显示包名，不显示版本号</span><br><span class="line">-Qs ，关键词，本地查询</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">-Ss 关键词，联网查询</span><br><span class="line">-Ss <span class="string">&#x27;^package_name$&#x27;</span>，精准匹配包名</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

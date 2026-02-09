@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>SQL &amp; MySQL 用法速通 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">SQL &amp; MySQL 用法速通</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-09-26</span>
+  </div>
+  <div class="post-content">
+    <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220305180750607.png" alt="image-20220305180750607"></p>
+<h4 id="什么是数据库-？数据库有啥用-？"><a href="#什么是数据库-？数据库有啥用-？" class="headerlink" title="什么是数据库 ？数据库有啥用 ？"></a>什么是数据库 ？数据库有啥用 ？</h4><p>假设我们要做一个购物网站</p>
+<p>如果我们将「用户信息、商品信息、…」这些重要数据放到内存中，那么服务器断电或重启都会导致数据的全部丢失</p>
+<p>所以，我们需要将这些数据放到数据库中，达到数据持久化保存的目的</p>
+<h4 id="表"><a href="#表" class="headerlink" title="表"></a>表</h4><p>关系型数据库使用「表」来存储数据</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220305180159205.png" alt="image-20220305180159205"></p>
+<h4 id="常见的关系型数据库管理系统"><a href="#常见的关系型数据库管理系统" class="headerlink" title="常见的关系型数据库管理系统"></a>常见的关系型数据库管理系统</h4><ol>
+<li>MySQL：开源免费跨平台、稳定高性能</li>
+<li>Oracle：也挺适合大型系统，比如「银行系统、医院系统、…」</li>
+<li>SQL Server：常见于 c# 和 .net 体系，适合在 Windows Server 中使用</li>
+</ol>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><blockquote>
+<p>一些高级知识和技巧本文不作介绍，如「一些常用函数、给表设置约束、表之间的关系、多表查询、子查询」</p>
+</blockquote>
+<h4 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h4><p>ubuntu-20.04-lts、mysql8</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># intallation</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt install mysql-server</span><br><span class="line">mysql --version</span><br><span class="line"></span><br><span class="line">sudo mysql_secure_installation <span class="comment"># MySQL 的安全性配置</span></span><br><span class="line">systemctl status mysql.service <span class="comment"># 查验 MySQL 的运行状态</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="如何接入-MySQL"><a href="#如何接入-MySQL" class="headerlink" title="如何接入 MySQL"></a>如何接入 MySQL</h4><ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br><span class="line"></span><br><span class="line">OR</span><br><span class="line"></span><br><span class="line">mysql -u root -p <span class="comment"># passwd is needed.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二：使用图形化客户端，eg：<a target="_blank" rel="noopener" href="https://dbeaver.io/">dbeaver</a></li>
+</ul>
+<h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p>结构化查询语言，用于操作关系型数据库</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
+<li><p>数据定义语言（<code>D</code>ata <code>D</code>efinition <code>L</code>anguage），用于操作数据库对象「库、表、列…」</p>
+<ul>
+<li><code>create</code>、<code>drop</code>、<code>alter</code></li>
+</ul>
+</li>
+<li><p>数据操作语言（<code>D</code>ata <code>M</code>anipulation <code>L</code>anguage），用于操作数据库中的数据</p>
+<ul>
+<li><code>insert</code>、<code>delete</code>、<code>update</code></li>
+</ul>
+</li>
+<li><p>数据查询语言（<code>D</code>ata <code>Q</code>uery <code>L</code>anguage）</p>
+<ul>
+<li><code>select</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    多行</span></span><br><span class="line"><span class="comment">    注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>     <span class="comment">-- 整型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span>  <span class="comment">-- 浮点型，double(6,3) =&gt; 最长长度是 6 位，小数点后 3 位，999.999</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span>    <span class="comment">-- 固定长度字符串类型，char(10) =&gt; 不足 10 位的话会补足到 10 位，比如身份证号</span></span><br><span class="line"></span><br><span class="line"><span class="type">varchar</span> <span class="comment">-- 可变长度字符串类型，char(10) =&gt; 不足 10 位不会补足，性能低于 char，比如个性签名</span></span><br><span class="line"></span><br><span class="line">text    <span class="comment">-- 字符串，适用于大文本内容，例如文章内容</span></span><br><span class="line"></span><br><span class="line"><span class="type">date</span>    <span class="comment">-- 日期类型，yyyy-MM-dd</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 显示所有数据库</span></span><br><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用某数据库</span></span><br><span class="line">use dbname;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建一个数据库</span></span><br><span class="line"><span class="keyword">create</span> database dbname;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除某数据库</span></span><br><span class="line"><span class="keyword">drop</span> database dbname;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 将某数据库的编解码方式设置为 utf8 以便支持中文字符</span></span><br><span class="line"><span class="keyword">alter</span> database dbname <span class="type">character</span> <span class="keyword">set</span> utf8</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前数据库中的所有表</span><br><span class="line"><span class="keyword">show</span> tables;</span><br><span class="line"></span><br><span class="line"># 创建表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tbname(id <span class="type">int</span>,name <span class="type">varchar</span>(<span class="number">20</span>),sex <span class="type">char</span>(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"># 查看某个表的格式</span><br><span class="line"><span class="keyword">desc</span> tbname;</span><br><span class="line"></span><br><span class="line"># 查看某个表中的数据</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> tbname;</span><br><span class="line"></span><br><span class="line"># 向某表中新增一条数据</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tbname (id,name,sex) <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">&#x27;小明&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"># 注意，如果一条数据的每一个字段都要修改，则 tbname 后 <span class="keyword">values</span> 前的内容（列名）可以省略</span><br><span class="line"></span><br><span class="line"># 修改数据</span><br><span class="line"><span class="keyword">update</span> tbname <span class="keyword">set</span> name<span class="operator">=</span><span class="string">&#x27;小王&#x27;</span>, sex<span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"># 删除数据</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tbname <span class="keyword">where</span> id<span class="operator">=</span><span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"># 删除表</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> tbname;</span><br><span class="line"></span><br><span class="line"># 修改表：改变字段名称</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tbname change name username <span class="type">varchar</span>(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"># 修改表：删除字段</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tbname <span class="keyword">drop</span> sex;</span><br><span class="line"></span><br><span class="line"># 修改表：添加字段</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tbname <span class="keyword">add</span> achievement <span class="keyword">double</span>(<span class="number">5</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    team_id, <span class="built_in">SUM</span>(achievement)</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    students</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    sex <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">    team_id</span><br><span class="line"><span class="keyword">HAVING</span></span><br><span class="line">    <span class="built_in">SUM</span>(achievement) <span class="operator">&gt;</span> <span class="number">100</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    <span class="built_in">SUM</span>(achievement) <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><h4 id="基础规范"><a href="#基础规范" class="headerlink" title="基础规范"></a>基础规范</h4><ol>
+<li>大部分场景适合 Innodb，部分日志写入场景适合 tokudb 或 myrockets 引擎</li>
+<li>禁止大文件大照片直接存储在 Mysql 下（考虑下 mosaic）</li>
+<li>由于 emoji 表情等使用场景的普及，大部分存储需求可能需要使用 utf8mb4 来进行存储，utf8mb4 是 utf8 的超集</li>
+<li>高并发的互联网使用场景下，架构设计原则应该是 “解放 DB 的 CPU，将计算上移到服务层”，防止高并发的场景下，这些功能拖死数据库</li>
+<li>表名使用小写，表名中尽量不包含特殊字符或 &#x2F; 符号等</li>
+<li>为方便业务开发以及后期维护，应该简单明了地标记用途</li>
+<li>数据表字段最好也有中文注释</li>
+</ol>
+<h4 id="SQL-规范"><a href="#SQL-规范" class="headerlink" title="SQL 规范"></a>SQL 规范</h4><ol>
+<li>避免负向查询，主要指 not in，&lt;&gt;，not like 等，因为如果查询条件中只有这类条件，会导致全表扫描</li>
+<li>% 开头的模糊查询，会导致查询无法使用索引来定位数据，会导致全表扫描</li>
+<li>如果只 select 索引字段，或者只 select 索引字段和主键，会全扫描索引树找到相应字段，但这不是利用索引来定位数据，因为要查询的字段就在索引树上</li>
+<li>模糊查询利用索引定位数据的解决方案：反转模糊查询的字段，但是对于 “%keyword%” 的索引，此方法无效</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%三&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 我们可以改造为</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> reverse(name) <span class="keyword">like</span> reverse(<span class="string">&#x27;%三&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>如下</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> xxx <span class="keyword">where</span> from_unixtime(start_day)<span class="operator">&gt;=</span><span class="string">&#x27;2020-10-08&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 这会导致全表扫描</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 正确写法是</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> xxx <span class="keyword">where</span> start_day<span class="operator">&gt;=</span>unix_timestamp(<span class="string">&#x27;2018-08-14&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>一般情况下，手机号推荐使用 varchar(32) 存储，因为会有地区等属性；如果 phone 是 varchar，则如下写法会触发隐式转换，导致全表扫描</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> xxx <span class="keyword">where</span> phone <span class="operator">=</span> <span class="number">15635638290</span>;</span><br></pre></td></tr></table></figure>
+
+<p>（隐式转换的情况下，全表扫描一般是发生在字符类型字段，数字类型一般不会影响执行计划）</p>
+<ol start="7">
+<li><p>避免使用 select *</p>
+<ul>
+<li>select * 会获取不必要的列，这会增加 cpu，io，net 的消耗</li>
+<li>在有索引覆盖的情况下，会导致无法有效利用覆盖索引</li>
+<li>程序开发过程中容易因为忘记添加或删除字段，导致出现 bug</li>
+</ul>
+</li>
+<li><p>分片库的场景下，查询不带分片键容易引起查询放大的问题，会导致所有分片做无效查询</p>
+</li>
+<li><p>不允许在主库上执行统计 SQL（count&#x2F;sum）</p>
+</li>
+<li><p>不允许大表使用 join，子查询</p>
+</li>
+<li><p>不允许超过 3 个表的 join 查询</p>
+</li>
+</ol>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220320100805557.png" alt="image-20220320100805557"></p>
+<h3 id="处理-bug"><a href="#处理-bug" class="headerlink" title="处理 bug"></a>处理 bug</h3><h4 id="ERROR-1819-HY000"><a href="#ERROR-1819-HY000" class="headerlink" title="ERROR 1819 (HY000)"></a>ERROR 1819 (HY000)</h4><p><em>Your password does not satisfy the current policy requirements</em></p>
+<blockquote>
+<p>其实这是 mysql 的默认安全级别导致的</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查看 mysql 的默认安全级别</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> &quot;%validate%&quot;;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 由于是日常练习，所以可以将安全策略和密码长度的要求降低</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password.policy<span class="operator">=</span><span class="number">0</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password.length<span class="operator">=</span><span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搞定～</li>
+</ul>
+<h4 id="ERROR-1698-28000"><a href="#ERROR-1698-28000" class="headerlink" title="ERROR 1698 (28000)"></a>ERROR 1698 (28000)</h4><p><em>Access denied for user root@localhost</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 [mysqld] 下写入</span></span><br><span class="line">skip-grant-tables</span><br><span class="line"><span class="comment"># 保存退出，这样你就能免密接入 mysql</span></span><br><span class="line"></span><br><span class="line">service mysql restart</span><br><span class="line"></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment"># 遇见输入密码的提示直接回车即可</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">flush privileges;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;newpassward&#x27;</span>;</span><br><span class="line">flush privileges;</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<code>skip-grant-tables</code>注释或删除，更改密码成功～</li>
+</ul>
+<hr>
+<ul>
+<li>现在，如果你在尝试接入 mysql 时依然报错，则需要再次让<code>skip-grant-tables</code>生效，并再次执行<code>service mysql restart</code>，无密接入 mysql 后执行如下操作</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, plugin <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 将 root 的 plugin 字段改为和其他 user 的 plugin 字段一致，比如</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> caching_sha2_password <span class="keyword">BY</span> <span class="string">&#x27;mysql&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 复查确认是否修改成功</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, plugin <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<code>skip-grant-tables</code>注释或删除，更改密码成功～</li>
+</ul>
+<h4 id="参考了"><a href="#参考了" class="headerlink" title="参考了"></a>参考了</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cpl9412290130/p/9583868.html">https://www.cnblogs.com/cpl9412290130/p/9583868.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/r527665047/article/details/107056941">https://blog.csdn.net/r527665047/article/details/107056941</a></li>
+<li><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4327623/blog/4325113">https://my.oschina.net/u/4327623/blog/4325113</a></li>
+</ol>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

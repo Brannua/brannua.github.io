@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>你一定看得懂的「函数防抖」&amp;「函数节流」 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">你一定看得懂的「函数防抖」&amp;「函数节流」</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-03-04</span>
+  </div>
+  <div class="post-content">
+    <p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220304230326643.png" alt="image-20220304230326643"></p>
+<h4 id="函数防抖（debounce）"><a href="#函数防抖（debounce）" class="headerlink" title="函数防抖（debounce）"></a>函数防抖（debounce）</h4><ul>
+<li><p>问：</p>
+<ul>
+<li>啥是函数防抖啊 ？有啥用啊 ？</li>
+</ul>
+</li>
+<li><p>答：</p>
+<ul>
+<li>有的时候，一个函数有可能在很小的一个时间段内被频繁触发（比如双十一疯狂点击抢购按钮的时候），这会给整个系统造成不小的压力</li>
+<li>所以我们希望：只有当其中任意相邻两次触发之间的时间间隔达到一定长度，函数才会被执行一次，这就叫函数防抖</li>
+</ul>
+</li>
+</ul>
+<h4 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h4><ul>
+<li>日常生活中我们赶公交，都希望赶得上吧 ？</li>
+<li>我们这里用代码模拟一下一旦有人上车，就立马发车的司机</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">kaiChe</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;车开走了~&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 车门</span></span><br><span class="line"><span class="keyword">var</span> door = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;ipt&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一旦有人上车，就立马发车</span></span><br><span class="line">door.<span class="property">oninput</span> = kaiChe;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>大家应该这辈子也不想碰见这种司机..</li>
+<li>既然如此就从我做起，做一名全心全意为乘客着想的好司机 ！</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 准备一个秒表</span></span><br><span class="line"><span class="keyword">var</span> clock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">kaiChe</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 将表清零</span></span><br><span class="line">  <span class="built_in">clearTimeout</span>(clock);</span><br><span class="line">  <span class="comment">// 10 秒内没人上车再发车</span></span><br><span class="line">  clock = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">kaiChe</span>();</span><br><span class="line">  &#125;, <span class="number">10000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> door = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;ipt&#x27;</span>);</span><br><span class="line">door.<span class="property">oninput</span> = kaiChe;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>但是我们没必要每次都是等待 10 秒钟，而且也并非只有在开公交的时候需要等人</li>
+<li>所以我们可以将这种等待再执行的操作抽象出来封装成函数，更具有通用性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 期望的调用方式</span></span><br><span class="line"></span><br><span class="line">door.<span class="property">oninput</span> = <span class="title function_">debounce</span>(kaiChe, <span class="number">4000</span>); <span class="comment">// 4 秒之内无人上车再开车</span></span><br><span class="line">me.<span class="property">onplan</span> = <span class="title function_">debounce</span>(<span class="string">&#x27;睡懒觉&#x27;</span>, <span class="string">&#x27;周六&#x27;</span>); <span class="comment">// 我计划等到周六睡懒觉嘿嘿嘿</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> clock;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(clock);</span><br><span class="line">    clock = <span class="built_in">setTimeout</span>(fn, delay);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="函数节流（throttle）"><a href="#函数节流（throttle）" class="headerlink" title="函数节流（throttle）"></a>函数节流（throttle）</h4><ul>
+<li><p>问：</p>
+<ul>
+<li>啥是函数节流啊 ？有啥用啊 ？</li>
+</ul>
+</li>
+<li><p>答：</p>
+<ul>
+<li>有的时候，一个函数有可能在很小的一个时间段内被频繁触发（比如双十一疯狂点击抢购按钮的时候），这会给整个系统造成不小的压力</li>
+<li>所以我们希望：只有当时间累积到一定程度，函数才允许被执行一次，这就叫函数节流</li>
+</ul>
+</li>
+</ul>
+<h4 id="举个例子-1"><a href="#举个例子-1" class="headerlink" title="举个例子"></a>举个例子</h4><ul>
+<li>其实函数节流就像日常生活中一个没拧紧的，在一滴一滴地滴水的水龙头</li>
+<li>我们先用代码模拟一下：敲一下水龙头就立刻滴下一滴水的情景</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取一个水桶</span></span><br><span class="line"><span class="keyword">var</span> oShuiTong = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;shuitong&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 滴水函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">diShui</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 水桶中增加一滴水</span></span><br><span class="line">  oShuiTong.<span class="property">innerText</span> = <span class="built_in">parseInt</span>(oShuiTong.<span class="property">innerText</span>) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一个神奇的水龙头</span></span><br><span class="line"><span class="keyword">var</span> oLongTou = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;longtou&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 敲一下水龙头就滴下一滴水</span></span><br><span class="line">oLongTou.<span class="property">onclick</span> = diShui;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>众所周知生活中处处皆有熊孩子，如果让他们发现这么神奇的水龙头，恰好该熊孩子又天赋异禀，一瞬间可以敲击 1000 下水龙头！</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i ++) &#123;</span><br><span class="line">  oLongTou.<span class="title function_">click</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>水桶中瞬间多了一瓢水。。这也太可怕了</li>
+<li>所以我们回归现实，水龙头上只有累积一定的水量，才能滴下一滴水</li>
+<li>这种每隔一定的时间才会执行一次的操作可以抽象出来封装为函数，更具通用性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 期望的调用方式（eg：水龙头一秒钟滴下一滴水）</span></span><br><span class="line">oLongTou.<span class="property">onclick</span> = <span class="title function_">throttle</span>(diShui, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn, waitTime</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> lastTime = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> nowTime = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>();</span><br><span class="line">    <span class="keyword">if</span> (nowTime - lastTime &gt; waitTime) &#123;</span><br><span class="line">      <span class="title function_">fn</span>();</span><br><span class="line">      lastTime = nowTime;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

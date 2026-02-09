@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Programming Foundations with HTML - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Programming Foundations with HTML</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2025-03-25</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>OFFERED BY Duke UNIVERSITY<br><a target="_blank" rel="noopener" href="https://www.dukelearntoprogram.com/">https://www.dukelearntoprogram.com</a></p>
+</blockquote>
+<p>Let’s begin to learn how to think like a programmer:</p>
+<p>analyzing problems, designing solutions called algorithms, and translating your algorithms into programs.</p>
+<hr>
+<p>Reading document please, so that you will know what methods you can use in a programming language.</p>
+<p>Use <a target="_blank" rel="noopener" href="https://codepen.io/">https://codepen.io</a> to play around !</p>
+<hr>
+<ul>
+<li><p>HTML is [not] a programming language but rather a Markup Language.</p>
+</li>
+<li><p>HTML is used by web browsers to display a webpage.</p>
+</li>
+</ul>
+<p>Note: You may have written documents in which you select text and make it bold or underlined or italics, [this is a way of marking up the text to display in certain ways ! ]</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GkewzwEbK">https://www.bilibili.com/video/BV1GkewzwEbK</a></p>
+<hr>
+<h2 id="Metadata-Elements"><a href="#Metadata-Elements" class="headerlink" title="Metadata Elements"></a>Metadata Elements</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  - specifies using HTML standard</span><br><span class="line">  - contains all other elements</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  - information about the page: title, css, scripts, ...</span><br><span class="line"></span><br><span class="line">  &lt;title&gt;</span><br><span class="line">    - specifies page title</span><br><span class="line">    - nested inside &lt;head&gt;&lt;/head&gt; tags</span><br><span class="line"></span><br><span class="line">etc...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Sectioning-Elements"><a href="#Sectioning-Elements" class="headerlink" title="Sectioning Elements"></a>Sectioning Elements</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  - contains all items seen on page</span><br><span class="line"></span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    - defines section of webpage</span><br><span class="line">    - [useful for grouping elements together to use CSS styling ! ]</span><br><span class="line"></span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    - section header</span><br><span class="line">    - also &lt;h2&gt;, &lt;h3&gt;, ..., &lt;h6&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    - paragraphs.</span><br><span class="line"></span><br><span class="line">etc...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Semantic-or-Style-HTML-Tags"><a href="#Semantic-or-Style-HTML-Tags" class="headerlink" title="Semantic or Style HTML Tags"></a>Semantic or Style HTML Tags</h2><p>Tags surround [text]&#x2F;[page elements]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;Make text stylistically different, Traditionally bold face, but can change&lt;/b&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">If you have trouble seeing, then it&#x27;s(&lt;b&gt;&lt;/b&gt;) a semantics/meaning</span><br><span class="line">to helps screen reader to change how text is read to you(a blind user).</span><br></pre></td></tr></table></figure>
+
+<h2 id="Adding-Images-Audios-x2F-Videos"><a href="#Adding-Images-Audios-x2F-Videos" class="headerlink" title="Adding Images, Audios&#x2F;Videos"></a>Adding Images, Audios&#x2F;Videos</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;http://xyz.png&quot; width=&quot;75%&quot; /&gt;</span><br><span class="line">&lt;img src=&quot;http://xyz.png&quot; /&gt;</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">We can add Options(eg: src, width) in the image tags,</span><br><span class="line">which give information about what we&#x27;re doing.</span><br><span class="line"></span><br><span class="line">Some Options are required!(eg: src, which means source),</span><br><span class="line">because of that we have to specify what image we want to display.</span><br></pre></td></tr></table></figure>
+
+<h2 id="copyright"><a href="#copyright" class="headerlink" title="copyright"></a>copyright</h2><p>What to use for src&#x3D;”..” ?</p>
+<p>In some cases, there may be concern with the person, organization or group that create the photo you display on a webpage you create. The creator has certain rights called copyrights.</p>
+<p>Many images are in the public_domain and are not copyrighted.(eg: Wikimedia commons website)</p>
+<p>Some images have what are called creative commons licenses, which specify how you can use the images, and some creative_commons_images are not copyrighted.</p>
+<h2 id="Images-Storage"><a href="#Images-Storage" class="headerlink" title="Images Storage"></a>Images Storage</h2><p>In some cases, there may be storage&#x2F;hosting concerns.</p>
+<p>Where are the images stored that you’ve included on your webpage? And who pays.</p>
+<p><a href="https://liupj.top/2022/03/25/aliyun-oss-picgo/">我曾经自建图床</a></p>
+<p>Suppose one million people view your webpage, it means that the image is sent from the website which stores it, across the Internet to one million users that might be scattered all over the world! Someone pays, even if it’s not you.</p>
+<h3 id="Inline-Linking-x2F-Hot-Linking"><a href="#Inline-Linking-x2F-Hot-Linking" class="headerlink" title="Inline-Linking&#x2F;Hot-Linking"></a>Inline-Linking&#x2F;Hot-Linking</h3><p>When you use a URL in a webpage you create as part of an IMG tag,<br>you’ve included what’s called an Inline Linking, also called Hot Linking.<br>It means that the image is stored on another site but visually it appears in the site you create.</p>
+<p>If you create a webpage with lots of views or traffic, there may be storage costs or server costs that might be a concern. &#x3D;&gt; Thus some sites don’t allow hot-linking!</p>
+<p><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-hotlinking-and-why-do-some-sites-not-allow-it-Is-there-any-way-around-this-limitation-without-hosting-the-images-ourselves">Further reason and solution.</a></p>
+<h2 id="Linking-Pages-Together"><a href="#Linking-Pages-Together" class="headerlink" title="Linking Pages Together"></a>Linking Pages Together</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://asd.org/en-US/HTML&quot;&gt;EXAMPLE_LINKS&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">a means anchor.</span><br><span class="line">href is required!</span><br><span class="line"></span><br><span class="line">You must specify some text between the start and end anchor tag,</span><br><span class="line">and this text will be clickable to take you to an another website.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// unordered list</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">// ordered list</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br><span class="line"></span><br><span class="line">li tag stands for list items, [is required],</span><br><span class="line">and are the only type of tag you can put as direct children of ul/ol tag.</span><br><span class="line"></span><br><span class="line">inside li tags we can put much more than just text,</span><br><span class="line">we can put images, links or even another list.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">&lt;tr&gt; =&gt; table row</span><br><span class="line">&lt;th&gt; =&gt; table header</span><br><span class="line">&lt;td&gt; =&gt; table data</span><br></pre></td></tr></table></figure>
+
+<h2 id="Test-your-webpage"><a href="#Test-your-webpage" class="headerlink" title="Test your webpage"></a>Test your webpage</h2><p>You can use private browsing to be sure that you are behaving like an anonymous user,<br>rather than being logged in as yourself when looking at a webpage.</p>
+<p>eg: to be sure that you can see images.</p>
+<h2 id="Be-aware-of…"><a href="#Be-aware-of…" class="headerlink" title="Be aware of…"></a>Be aware of…</h2><p>Making a webpage good isn’t easy.</p>
+<p>Webpages can be displayed on different types of divices, such as your laptop, your phone.</p>
+<p>Webpages can be used by different types of people, such as normal user, blind user.</p>
+<p>…</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

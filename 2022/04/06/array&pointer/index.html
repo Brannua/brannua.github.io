@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>数组与指针 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">数组与指针</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-04-06</span>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>本文实验环境：Linux x86-64，gcc (GCC) 11.2.0</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;&amp;arr[0] = %p,\t arr[0] = %d\n&quot;</span>, &amp;arr[<span class="number">0</span>], arr[<span class="number">0</span>]); <span class="comment">// 对照组</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;arr = %p,\t\t *arr = %d\n&quot;</span>, arr, *arr);           <span class="comment">// 实验组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>arr</code>是一个指针变量，其值为数组中首个元素的地址</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;arr = %p,\t\t *arr = %d\n&quot;</span>, arr, *arr);                   <span class="comment">// 对照组</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;arr + 1 = %p,\t *(arr + 1) = %d\n&quot;</span>, arr + <span class="number">1</span>, *(arr + <span class="number">1</span>)); <span class="comment">// 实验组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>arr + 1</code>是将指针<code>arr</code>向后移动 1 个位置，指向数组的下一个元素</li>
+<li>由于数组元素的数据类型为 int，且<code>sizeof(int) == 4</code></li>
+<li>所以<ul>
+<li>若<code>printf(&quot;%d&quot;, arr);</code>输出 0x7fffcf5000c0</li>
+<li>则<code>printf(&quot;%d&quot;, arr + 1);</code>输出 0x7fffcf5000c4</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;arr = %p,\t arr + 1 = %p\n&quot;</span>, arr, arr + <span class="number">1</span>);     <span class="comment">// 对照组</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;&amp;arr = %p,\t &amp;arr + 1 = %p\n&quot;</span>, &amp;arr, &amp;arr + <span class="number">1</span>); <span class="comment">// 实验组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220406213615807.png" alt="image-20220406213615807"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220406221905290.png" alt="image-20220406221905290"></p>
+<ul>
+<li>练习题</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 工具函数</span></span><br><span class="line"><span class="comment"> * 1. 输出指针变量中保存的地址</span></span><br><span class="line"><span class="comment"> * 2. 指向的内存解读为 long，并以 16 进制 16 位的格式进行输出</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">printPtr</span><span class="params">(<span class="type">void</span> * ptr)</span> &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;ptr = %p, *ptr = %016lx\n&quot;</span>, ptr, *(<span class="type">long</span> *)ptr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span> &#123;</span><br><span class="line">  printPtr(argv); <span class="comment">// 这是个指针变量</span></span><br><span class="line">  printPtr(&amp;argv);</span><br><span class="line"></span><br><span class="line">  <span class="type">char</span> * arr[<span class="number">5</span>]; <span class="comment">// 而这是个正儿八经的数组</span></span><br><span class="line">  printPtr(arr);</span><br><span class="line">  printPtr(&amp;arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">foo</span><span class="params">(<span class="type">int</span> brr[], <span class="type">int</span> len)</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i ++) &#123;</span><br><span class="line">    brr[i]++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> arr[] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, len = <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]);</span><br><span class="line">  foo(arr, len);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i ++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参考了：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ASVB8KAFypk">https://www.youtube.com/watch?v=ASVB8KAFypk</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.log2base2.com/C/pointer/array-and-pointer-in-c.html">https://www.log2base2.com/C/pointer/array-and-pointer-in-c.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.log2base2.com/C/pointer/arr+1-vs-address-of-arr+1.html">https://www.log2base2.com/C/pointer/arr+1-vs-address-of-arr+1.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71736085/why-are-the-two-lines-of-output-in-the-main-function-the-same-c-language">https://stackoverflow.com/questions/71736085/why-are-the-two-lines-of-output-in-the-main-function-the-same-c-language</a></li>
+</ul>
+</li>
+</ul>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
