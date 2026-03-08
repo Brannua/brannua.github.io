@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>混音原理，Linux混音实操，有线麦克风录音+混录系统BGM+耳返监听 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">混音原理，Linux混音实操，有线麦克风录音+混录系统BGM+耳返监听</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2025-12-12</span>
+  </div>
+  <div class="post-content">
+    <p>背景知识：<br>在Linux音频系统中，“输出设备” &#x3D; 这个设备可以接收声音，然后播放出来，并非声音的生产者，它只是声音的播放者<br>而“输入设备”负责采集声音，是声音的起点，声音从输入设备开始传播</p>
+<p>如此一来，就不难理解TUI工具pulsemixer的output标签下的内容，output即输出设备，下含<br>1.有线麦克风（因为我的这个麦克风有用于播放声音的3.5mm耳机孔，我的这个麦克风可以接收声音然后播放出来，所以是输出设备）<br>2.电脑内置声卡（能接收声音然后播放&lt;无论是接耳机还是接扬声器&gt;，当然是输出设备）<br>3.虚拟混音池（接收音乐播放器的声音、接收麦克风的声音；并且能播放给录音软件等物件儿；当然是输出设备）</p>
+<p>也不难理解TUI工具pulsemixer的input标签下的内容，input即输入设备，下含<br>1.有线麦克风<br>2.电脑内置声卡<br>～～<br>每个输出设备都有一个对应的监听口，这些监听口都是输入设备，即Monitor of …<br>简言之：每个“喇叭”都有个“窃听器”，录音软件只需要接窃听器，就能录到喇叭正在播放的声音</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =======================================</span></span><br><span class="line"><span class="comment"># 音乐（电脑播放的）-&gt; 流入水池，即：采集BGM</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 你的人声 -&gt; 流入水池，即：采集人声</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 水池有俩出水口：</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 出水口A -&gt; 录音软件录音，即：同时录到BGM和人声</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 出水口B -&gt; 耳返监听，即：同时听到BGM和人声</span></span><br><span class="line"><span class="comment"># =======================================</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=== 查找音频设备 ===&quot;</span></span><br><span class="line"></span><br><span class="line">UGREEN_IN=$(pactl list short sources | rg input | <span class="built_in">tail</span> -1 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;你的输入设备：<span class="variable">$UGREEN_IN</span>&quot;</span></span><br><span class="line"></span><br><span class="line">PC_OUT=$(pactl list short sinks | rg <span class="string">&quot;alsa_output&quot;</span> | <span class="built_in">head</span> -1 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;你的输出设备：<span class="variable">$PC_OUT</span>&quot;</span></span><br><span class="line"></span><br><span class="line">pactl unload-module module-null-sink 2&gt;/dev/null</span><br><span class="line">pactl unload-module module-loopback 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=== 创建虚拟混音池 ===&quot;</span></span><br><span class="line">pactl load-module module-null-sink sink_name=record_pool</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;=== 配置音频流 ===&quot;</span></span><br><span class="line"></span><br><span class="line">pactl set-default-sink record_pool</span><br><span class="line">pactl load-module module-loopback <span class="built_in">source</span>=<span class="string">&quot;<span class="variable">$UGREEN_IN</span>&quot;</span> sink=record_pool latency_msec=5</span><br><span class="line">pactl load-module module-loopback <span class="built_in">source</span>=record_pool.monitor sink=<span class="string">&quot;<span class="variable">$PC_OUT</span>&quot;</span> latency_msec=5</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;✅配置完成！&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;在 Simple Screen Recorder 中：&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;1. 勾选 &#x27;Record audio&#x27;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;2. Source 选择: &#x27;Monitor of record_pool......&#x27;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;3. 开始录制&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：latency_msec&#x3D;5 是指明的低延迟参数，因为是软件实现的监听</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

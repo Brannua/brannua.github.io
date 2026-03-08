@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>当你需要多种操作系统时的一些解决方案 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">当你需要多种操作系统时的一些解决方案</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-02-05</span>
+  </div>
+  <div class="post-content">
+    <h4 id="不推荐的方案"><a href="#不推荐的方案" class="headerlink" title="不推荐的方案"></a>不推荐的方案</h4><ul>
+<li><del>单硬盘，多系统</del></li>
+<li><del>wine</del></li>
+</ul>
+<h4 id="还未尝试的方案"><a href="#还未尝试的方案" class="headerlink" title="还未尝试的方案"></a>还未尝试的方案</h4><ul>
+<li>云电脑（选择的厂商的体量应足够大）</li>
+<li>docker</li>
+</ul>
+<h4 id="制作系统安装盘的工具"><a href="#制作系统安装盘的工具" class="headerlink" title="制作系统安装盘的工具"></a>制作系统安装盘的工具</h4><ul>
+<li><p>制作 linux 安装盘</p>
+<ul>
+<li>on windows：<a target="_blank" rel="noopener" href="https://github.com/pbatard/rufus/">https://github.com/pbatard/rufus/</a></li>
+<li>on linux：<a target="_blank" rel="noopener" href="https://github.com/balena-io/etcher/">https://github.com/balena-io/etcher/</a></li>
+</ul>
+</li>
+<li><p>制作 windows 安装盘</p>
+<ul>
+<li>on windows：use PE（已备份）：<a target="_blank" rel="noopener" href="http://www.wepe.com.cn/">http://www.wepe.com.cn/</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="推荐的方案（OS-togo）"><a href="#推荐的方案（OS-togo）" class="headerlink" title="推荐的方案（OS-togo）"></a>推荐的方案（OS-togo）</h4><p>适用场景：需要一个完整的相对成熟稳定的系统体验（包括摄像头、USB3.0等设备）</p>
+<p>将操作系统安装到移动存储器（eg：移动硬盘、U盘、…）中，即插即用</p>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li><p>该操作会清空你的移动存储器，请提前做好数据备份</p>
+</li>
+<li><p>存储器容量尽量选择大于 100 GB 且为固态介质</p>
+</li>
+<li><p>请确保 USB 接口内为蓝色（USB 3.0），而不要是灰黑色（USB 2.0）</p>
+</li>
+<li><p>数据传输速度方面，USB 接口不如笔记本内置的硬盘接口</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>制作方法：<ol>
+<li>制作一个系统安装盘</li>
+<li>插上存储器，向其中安装系统</li>
+</ol>
+</li>
+</ul>
+<h4 id="推荐的方案（ssh）"><a href="#推荐的方案（ssh）" class="headerlink" title="推荐的方案（ssh）"></a>推荐的方案（ssh）</h4><p>适用场景：你真的有多台电脑，你在不同电脑上安装了不同的操作系统，着两台电脑你需要同时使用（着意味着你可能需要频繁在这两台电脑间切换），你又不想用比较吃性能且不如真机实装系统稳定的虚拟机</p>
+<p>那么不妨使用 ssh 实现你的需求，可以看看<a href="https://liupj.top/2022/05/19/ssh-ubuntu/">这篇文章</a></p>
+<h4 id="推荐的方案（虚拟机）"><a href="#推荐的方案（虚拟机）" class="headerlink" title="推荐的方案（虚拟机）"></a>推荐的方案（虚拟机）</h4><p>适用场景：一台电脑上随时需要频繁切换不同系统，只是需要一个系统环境运行特定软件</p>
+<p>注意：虚拟机的稳定性其实不如真机实装系统，但对于预算有限的人群来说仍然是一个好方法</p>
+<blockquote>
+<p>虚拟机会和当前电脑的宿主系统共享电脑的硬件配置，故年代久远配置较低的硬件使用虚拟机可能会卡顿，若真是这样，也就到了买电脑的时候了</p>
+<p>虚拟化软件可选用 virtualbox、vmware</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确定宿主系统的内核版本，假设输出为：5.10.93-1-MANJARO，则接下来安装 linux510-virtualbox-host-modules</span></span><br><span class="line">uname -r</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装虚拟化软件 virtualbox（on manjaro-linux）</span></span><br><span class="line">sudo pacman -S virtualbox</span><br><span class="line">sudo modprobe vboxdrv</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">请确保当前用户在 vboxusers 组中</span></span><br><span class="line">groups $USER</span><br><span class="line">sudo usermod --append --groups vboxusers $USER</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>借助 virtualbox 运行的操作系统无法全屏 ？</p>
+<ul>
+<li>下载安装增强功能</li>
+</ul>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220412214408940.png" alt="image-20220412214408940"></p>
+<ul>
+<li><p>然后重启虚拟机就 ok 了</p>
+</li>
+<li><p>挂载的CD-ROM取消挂载就行</p>
+</li>
+</ul>
+</li>
+<li><p>虚拟机不识别 usb2&#x2F;3 接口 ？</p>
+<ul>
+<li>戳<a target="_blank" rel="noopener" href="https://download.virtualbox.org/virtualbox/">这里</a>下载对应版本的一个叫 Oracle_VM_VirtualBox_Extension_Pack 的扩展</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.x.xx-xxxxxx.vbox-extpack</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>重启虚拟机&#x2F;电脑，然后虚拟机 Enable usb controller</p>
+</li>
+<li><p>参考了：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349020649">https://zhuanlan.zhihu.com/p/349020649</a></p>
+</li>
+</ul>
+</li>
+<li><p>在虚拟机和用户主机之间配置共享文件夹 ？</p>
+<ul>
+<li>没必要，为什么不直接用 U 盘呢 ？</li>
+</ul>
+</li>
+</ul>
+<h4 id="新系统没有网络连接怎么办-？"><a href="#新系统没有网络连接怎么办-？" class="headerlink" title="新系统没有网络连接怎么办 ？"></a>新系统没有网络连接怎么办 ？</h4><ul>
+<li>大多数手机都拥有「USB 共享网络」功能，可通过 USB 数据线，将手机的网络共享给电脑</li>
+</ul>
+<h4 id="win10-激活-？"><a href="#win10-激活-？" class="headerlink" title="win10 激活 ？"></a>win10 激活 ？</h4><blockquote>
+<p>管理员模式命令行</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># win10 专业版</span></span><br><span class="line"></span><br><span class="line">slmgr /ckms</span><br><span class="line">slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">slmgr /skms kms.03k.org</span><br><span class="line">slmgr /ato</span><br><span class="line"></span><br><span class="line"><span class="comment"># win10 家庭中文版/企业版</span></span><br><span class="line"></span><br><span class="line">slmgr /skms kms.03k.org</span><br><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间逻辑"><a href="#时间逻辑" class="headerlink" title="时间逻辑"></a>时间逻辑</h4><ul>
+<li>联网后，操作系统同步用户本地时间</li>
+<li>关机时：<ul>
+<li>windows 在硬件中直接保存用户本地时间</li>
+<li>linux 在硬件中保存（用户本地时间 - 用户时区）</li>
+</ul>
+</li>
+<li>下次开机：<ul>
+<li>windows：直接读取硬件中的时间</li>
+<li>linux：硬件中的时间 + 用户时区</li>
+</ul>
+</li>
+<li>参考：<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/System_time">https://wiki.archlinux.org/title/System_time</a></li>
+</ul>
+</li>
+</ul>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
