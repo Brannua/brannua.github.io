@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>硬链接和软链接 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">硬链接和软链接</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2021-09-22</span>
+  </div>
+  <div class="post-content">
+    <h4 id="什么是“链接”-？"><a href="#什么是“链接”-？" class="headerlink" title="什么是“链接” ？"></a>什么是“链接” ？</h4><blockquote>
+<p>记得 2008 年刚接触 windows 的时候，我“卸载”软件都是这么干的 &#x3D;&gt; 将桌面上软件的图标移动到回收站，清空回收站，然后我就觉得软件已经被我卸载了</p>
+<p>现在看来，当时的我只是删除了 windows 上应用软件的一个快捷方式而已，并没有将软件真正从我的电脑上卸载</p>
+<p>而那时被我删掉的快捷方式就是“链接”的一种实现，显然，“链接”这种东西早就被应用在了计算机中，在我们的生活中扮演着不可或缺的角色</p>
+<p>所以，你可以将“链接”狭义地理解成 windows 上的快捷方式，但接下来对“链接”的用途做更多的阐述</p>
+</blockquote>
+<h4 id="当用户独占计算机，经常用“链接”干什么-？"><a href="#当用户独占计算机，经常用“链接”干什么-？" class="headerlink" title="当用户独占计算机，经常用“链接”干什么 ？"></a>当用户独占计算机，经常用“链接”干什么 ？</h4><blockquote>
+<p>这里讲的是大多数普通人在日常使用场景中会有意无意使用“链接”的情况</p>
+</blockquote>
+<p>对于 windows 用户</p>
+<ul>
+<li>快捷方式就是“链接”的一种实现，我们可以在一个容易找到的地方（比如桌面）创建应用的快捷方式来方便我们快速启动应用程序，而不是每次都逐层目录寻找应用程序到底在哪</li>
+</ul>
+<p>对于 linux 用户 和 macOS 用户</p>
+<ul>
+<li>和在 windows 中给应用程序创建快捷方式类似，我们通常会在一个容易被找到的目录中给一些目录层次较深的文件创建“链接”，以此方便我们的访问</li>
+<li>除此以外，我们还经常使用“链接”处理一些库的版本兼容性的问题</li>
+</ul>
+<p>上述提到的链接，均指软链接（也称符号链接 symblic_link），在 linux 中链接的常见用法如下</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922102919472.png" alt="image-20210922102919472"></p>
+<h4 id="为什么需要有“链接”这种功能-？"><a href="#为什么需要有“链接”这种功能-？" class="headerlink" title="为什么需要有“链接”这种功能 ？"></a>为什么需要有“链接”这种功能 ？</h4><ol>
+<li><p>首先你得知道，同一个操作系统是允许多个用户同时接入共享使用的</p>
+<p>从“分时操作系统”时代起，就已经开始支持多用户宏观同时微观分时地访问操作系统了，就是说一个操作系统可以有多个用户，这些用户可以共享地使用计算机中的资源，甚至他们可以同时接入操作系统</p>
+<p>多用户同时接入操作系统时，尽管我们感觉上像是自己独占整个系统但其实并不是（比如同一个 windows 上超级管理员和普通用户可以同时登入只不过系统微观上分时服务罢了）</p>
+<p>听不懂也不没关系，有一个视频很形象，就是<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fi4y1L7Gh">它</a></p>
+</li>
+<li><p>其次你还得知道，什么叫共享</p>
+<p>共享和文件复制是不一样的，用户共享文件意味着只有一份文件</p>
+<p>比如系统中有一份独一无二的文件，用户 A 对其拥有读写权限，用户 B 对其也拥有读写权限，就说这两个用户共享该文件</p>
+<p>一旦用户 A 修改了该文件的数据，那么用户 B 也可以看到文件数据的变化</p>
+</li>
+<li><p>“链接”是为了让文件共享更安全而实现的，如果没有链接这种功能</p>
+<p>举个例子，你家两个孩子，你有一个弟弟，但是你家家境普通，父母只能给你俩买一台电脑，只有你爹能用电脑上的管理员帐号，他给你俩一人开了个普通用户帐号</p>
+<p>期末复习周，你爹拷了一份往年试卷放到了电脑中让你俩共享，你弟登入电脑一看，我去！这么多卷子，不写！哐哧你弟就给删了，假如没有“链接”这种东西，晚上你登你帐号还能看到卷子吗？不能！</p>
+</li>
+<li><p>但实际情况是卷子并没有被真正删除，虽然你弟看不到卷子且承担着可能挨打的风险但你依然可以看到卷子，这正是因为操作系统在实现文件共享功能的时候，为了防止共享文件被某个用户误删除，实现了“链接”的功能和基于“链接”的文件共享方式，链接分为“软链接”和“硬链接”</p>
+</li>
+</ol>
+<h4 id="什么是硬链接，什么是软链接-？"><a href="#什么是硬链接，什么是软链接-？" class="headerlink" title="什么是硬链接，什么是软链接 ？"></a>什么是硬链接，什么是软链接 ？</h4><blockquote>
+<p>节选自王道-操作系统</p>
+</blockquote>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922163152322.png" alt="image-20210922163152322"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922163606353.png" alt="image-20210922163606353"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922164024964.png" alt="image-20210922164024964"></p>
+<h4 id="软链接和硬链接的异同"><a href="#软链接和硬链接的异同" class="headerlink" title="软链接和硬链接的异同"></a>软链接和硬链接的异同</h4><blockquote>
+<p>首先明确：由于用软链接的方式访问共享文件时需要查询多级目录，所以就会产生多次磁盘 I&#x2F;O，因此理论上用软链接访问文件速度更慢</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里我们比较文件使用如下命令</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> -li</span><br><span class="line"></span><br><span class="line"><span class="comment"># -l, --long       display extended file metadata as a table</span></span><br><span class="line"><span class="comment"># -i, --inode      list each file&#x27;s inode number</span></span><br></pre></td></tr></table></figure>
+
+<p>我们先创建一个普通文件，然后给该文件创建一个硬链接，看看区别</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922172127580.png" alt="image-20210922172127580"></p>
+<p>hard.txt 和 src.txt 的 inode 值一样，都为 19407417，说明了它们指向物理磁盘中的同一个区块（同一索引节点）</p>
+<p>且二者文件类型和权限完全相同</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922172515608.png" alt="image-20210922172515608"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922174914922.png" alt="image-20210922174914922"></p>
+<p>到此为止，已经印证了硬链接（基于索引节点的共享方式）的原理</p>
+<p>接下来我们进行第二个实验：我们创建一个普通文件，然后给该文件创建一个软链接，看看区别</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922175147752.png" alt="image-20210922175147752"></p>
+<p>现在我们很清楚地看到，软链接确实是 Link 类型的文件，权限为 777，且指向 src.txt</p>
+<p>接下来我们再创建一个硬链接，并尝试删除 src.txt</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922175705326.png" alt="image-20210922175705326"></p>
+<p>硬链接仍然有效，符合预期；软连接是一种新类型的文件（Link 类型）保存着它所指向文件的全路径，访问时会替换成绝对路径，我们 rm 掉了 src.txt 自然用软链接就找不到该文件</p>
+<p>我们再向这个软链接写点东西（将这个软链接替换后的绝对路径文件创建出来）</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922180847712.png" alt="image-20210922180847712"></p>
+<p>看吧，src.txt 又出现了，成功印证软链接访问时会替换成绝对路径的想法</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20210922181433398.png" alt="image-20210922181433398"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220504155523985.png" alt="image-20220504155523985"></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

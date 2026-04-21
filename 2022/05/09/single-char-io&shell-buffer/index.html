@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>单字符的I/O（getchar、putchar）&amp; Shell中的缓冲区 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">单字符的I/O（getchar、putchar）&amp; Shell中的缓冲区</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-05-09</span>
+  </div>
+  <div class="post-content">
+    <h4 id="知识铺垫：EOF"><a href="#知识铺垫：EOF" class="headerlink" title="知识铺垫：EOF"></a>知识铺垫：EOF</h4><p>EOF 就是个 int 宏常量，表示 end-of-file，<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io">文档</a>中有下面这么一段话：</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io"><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509120708383.png" alt="image-20220509120708383"></a></p>
+<p>阮一峰老师也讲过：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/11/eof.html">EOF是什么？</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch;</span><br><span class="line">ch = getchar();     <span class="comment">// 直接 ^D，就能看到 EOF 值为 -1</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ch);</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0320bash.php"><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509123350672.png" alt="image-20220509123350672"></a></p>
+<p><em>本图可点击</em></p>
+<h4 id="单字符的I-x2F-O"><a href="#单字符的I-x2F-O" class="headerlink" title="单字符的I&#x2F;O"></a>单字符的I&#x2F;O</h4><p>假设我想读入单个字符，该怎么办呢 ？&#x3D;&gt; 用<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io/getchar">getchar()</a></p>
+<p>假设我想输出单个字符，该怎么办呢 ？&#x3D;&gt; 用<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io/putchar">putchar()</a></p>
+<p><em>当然你可以可用 scanf() 和 printf()，并使用 %c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;ch);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, ch);</span><br></pre></td></tr></table></figure>
+
+<h4 id="关于-getchar-的返回值是-int-这件事"><a href="#关于-getchar-的返回值是-int-这件事" class="headerlink" title="关于 getchar() 的返回值是 int 这件事"></a>关于 getchar() 的返回值是 int 这件事</h4><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io/getchar">文档</a>中有下面这么一段话：</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io/getchar"><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509120135429.png" alt="image-20220509120135429"></a></p>
+<h4 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch;</span><br><span class="line"><span class="keyword">while</span> ((ch = getchar()) != EOF) &#123;</span><br><span class="line">  <span class="built_in">putchar</span>(ch);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;EOF\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这段代码的执行结果十分神奇</p>
+<p>在命令行中，编译执行这段程序，命令行就会等待你用键盘输入内容，这符合预期</p>
+<p>但接下来发生的事情可能就会和你的想法不太一样了</p>
+<p>首先，你可以连续敲击键盘进行输入，只有当你按下「回车」，命令行才会有所回应</p>
+<p>它会将你输入的内容原封不动地输出到你的显示屏上（就像 <code>echo</code> 一样）</p>
+<p>接下来，你的命令行会继续等待你用键盘输入内容，并会如此循环往复</p>
+<p>如果想停掉这个程序，你只能 ^C（你输入 EOF 或 -1 都不行），但并不会输出代码最后一行的 EOF</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220509124131967.png" alt="image-20220509124131967"></p>
+<p>这说明我们并没有正确地输入 EOF，也就并没有让我们的程序知道「输入结束」这件事情，我们只是在程序运行的中途就直接强制退出了该程序</p>
+<h4 id="那如何向-Shell-输入-EOF-？"><a href="#那如何向-Shell-输入-EOF-？" class="headerlink" title="那如何向 Shell 输入 EOF ？"></a>那如何向 Shell 输入 EOF ？</h4><p>Unix（Linux）：^D</p>
+<p>DOS（Windows）：^Z</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211120151345087.png" alt="image-20211120151345087"></p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211120151456668.png" alt="image-20211120151456668"></p>
+<blockquote>
+<p>要理解上面这段程序背后发生了什么，我们必须了解一些关于 Shell 和其中的缓冲区的知识</p>
+</blockquote>
+<h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><p><code>键盘/显示器 &lt;= Shell =&gt; 应用程序</code></p>
+<p>Shell 是一个特殊的程序，它能将你的程序 run 起来，也能将运行着的程序 kill 掉</p>
+<p>当 Shell 监听到用户按下了 ^C，运行着的程序就被 kill 掉了…</p>
+<h4 id="Shell-中的缓冲区"><a href="#Shell-中的缓冲区" class="headerlink" title="Shell 中的缓冲区"></a>Shell 中的缓冲区</h4><p>当用户在命令行中编译执行上面那段程序时，Shell 会负责将其 run 起来</p>
+<p>不难看出程序会停在 <code>getchar()</code>，等待用户敲击键盘进行输入</p>
+<p>比如你输入了一个字符 a，其实这个字符并没有被立刻送入你的应用程序，而是先被送到了 Shell 那里</p>
+<p>Shell 会将收到的字符放在自己的缓冲区中，<code>&#39;\0&#39;</code>是缓冲区内容末尾的标志，就像下图这样</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211120153955045.png" alt="image-20211120153955045"></p>
+<p>由于此时 Shell 并没有接收到（回车符 || EOF），所以 Shell 会继续等待用户的输入（应用程序此时并不读取 Shell 的缓冲区中的内容）</p>
+<p>假设你又输入了两个字符 b 和 c，缓冲区就变成了下面这个样子</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211120155135846.png" alt="image-20211120155135846"></p>
+<p>一旦你按下了「回车」，你的应用程序就会开始从 Shell 的缓冲区中读取内容（刚按下回车的缓冲区就像下面这样）</p>
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20211120155714429.png" alt="image-20211120155714429"></p>
+<p>上面那段程序中，<code>getchar()</code> 逐个字符地读取，读一个字符就输出一个字符</p>
+<p>一旦读到 <code>\0</code> 就说明读到了缓冲区的末尾，对于上面那段程序，由于此时还没有读到 EOF，所以 while 循环会继续，也就会继续停在 <code>getchar()</code> 等待用户的输入</p>
+<p>当用户按下了 ^D，Shell 的缓冲区就会收到信号 EOF，此时你的应用程序立刻就会读到 EOF</p>
+<p>对于上面那段应用程序，不难看出就跳出了 while 循环，继续向下执行，直到程序全部执行结束，正常退出。</p>
+<p><em>另外：缓冲区也可以从文件中读取内容</em></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

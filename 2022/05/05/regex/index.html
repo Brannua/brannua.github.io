@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Regular Expression - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Regular Expression</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2022-05-05</span>
+  </div>
+  <div class="post-content">
+    <h3 id="Make-each-program-do-one-thing-well-The-Unix-philosophy"><a href="#Make-each-program-do-one-thing-well-The-Unix-philosophy" class="headerlink" title="Make each program do one thing well - The Unix philosophy"></a>Make each program do one thing well - The Unix philosophy</h3><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220506155429491.png" alt="image-20220506155429491"></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php">原文链接</a></p>
+<h4 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h4><p>有种标准叫做正则表示法，你可以依据该标准写出一些特殊的字符排列，叫做正则表达式</p>
+<p>你可以利用正则表达式高效准确地匹配并处理一个或多个字符串</p>
+<p>简言之：正则表达式就是一种处理字符串的方法</p>
+<blockquote>
+<p>要想使用正则表达式，必须使用支持正则表达式的软件工具，比如 vim、grep、sed、awk、…</p>
+</blockquote>
+<h4 id="正则表达式的广泛用途"><a href="#正则表达式的广泛用途" class="headerlink" title="正则表达式的广泛用途"></a>正则表达式的广泛用途</h4><p>对于个人而言，使用正则表达式，能让你在使用主机时更精简高效地处理日常事务 ！</p>
+<p>比如：</p>
+<p>当你使用编辑器之神 <a target="_blank" rel="noopener" href="https://www.vim.org/">vim</a> 编辑文本时，要想把「搜索&#x2F;删除&#x2F;替换」等动作做得漂亮，就需要配合使用正则表达式</p>
+<p>再比如：</p>
+<p>你的系统在繁忙时会生成成千上万行的信息，这些信息往往由极其重要的信息和无关紧要的信息杂糅（重要的信息比如：错误信息、系统被入侵的记录信息、…）；要想成为一个合格的系统管理员，你就应当学会编写、学会利用正则表达式从这大量的信息中快速提取出重要信息，甚至输出生成便于查阅的报表，以此来方便自己</p>
+<p>此外，由于正则表达式强大的字符串处理能力，有很多软件都支持正则表达式，有很多软件都使用正则表达式来实现一些功能</p>
+<p>比如邮件服务器就使用正则表达式分析并过滤垃圾邮件</p>
+<p>具体是怎么做的呢 ？</p>
+<p>答：</p>
+<ol>
+<li>由于垃圾邮件几乎都有标题或内容</li>
+<li>因此，邮件服务器只需利用写好的正则表达式，就能对收到的信件的标题和内容进行字符串匹配</li>
+<li>如此，垃圾邮件们就能被过滤出来，进而被剔除</li>
+</ol>
+<p>自然这些邮件就不会被发送到用户端，既节省了用户的流量带宽，也规避了很多麻烦</p>
+<h4 id="啥-？你觉得你会-ctrl-f-就够-？"><a href="#啥-？你觉得你会-ctrl-f-就够-？" class="headerlink" title="啥 ？你觉得你会 ctrl+f 就够 ？"></a>啥 ？你觉得你会 ctrl+f 就够 ？</h4><p>那我问你，假如你只想找到 VBird 或 Vbird 这个关键词（一个字母都不能差，大小写也不能差）</p>
+<p>你咋办 ？</p>
+<p>就拿被广泛使用但其实一点也不哇塞的 MS word 来举例，它并不支持正则表达式</p>
+<p>显然，你需要分別以 VBird 和 Vbird 搜索两遍</p>
+<p>或者你可以启用忽略大小写的功能，但这就会匹配出你不需要的关键词，比如 VBIRD、vbird、…</p>
+<p>看吧，不支持正则表达式有时就很麻烦，但若用上正则表达式，这个需求就会和探囊取物一样简单</p>
+<hr>
+<p>再举个例子</p>
+<p>假如在系统开机的时候，总会出现一个与 mail 关键词相关的错误提示</p>
+<p>这很令人别扭对吧 ？</p>
+<p>你知道开机过程中的相关程序都放在 &#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 目录下，也就是说，在该目录下的某个文件中肯定有 mail 这个关键词</p>
+<p>于是你想把这个不安分的文件“捉出来”，编辑它、修好它</p>
+<p>你该怎么做 ？</p>
+<p>你当然可以进入 &#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 目录，然后逐个文件地打开并搜索关键词 mail</p>
+<p>但这个目录下很可能有大量文件 ！</p>
+<p>比如这个目录下可能会有 20 个文件，你愿意一个一个地打开搜索 ？</p>
+<p>啥你愿意 ？<del>你当求婚呢你愿意</del></p>
+<p>假如该目录下有 100 个文件，不愿意一个一个地打开搜索了吧 ？！因为这 <strong>太 ！</strong> <strong>慢 ！</strong> <strong>了 ！</strong></p>
+<p>如果你不会正则表达式，你的心情就可能是<a target="_blank" rel="noopener" href="http://tva3.sinaimg.cn/large/005TGG6vly1fvg35vjnusg306o05y4nj.gif">这样的</a></p>
+<p>但如果你会用正则表达式，只需一行指令就找出来啦 ！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&#x27;mail&#x27;</span> /lib/systemd/system/*</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220505173434394.png" alt="image-20220505173434394"></p>
+<p><strong>再次强调：</strong></p>
+<p><strong>只要一个软件工具支持正则表达式，那么就可以用该软件工具配合正则表达式来处理字符串</strong></p>
+<p>比如 vim、grep、awk、sed、… 这些软件工具，由于它们支持正则表达式，所以可以用这些软件工具配合正则表达式来处理字符串</p>
+<p>而像 ls、cp、… 这些软件工具，由于它们<strong>不支持</strong>正则表达式，所以它们只能使用 <a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0320bash.php#settings_wildcard">bash 的万用字元（wildcard）</a></p>
+<blockquote>
+<p>正则表达式 ≠ bash的万用字元 ！这很重要 ！！！</p>
+</blockquote>
+<h4 id="延伸型正则表达式"><a href="#延伸型正则表达式" class="headerlink" title="延伸型正则表达式"></a>延伸型正则表达式</h4><p>正则表达式分为「基础正则表达式 &amp; 延伸型正则表达式」</p>
+<p>对于延伸型正则表达式，除了做简单的一组字符串处理之外，还可以做群组的字符串处理</p>
+<p>比如：当你想要搜索 VBird 或 netman 或 lman（注意是 <strong>或「OR」</strong> 而不是 <strong>和「AND」</strong> ），你就需要使用延伸型正则表达式了</p>
+<p>借助<code>(</code>和<code>|</code>等特殊字元的帮助，就能实现这样的目的</p>
+<p>虽然本文主要介绍基础正则表达式…</p>
+<h4 id="编码方式对正则表达式的影响"><a href="#编码方式对正则表达式的影响" class="headerlink" title="编码方式对正则表达式的影响"></a>编码方式对正则表达式的影响</h4><p><a href="https://liupj.top/2021/11/14/huffman/">众所周知，计算机只能存储 0 和 1</a>，电脑屏幕上显示的「数字、文字、…」都是由一些 0 和 1 根据某种编码方式映射转换而来</p>
+<p>编码方式不同，正则表达式的执行结果就有可能不同</p>
+<p>以英文大小写的编码为例，zh_TW.big5 和 C 这两种编码方式的编码顺序如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANG=C      =&gt;  0 1 2 3 4 ... A B C D ... Z a b c d ...z</span><br><span class="line">LANG=zh_TW  =&gt;  0 1 2 3 4 ... a A b B c C d D ... z Z</span><br></pre></td></tr></table></figure>
+
+<p>我们可以清楚地看到：这两种编码方式的编码顺序是不同的 ！</p>
+<p>假设你想要提取大写字母，使用了<code>[A-Z]</code>，你就会发现 LANG&#x3D;C 时确实可以提取大写字母（因为是连续的）</p>
+<p>但若 LANG&#x3D;zh_TW.big5，你就会发现小写的 b-z 也被提取了出来…</p>
+<p>这就是不同编码方式的不同编码顺序所造成的影响</p>
+<p>因此：</p>
+<blockquote>
+<p>使用正则表达式时，需要特别注意当时环境的编码方式是什么，否则就可能会发现与别人不同的执行结果 ！</p>
+</blockquote>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>基于适合 POSIX 标准的编码方式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LANG=C;</span><br><span class="line"><span class="built_in">export</span> LC_ALL=C;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>grep 若不带高亮，则设置高亮</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> grep=<span class="string">&quot;grep --color=auto&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载本文练习用的文档</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://gitee.com/pj-l/static/raw/master/regular_express.txt</span><br><span class="line">wget https://gitee.com/pj-l/static/raw/master/demo.sh</span><br><span class="line">wget https://gitee.com/pj-l/static/raw/master/printf.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础正则表达式"><a href="#基础正则表达式" class="headerlink" title="基础正则表达式"></a>基础正则表达式</h3><h4 id="一些特殊符号"><a href="#一些特殊符号" class="headerlink" title="一些特殊符号"></a>一些特殊符号</h4><table>
+<thead>
+<tr>
+<th align="left">特殊符号</th>
+<th align="left">代表意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">[:digit:]</td>
+<td align="left">代表数字，即 0-9</td>
+</tr>
+<tr>
+<td align="left">[:xdigit:]</td>
+<td align="left">代表十六进制数字，因此包括 0-9, a-f, A-F</td>
+</tr>
+<tr>
+<td align="left">[:lower:]</td>
+<td align="left">代表小写字母，即 a-z</td>
+</tr>
+<tr>
+<td align="left">[:upper:]</td>
+<td align="left">代表大写字母，即 A-Z</td>
+</tr>
+<tr>
+<td align="left">[:alpha:]</td>
+<td align="left">代表英文大小写字母，即 A-Z, a-z</td>
+</tr>
+<tr>
+<td align="left">[:alnum:]</td>
+<td align="left">代表英文大小写字母和数字，即 A-Z, a-z, 0-9</td>
+</tr>
+<tr>
+<td align="left">[:blank:]</td>
+<td align="left">代表「空格键、Tab」</td>
+</tr>
+<tr>
+<td align="left">[:graph:]</td>
+<td align="left">代表除了「空格键、Tab」外的其它所有按键</td>
+</tr>
+<tr>
+<td align="left">[:space:]</td>
+<td align="left">代表能产生空白的字元，比如「空格键、Tab、CR、…」</td>
+</tr>
+<tr>
+<td align="left">[:print:]</td>
+<td align="left">代表任何可以被打印出来的字元</td>
+</tr>
+<tr>
+<td align="left">[:punct:]</td>
+<td align="left">代表标点符号（punctuation symbol），包括「# ‘ “ $ …」</td>
+</tr>
+<tr>
+<td align="left">[:cntrl:]</td>
+<td align="left">代表控制按键，包括「CR、LF、Tab、Del…」</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>一个好习惯是：用<code>[:lower:]</code>，不用<code>a-z</code>，因为前者意思更明确（其它正则表达式同理）</p>
+</blockquote>
+<h4 id="练习笔记"><a href="#练习笔记" class="headerlink" title="练习笔记"></a>练习笔记</h4><h5 id="如果我不想要开头是英文字母"><a href="#如果我不想要开头是英文字母" class="headerlink" title="如果我不想要开头是英文字母"></a>如果我不想要开头是英文字母</h5><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220506151220825.png" alt="image-20220506151220825"></p>
+<blockquote>
+<p>那个<code>^</code>符号，在字元集合符号<code>[]</code>之内与之外是不同的 ！ 在<code>[]</code>内代表「反向选择」，在<code>[]</code>之外代表「定位在行首」</p>
+</blockquote>
+<h5 id="如果想寻找空行-hang"><a href="#如果想寻找空行-hang" class="headerlink" title="如果想寻找空行(hang)"></a>如果想寻找空行(hang)</h5><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220506153312075.png" alt="image-20220506153312075"></p>
+<blockquote>
+<p>在 Linux 中，空行(hang) 就是 行(hang)首就是行(hang)尾定位符$</p>
+</blockquote>
+<h5 id="如果想去掉开头是-的行-hang-和空行-hang-以节省版面"><a href="#如果想去掉开头是-的行-hang-和空行-hang-以节省版面" class="headerlink" title="如果想去掉开头是#的行(hang)和空行(hang)以节省版面"></a>如果想去掉开头是<code>#</code>的行(hang)和空行(hang)以节省版面</h5><p><img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220506155934149.png" alt="image-20220506155934149"></p>
+<h3 id="延伸型正则表达式-1"><a href="#延伸型正则表达式-1" class="headerlink" title="延伸型正则表达式"></a>延伸型正则表达式</h3><p>See <a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#extend">here</a></p>
+<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#printf">printf</a></p>
+<h4 id="资料处理"><a href="#资料处理" class="headerlink" title="资料处理"></a>资料处理</h4><p>倾向于整行（行）处理 &#x3D;&gt; <a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#sed">sed</a></p>
+<p>倾向于一行当中分成多个栏位来处理 &#x3D;&gt; <a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#awk">awk</a>，相当适合处理小型的资料文件，多结合 printf 进行格式化输出</p>
+<h4 id="档案比对"><a href="#档案比对" class="headerlink" title="档案比对"></a>档案比对</h4><p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#diff">diff</a></p>
+<p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#cmp">cmp</a></p>
+<p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#patch">patch</a></p>
+<h4 id="档案列印准备工具（给档案加标题、页码、…）"><a href="#档案列印准备工具（给档案加标题、页码、…）" class="headerlink" title="档案列印准备工具（给档案加标题、页码、…）"></a>档案列印准备工具（给档案加标题、页码、…）</h4><p><a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0330regularex.php#pr">pr</a></p>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>

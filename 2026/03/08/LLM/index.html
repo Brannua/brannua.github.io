@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>什么是 AI，什么是大语言模型，缺点分析，以及使用技法和技巧总结 - peijie&#39;s wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,思考,技术,博客>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="peijie&#39;s wiki" type="application/atom+xml">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">peijie&#39;s wiki</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/contact" class="menu-item-link">Contact</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://github.com/brannua" class="menu-item-link">GitHub</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://travellings.link" class="menu-item-link">Travelling</a>
+        </li>
+      
+        <li class="menu-item">
+          <a target="_blank" rel="noopener" href="https://foreverblog.cn/go.html" class="menu-item-link">WormHole</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/atom.xml" class="menu-item-link">RSS</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">什么是 AI，什么是大语言模型，缺点分析，以及使用技法和技巧总结</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2026-03-08</span>
+  </div>
+  <div class="post-content">
+    <p>AI，即 ArtificialIntelligence，人工智能，即所有让机器模仿人类智能的技术</p>
+<p>比如：机器人、自动驾驶、图像识别（拍照识物、人脸识别）、语音识别（eg：从前没有接入LLM的Siri&#x2F;小爱同学&#x2F;…）推荐算法…</p>
+<hr>
+<p>大语言模型，英文名称 LargeLanguageModel，简称 LLM，是 AI 体系下的一个新分支</p>
+<p>它能生成我们人类的语言，所以也被称为“生成式大语言模型”</p>
+<p>比如：美国公司 OpenAI 研发的 ChatGPT 和中国公司-深度求索研发的 DeepSeek…</p>
+<hr>
+<p>LLMs 是怎么模仿和生成我们人类的语言的呢？</p>
+<p>以 DeepSeek 为例，你可以把它想像成一个阅读了整个互联网的超级大脑</p>
+<p>无论通过说话还是打字等方式，一旦我们人类使用语言向它传递信息</p>
+<p>他就会基于统计学和概率论，使用它阅读了的海量文本，根据你给出的这一串字词序列，计算下一个字最有可能是什么的概率</p>
+<p>以此一个字一个字地生成，直到生成一段完整的、通顺的回答</p>
+<hr>
+<p>由此可见，LLMs 并非真正从情感和物理逻辑上理解了我们人类给它说的话，并非拥有理解力和意识的智慧生命</p>
+<p>它的本质还是「计算」，是基于硬件算力，用海量数据训练出来的，能够模仿和生成人类语言的软件</p>
+<hr>
+<p>所以，说它是“大”语言模型，主要是因为：1. 依靠的硬件算力大 2. 消耗的电能量大 3. 数据量大…</p>
+<p>也所以，LLMs 也有诸多缺点：</p>
+<ol>
+<li><p>上文说了，它没有理解力，没有意识，不是智慧生命</p>
+</li>
+<li><p>如果没有开启实时联网搜索这样的功能，那么它的知识背景就仅限于它的训练数据，它就有可能无法知晓最新知识数据</p>
+</li>
+<li><p>它有可能一本正经地胡说八道，这是 LLM 没有完整把握现实世界所导致的现象，这被人们称为“AI的幻觉”</p>
+</li>
+</ol>
+<hr>
+<p>如何尽可能地避免“AI的幻觉”这个问题？</p>
+<ol>
+<li><p>首先明确，LLMs 终究只是辅助，在重要场景中，需要引入我们人类的审核环节，可要求 LLMs 提供信息的来源，也可让专家&#x2F;用户进行反馈，以方便我们人类的审核和校正</p>
+</li>
+<li><p>当然，你也可以把一个 LLM 的输出，输入给另一个 LLM，让 B 对 A 回答的正确性和合理性进行分析评估和校正，这种 LLM 之间的相互校对有利于减少单一 LLM 错误信息的传播</p>
+</li>
+<li><p>使用 LLM 时，撰写高质量的提示词，即提供高质量的输入，具体做法会在下文阐述</p>
+</li>
+</ol>
+<p>…</p>
+<hr>
+<p>作为普通人，我们使用 LLMs 的原则是什么？</p>
+<p>我认为你可以把你自己想像成曹操，LLMs 都是你的文臣们</p>
+<p>你需要做到：</p>
+<ol>
+<li><p>不透漏机密</p>
+</li>
+<li><p>不轻信任何 LLM 的话、要对任何 LLM 的话有自己的求证和思考</p>
+</li>
+<li><p>兼听则明</p>
+</li>
+</ol>
+<p>…</p>
+<hr>
+<p>如何撰写高质量的提示词 ？</p>
+<p>首先，一个复杂的问题可以拆分成 n 个小问题，让 LLM 逐个击破</p>
+<p>其次，如果你能获得高质量输出的例子，可以让 LLM 模仿</p>
+<p>最后，我们来说一下如何编写高质量的提示词：</p>
+<ol>
+<li><p>编写清晰、充分、引导性强的结构化表达（eg：markdown），结构化能够帮助 LLM 精准辨别哪些文字应当被识别为一个完整的意义单元</p>
+</li>
+<li><p>上文说了，你可以把 LLM 想像成大脑，所以你在编写提示词的时候，可以给 LLM 赋予特定的角色，可以让 LLM 只能给出特定范畴的回答</p>
+</li>
+</ol>
+<p>比如你可以让 LLM 是一个有十年从业经历的高级法律顾问，要求它只能给出法律相关的回答</p>
+<p>这能让 LLM 身临其境地进一步理解当前需求的场景上下文，以便给出更准确、更符合预期的回答</p>
+<hr>
+<p>既然如此，编写高质量提示词能不能总结出来套路&#x2F;范式&#x2F;模板&#x2F;框架？这不就省事了么，也便于引导 LLMs 生成更准确、更符合预期的回答</p>
+<ol>
+<li><p>5W1H</p>
+<ul>
+<li>Who</li>
+<li>What</li>
+<li>Why</li>
+<li>When</li>
+<li>Where</li>
+<li>How</li>
+</ul>
+</li>
+<li><p>BROKE</p>
+<ul>
+<li>Background    说明背景</li>
+<li>Role          定义角色</li>
+<li>Objectives    实现什么</li>
+<li>Keyresult     具体效果</li>
+<li>Evolve        循环改进(eg: 可以改进输入，可以改进输出，可以让 LLMs 不断重新回答优中选优…)</li>
+</ul>
+</li>
+</ol>
+<p>…</p>
+<p>上述套路&#x2F;范式&#x2F;模板&#x2F;框架的本质就是【高效表达的方法论】</p>
+<hr>
+<p>这也太复杂了，既然我不太会写高质量的输入，那就让 LLMs 来写！&#x3D;&gt; eg: Kimi-提示词专家，是基于 LLM 的智能体（Agent）</p>
+<hr>
+<p>在使用诸如 DeepSeek 等 LLM 应用软件的时候，你可能会发现又一个按钮&#x3D;&gt;深度思考模式，这是啥？</p>
+<p>简单来说，LLM 大致分为 2 种类型，即：指令型 &amp; 推理型，深度思考模式调用的是推理型 LLM</p>
+<p>指令型 LLM 聪明又听话，它使用便捷，工作高效，适用于大多数规范性任务，比如 DeepSeek_V3，但它对提示词的依赖程度高</p>
+<p>推理型 LLM 同样聪明，但尤其擅长分析推理，显得没那么听话，适用于分析推理、创意思考等任务，比如 DeepSeek_R1、Kimi_1.5、…，它对提示词的依赖程度相对较低</p>
+<hr>
+<p>接下来聊聊 Agent</p>
+<p>广义上的 Agent：任何能感知环境、做出行动、达成目标的东西</p>
+<p>比如：人、机器人、游戏里的NPC、自动驾驶汽车、甚至细菌、动物、…</p>
+<p>只要满足：感知 → 思考&#x2F;决策 → 行动 → 达成目标，就是广义上的 Agent</p>
+<hr>
+<p>狭义上的 Agent：就是现在常用的各种AI小助手，比如支付宝里面的理财助理「蚂小财」，是以 LLM 为大脑，以各种工具为手臂，以循环为模式的任务执行系统</p>
+<p>特点：有目标、能思考、能规划、能调用工具（eg：用软件、查资料、写代码、发消息、…）、能自动完成事情，不用你一步步指挥</p>
+<p>比如：你说“帮我写一份周报，再发给领导”，它自己理解、查数据、写内容、检查、发送</p>
+<p>这就是狭义上的 Agent</p>
+<ul>
+<li>爆火的通用智能体：Manus</li>
+<li>字节旗下的通用智能体：扣子空间：<a target="_blank" rel="noopener" href="https://www.coze.cn/">https://www.coze.cn/</a> 提供了一些很好的提示词模板；也允许我们自定义提示词模板，保存到提示词模板个人仓库里，便于复用</li>
+</ul>
+<hr>
+<p>未来的 Agent：像真人助理一样，能独立负责一整个领域、长期帮你做事，一个 Agent 就能顶一个私人助理&#x2F;员工&#x2F;专家</p>
+<p>比如：</p>
+<ul>
+<li>帮你管工作、管生活、管财务、管健康</li>
+<li>自动帮你谈判、规划、学习、社交</li>
+</ul>
+<hr>
+<p>做 PPT 用 AI</p>
+<ul>
+<li>Kimi-PPT助手（Agent）</li>
+<li>aippt.cn支持自定义PPT模板</li>
+<li>WPS love AI: <a target="_blank" rel="noopener" href="https://ai.wps.cn/">https://ai.wps.cn</a></li>
+</ul>
+<hr>
+<p>写公文用 AI</p>
+<p>原则：</p>
+<ul>
+<li><p>AI 的作用不是替你写出文稿</p>
+<ul>
+<li>而是帮你减轻诸如【搜索信息,改写,扩写,缩写,…】等重复性劳动</li>
+<li>帮助你发散思维，做你的智囊团</li>
+<li>而你作为真正的主角，要在脑海里有【好公文】的样子，并指挥 AI 和你一起朝着正确的方向努力</li>
+</ul>
+</li>
+<li><p>考虑到数据的安全性，处理涉密文件应使用本地部署的大模型</p>
+</li>
+<li><p>软件推荐：秘塔、纳米AI搜索</p>
+</li>
+</ul>
+<hr>
+<p>知识扩展</p>
+<p>知识库</p>
+<ul>
+<li>知识库是一系列文档的集合，能够存储，管理、检索大量的知识数据</li>
+<li>是智能体的重要信息扩展来源和知识支撑，能帮助智能体在回答问题时提供准确和详细的答案</li>
+<li>能有效降低AI幻觉</li>
+<li>腾讯的知识库应用：ima</li>
+</ul>
+<p>工作流</p>
+<ul>
+<li>在 Agent 中，支持通过可视化的方式，对【大语言模型、插件、代码块、…】等功能进行组合</li>
+<li>来确保系统可以高效、准确地执行复杂的业务流程</li>
+</ul>
+<p>（完）</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2026
+  <span class="author">
+    lpj
+  </span>
+</footer>
+
+<div id="waline"></div>
+<script type="module">
+	import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+	init({
+		el: '#waline',
+		serverURL: 'https://comment.liupj.top',
+
+		locale : {
+			placeholder: '欢迎发表有意义的评论，正确填写【昵称】和【邮箱】是可以及时接收到回复通知的哦～'
+		},
+	});
+</script>
+
+    </div>
+  </body>
+</html>
